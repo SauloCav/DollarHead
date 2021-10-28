@@ -1,3 +1,3 @@
 # Projeto-Integrador-II
 
-Um jogo de perguntas onde o conteúdo é gerenciado pela comunidade de jogadores
+Um jogo de perguntas e respostas onde o conteúdo é gerenciado pela comunidade de jogadores
