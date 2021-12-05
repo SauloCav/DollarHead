@@ -10,3 +10,4 @@
 	if (!$mysql_db) {
 		die("Error: Unable to connect " . $mysql_db->connect_error);
 	}
+	
