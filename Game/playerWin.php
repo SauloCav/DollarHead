@@ -72,6 +72,25 @@
     integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/12130brain_109577.ico" />
 	<style>
+        body {
+                background-image: url("../img/photo-1610375461246-83df859d849d.jpeg");
+                height: 100%;
+                background-position:left;
+                background-size:cover;
+				
+        }
+        .wrapper h1 {
+			text-align: center;
+			color:gold;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color:black;
+		}
+        .wrapper h2 {
+			text-align: center;
+			color:antiquewhite;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color:black;
+		}
         .wrapper{ 
         	width: 350px; 
         	padding: 30px; 
@@ -89,8 +108,8 @@
         <?php $_SESSION['n_respostas'] = 7; ?>
 
         <section class="container wrapper">
-            <h1>Parabéns, você venceu!</h1>
-            <h2 class="display-5"><strong> Seu Prêmio: 1 Milhão! </strong></h2>
+            <h1><strong><strong>Parabéns, você venceu!<strong><strong></h1>
+            <h2 class="display-5"><strong><strong> Seu Prêmio: 1 Milhão! <strong></strong></h2>
             <img src="../img/8fa579722662ef6754b064f8a71c6d9d.jpg" alt="Error" width="100%">
         </section>
 

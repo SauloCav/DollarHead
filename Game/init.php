@@ -25,6 +25,24 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
 	<link rel="shortcut icon" href="../img/12130brain_109577.ico" />
 	<style>
+		body {
+                background-image: url("../img/photo-1623118176012-9b0c6fa0712d.jpeg");
+
+                height: 100%;
+
+                background-position:inherit;
+                background-size:cover;
+        }
+        .wrapper h1 {
+			text-align: center;
+			color:gold;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color:black;
+		}
+        .wrapper{ 
+            width: 1500px; 
+        	padding: 40px;  
+        }
         .wrapper{ 
         	width: 800px; 
         	padding: 140px; 
@@ -37,7 +55,7 @@
 	<main>
 		<section class="container wrapper">
 			<div class="page-header">
-				<h1 class="display-5">Está preparado <?php echo $_SESSION['nickname']; ?>?</h1> <br><br>
+				<h1 class="display-5"><strong>Está preparado(a) <?php echo $_SESSION['nickname']; ?>?<strong></h1> <br><br>
 			</div>
 
 			<a href="Quest_01.php" class="btn btn-block btn btn-outline-success">Iniciar</a>

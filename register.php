@@ -107,7 +107,7 @@
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
 		body {
-                  background-image: url("./img/photo-1592495989201-d5162c4267ce.jpeg");
+                  background-image: url("./img/photo-1592496001020-d31bd830651f.jpeg");
 
                   height: 100%;
 
