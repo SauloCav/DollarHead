@@ -20,7 +20,7 @@
 	<style>
 
 		body {
-			background-image: url(./img/Money_Cash-min.jpg);
+			background-image: url(./img/apps.23742.13816767389916056.fa9940e3-4993-4c31-bbf8-e6218cf3239b.jpeg);
 		}
         .wrapper{ 
         	width: 800px; 

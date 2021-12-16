@@ -24,9 +24,17 @@
     integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
+        body {
+                background-image: url("./img/photo-1562953842-188bb7ce6588.jpeg");
+
+                height: 100%;
+
+                background-position: center;
+                background-size: cover;
+        }
         .wrapper{ 
-        	width: 1200px; 
-        	padding: 100px;  
+        	width: 1000px;
+        	padding: 20px;  
         }
         .wrapper h1 {text-align: center}
         .wrapper form .form-group span {color: red;}
@@ -35,7 +43,7 @@
 <body>
 	<main>
 		<section class="container wrapper">
-				<h1 class="display-5">Hall da Fama</h1>
+				<h1 class="display-5"><strong>Hall da Fama<strong></h1>
                 <br>
 
                 <?php $pos = 1; ?>
