@@ -31,14 +31,19 @@
         	width: 1400px; 
         	padding: 100px; 
         }
-        .wrapper h1 {text-align: center}
+        .wrapper h1 {
+			text-align: center;
+			color:gold;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color:black;
+		}
         .wrapper form .form-group span {color: red;}
 	</style>
 </head>
 <body>
 	<main>
 		<section class="container wrapper">
-            <h1 class="display-5"><font color=red><strong>Stats de <?php echo $_SESSION['nickname']; ?></strong></h1>
+            <h1 class="display-5"><strong>Stats de <?php echo $_SESSION['nickname']; ?></strong></h1>
                 <br>    
 
                 <?php $pos = 1; ?>

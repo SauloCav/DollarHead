@@ -107,10 +107,24 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
     <style type="text/css">
+        body {
+                background-image: url("./img/photo-1580508174046-170816f65662.jpeg");
+
+                height: 100%;
+
+                background-position:inherit;
+                background-size:cover;
+        }
         .wrapper{ 
             width: 1500px; 
         	padding: 40px;  
         }
+        .wrapper h1 {
+			text-align: center;
+			color:gold;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color:black;
+		}
         .wrapper h2 {text-align: center}
         .wrapper form .form-group span {color: red;}
     </style>

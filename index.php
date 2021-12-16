@@ -81,6 +81,19 @@
   <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
   <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
   <style>
+      body {
+                  background-image: url("./img/photo-1592495989201-d5162c4267ce.jpeg");
+
+                  height: 100%;
+                  background-size:auto;
+                  text-align: left;
+      }
+      .wrapper h2 {
+        text-align: center;
+        color:gold;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color:black;
+      }
     .wrapper{ 
       width: 500px; 
       padding: 20px; 

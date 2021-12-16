@@ -36,7 +36,12 @@
         	width: 1000px;
         	padding: 20px;  
         }
-        .wrapper h1 {text-align: center}
+        .wrapper h1 {
+			text-align: center;
+			color:gold;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color:black;
+		}
         .wrapper form .form-group span {color: red;}
 	</style>
 </head>
