@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Quem Quer Dinheiro</title>
+	<title>DollarHead</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
@@ -40,7 +40,7 @@
 	<main>
 		<section class="container wrapper">
 			<div class="page-header">
-				<h1 class="display-5"><strong><strong>Bem Vindo ao "Quem Quer Dinheiro" <?php echo $_SESSION['nickname']; ?></strong></strong></h1>
+				<h1 class="display-5"><strong><strong>Bem Vindo ao DollarHead <?php echo $_SESSION['nickname']; ?></strong></strong></h1>
 			</div>
 
 			<a href="./Game/init.php" class="btn btn-block btn btn-success">Jogar</a>
