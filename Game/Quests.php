@@ -42,7 +42,7 @@
 	<main>
 		<section class="container wrapper">
 			<div class="page-header">
-				<h1 class="display-5">Pergunta 01</h1>
+				<h1 class="display-5"><strong> Questão <?php echo $_SESSION['quest_atual']; ?></strong></h1>
 			</div>
 
 			<?php
@@ -58,7 +58,48 @@
 						header('location: playerOver.php');
 					}
 					elseif (array_key_exists('buttomCorrect', $_POST)) {
-						header('location: Quest_02.php');
+						$_SESSION['quest_atual'] = $_SESSION['quest_atual'] + 1;
+
+						if ($_SESSION["quest_atual"] === 2) {
+							$_SESSION['acertar'] = "Acertar: R$ 5 Mil";
+							$_SESSION['parar'] = "Parar: R$ 1 Mil";
+							$_SESSION['errar'] = "Errar: R$ 0.5 Mil";
+							header('location: Quests.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 3) {
+							$_SESSION['acertar'] = "Acertar: R$ 50 Mil";
+							$_SESSION['parar'] = "Parar: R$ 5 Mil";
+							$_SESSION['errar'] = "Errar: R$ 2.5 Mil";
+							header('location: Quests.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 4) {
+							$_SESSION['acertar'] = "Acertar: R$ 100 Mil";
+							$_SESSION['parar'] = "Parar: R$ 50 Mil";
+							$_SESSION['errar'] = "Errar: R$ 25 Mil";
+							header('location: Quests.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 5) {
+							$_SESSION['acertar'] = "Acertar: R$ 300 Mil";
+							$_SESSION['parar'] = "Parar: R$ 100 Mil";
+							$_SESSION['errar'] = "Errar: R$ 50 Mil";
+							header('location: Quests.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 6) {
+							$_SESSION['acertar'] = "Acertar: R$ 500 Mil";
+							$_SESSION['parar'] = "Parar: R$ 300 Mil";
+							$_SESSION['errar'] = "Errar: R$ 150 Mil";
+							header('location: Quests.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 7) {
+							$_SESSION['acertar'] = "Acertar: R$ 1 Milhão";
+							$_SESSION['parar'] = "Parar: R$ 500 Mil";
+							$_SESSION['errar'] = "Errar: R$ 0 Mil";
+							header('location: Quests.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 8) {
+							$_SESSION["prize"] = 1000000;
+							header('location: playerWin.php');
+						}
 					}
 					elseif (array_key_exists('parar', $_POST)) {
 						$_SESSION["prize"] = 0;
@@ -129,7 +170,7 @@
 			</form>
 
 			<div id="prize">
-			<h3><br> Acertar: R$ 1 Mil || Parar: R$ 0 || Errar: R$ 0</h3>
+			<h3><br><strong> <?php echo $_SESSION['acertar']; ?> || <?php echo $_SESSION['parar']; ?> || <?php echo $_SESSION['errar']; ?> </strong></h3>
 			</div>
 
 		</section>

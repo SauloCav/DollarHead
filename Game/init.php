@@ -7,10 +7,10 @@
 
 	$_SESSION["elimina_alternativas"] = 0;
 	$_SESSION['n_respostas'] = 0;
-	$_SESSION['acertar'] = 0;
-	$_SESSION['parar'] = 0;
-	$_SESSION['errar'] = 0;
-	$_SESSION['quest_atual'] = "Questão 01";
+	$_SESSION['acertar'] = "Acertar: R$ 1 Mil";
+	$_SESSION['parar'] = "Parar: R$ 0 Mil";
+	$_SESSION['errar'] = "Errar: R$ 0 Mil";
+	$_SESSION['quest_atual'] = 1;
 	$_SESSION["quest_1"] = $MyList->findObject(0);
 	$_SESSION["quest_2"] = $MyList->findObject(1);
 	$_SESSION["quest_3"] = $MyList->findObject(2);
@@ -63,7 +63,7 @@
 				<h1 class="display-5"><strong>Está preparado(a) <?php echo $_SESSION['nickname']; ?>?<strong></h1> <br><br>
 			</div>
 
-			<a href="Quest_01.php" class="btn btn-block btn btn-outline-success">Iniciar</a>
+			<a href="Quests.php" class="btn btn-block btn btn-outline-success">Iniciar</a>
             <a href="../welcome.php" class="btn btn-block btn-link bg-light">Sair</a>
 
 		</section>
