@@ -7,6 +7,10 @@
 
 	$_SESSION["elimina_alternativas"] = 0;
 	$_SESSION['n_respostas'] = 0;
+	$_SESSION['acertar'] = 0;
+	$_SESSION['parar'] = 0;
+	$_SESSION['errar'] = 0;
+	$_SESSION['quest_atual'] = "Questão 01";
 	$_SESSION["quest_1"] = $MyList->findObject(0);
 	$_SESSION["quest_2"] = $MyList->findObject(1);
 	$_SESSION["quest_3"] = $MyList->findObject(2);
