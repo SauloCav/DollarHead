@@ -54,8 +54,36 @@
 					}
 
 					if(array_key_exists('buttom', $_POST)) {
-						$_SESSION["prize"] = 0;
-						header('location: playerOver.php');
+						$_SESSION['quest_atual'] = $_SESSION['quest_atual'] + 1;
+
+						if ($_SESSION["quest_atual"] === 2) {
+							$_SESSION["prize"] = 0;
+							header('location: playerOver.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 3) {
+							$_SESSION["prize"] = 500;
+							header('location: playerOver.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 4) {
+							$_SESSION["prize"] = 2500;
+							header('location: playerOver.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 5) {
+							$_SESSION["prize"] = 25000;
+							header('location: playerOver.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 6) {
+							$_SESSION["prize"] = 50000;
+							header('location: playerOver.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 7) {
+							$_SESSION["prize"] = 150000;
+							header('location: playerOver.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 8) {
+							$_SESSION["prize"] = 0;
+							header('location: playerOver.php');
+						}
 					}
 					elseif (array_key_exists('buttomCorrect', $_POST)) {
 						$_SESSION['quest_atual'] = $_SESSION['quest_atual'] + 1;
@@ -102,8 +130,37 @@
 						}
 					}
 					elseif (array_key_exists('parar', $_POST)) {
-						$_SESSION["prize"] = 0;
-						header('location: playerStop.php');
+						$_SESSION['quest_atual'] = $_SESSION['quest_atual'] + 1;
+
+						if ($_SESSION["quest_atual"] === 2) {
+							$_SESSION["prize"] = 0;
+							header('location: playerStop.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 3) {
+							$_SESSION["prize"] = 1000;
+							header('location: playerStop.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 4) {
+							$_SESSION["prize"] = 5000;
+							header('location: playerStop.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 5) {
+							$_SESSION["prize"] = 50000;
+							header('location: playerStop.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 6) {
+							$_SESSION["prize"] = 100000;
+							header('location: playerStop.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 7) {
+							$_SESSION["prize"] = 300000;
+							header('location: playerStop.php');
+						}
+						elseif ($_SESSION["quest_atual"] === 8) {
+							$_SESSION["prize"] = 500000;
+							header('location: playerStop.php');
+						}
+						
 					}
 
 					if ($_SESSION["value"] === 'Denunciar') {
