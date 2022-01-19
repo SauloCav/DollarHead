@@ -10,6 +10,7 @@
 	require_once 'config/config.php';
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,10 +25,19 @@
 		}
         .wrapper{ 
         	width: 800px; 
-        	padding: 120px; 
+        	padding: 40px; 
+			background-color: rgba(100, 100, 100, 0.5);
+			border-radius: 5px;
+			margin: auto;
+			text-align: center;
+			position: absolute;
+			left : 20%;
+			top: 25%;
+			width: 60%;
+
         }
         .wrapper h1 {
-			padding: 20px; 
+			padding: 10px; 
 			text-align: center;
 			color:gold;
 			-webkit-text-stroke-width: 1px;
@@ -43,11 +53,11 @@
 				<h1 class="display-5"><strong><strong>Bem Vindo ao DollarHead <?php echo $_SESSION['nickname']; ?></strong></strong></h1>
 			</div>
 
-			<a href="./Game/init.php" class="btn btn-block btn btn-success">Jogar</a>
-			<a href="edit_account.php" class="btn btn-block btn btn-warning">Editar Conta</a>
-			<a href="question_board.php" class="btn btn-block btn btn-info">Painel de Perguntas</a>
-			<a href="ranking.php" class="btn btn-block btn btn btn-primary" >Hall da Fama</a>
-			<a href="stats.php" class="btn btn-block btn btn-dark">Visualizar Stats</a>
+			<a href="./Game/init.php" class="btn btn-block btn-link bg-light">Jogar</a>
+			<a href="edit_account.php" class="btn btn-block btn-link bg-light">Editar Conta</a>
+			<a href="question_board.php" class="btn btn-block btn-link bg-light">Painel de Perguntas</a>
+			<a href="ranking.php" class="btn btn-block btn-link bg-light" >Hall da Fama</a>
+			<a href="stats.php" class="btn btn-block btn-link bg-light">Visualizar Stats</a>
 			<a href="logout.php" class="btn btn-block btn-link bg-light" href="welcome.php">Deslogar</a>
 
 		</section>
