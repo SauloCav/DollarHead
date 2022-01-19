@@ -177,7 +177,7 @@
 				}
 			?>
 
-			<br/><h3 style="text-align: center;" class="display-5"><strong> <?php echo $_SESSION["quest_1"][1];?> </strong></h3>
+			<br/><h3 style="text-align: center;" class="display-5"><strong> <?php echo $_SESSION[$_SESSION["quest"]][1];?> </strong></h3>
 
 			<form method="post">
 
