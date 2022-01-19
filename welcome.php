@@ -20,8 +20,19 @@
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
 
-		body {
+		.background {
 			background-image: url(./img/apps.23742.13816767389916056.fa9940e3-4993-4c31-bbf8-e6218cf3239b.jpeg);
+			background-position: bottom;
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 100vh;
+			width: 100%;
+		}
+		.blur {
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(2px);
+			height: 100vh;
+			width: 100%;
 		}
         .wrapper{ 
         	width: 800px; 
@@ -48,6 +59,9 @@
 </head>
 <body>
 	<main>
+	<div class="background">
+  		<div class="blur"></div>
+	</div>
 		<section class="container wrapper">
 			<div class="page-header">
 				<h1 class="display-5"><strong><strong>Bem Vindo ao DollarHead <?php echo $_SESSION['nickname']; ?></strong></strong></h1>
