@@ -18,7 +18,7 @@
 	$_SESSION["quest_5"] = $MyList->findObject(4);
 	$_SESSION["quest_6"] = $MyList->findObject(5);
 	$_SESSION["quest_7"] = $MyList->findObject(6);
-	$_SESSION['quest'] = $_SESSION["quest_1"];
+	$_SESSION['quest'] = "quest_1";
 
 ?>
 
