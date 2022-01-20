@@ -20,8 +20,12 @@
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
 
+		@font-face {
+			font-family: MeriendaOne-Regular;
+			src: url(./fonts/MeriendaOne-Regular.ttf);
+		}
 		.background {
-			background-image: url(./img/apps.23742.13816767389916056.fa9940e3-4993-4c31-bbf8-e6218cf3239b.jpeg);
+			background-image: url(./img/welcomeimg.jpeg);
 			background-position: bottom;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -30,7 +34,7 @@
 		}
 		.blur {
 			background: rgba(255, 255, 255, 0.2);
-			backdrop-filter: blur(2px);
+			backdrop-filter: blur(4px);
 			height: 100vh;
 			width: 100%;
 		}
@@ -42,17 +46,27 @@
 			margin: auto;
 			text-align: center;
 			position: absolute;
-			left : 20%;
-			top: 25%;
-			width: 60%;
-
+			left : 25%;
+			top: 20%;
+			width: 50%;
         }
         .wrapper h1 {
+			padding: 10px; 
+			text-align: center;
+			color:black ;
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color:gold;
+			font-family: MeriendaOne-Regular;
+			font-size: 4em;
+		}
+		.wrapper h2 {
 			padding: 10px; 
 			text-align: center;
 			color:gold;
 			-webkit-text-stroke-width: 1px;
 			-webkit-text-stroke-color:black;
+			font-family: MeriendaOne-Regular;
+			font-size: 2em;
 		}
         .wrapper form .form-group span {color: red;}
 	</style>
@@ -64,15 +78,16 @@
 	</div>
 		<section class="container wrapper">
 			<div class="page-header">
-				<h1 class="display-5"><strong><strong>Bem Vindo ao DollarHead <?php echo $_SESSION['nickname']; ?></strong></strong></h1>
+				<h1 class="display-5"><strong><strong>MoneyHead</strong></strong></h1>
+				<h2 class="display-6"><strong><strong>Bem Vindo(a) <?php echo $_SESSION['nickname']; ?></strong></strong></h1>
 			</div>
 
-			<a href="./Game/init.php" class="btn btn-block btn-link bg-light">Jogar</a>
-			<a href="edit_account.php" class="btn btn-block btn-link bg-light">Editar Conta</a>
-			<a href="question_board.php" class="btn btn-block btn-link bg-light">Painel de Perguntas</a>
-			<a href="ranking.php" class="btn btn-block btn-link bg-light" >Hall da Fama</a>
-			<a href="stats.php" class="btn btn-block btn-link bg-light">Visualizar Stats</a>
-			<a href="logout.php" class="btn btn-block btn-link bg-light" href="welcome.php">Deslogar</a>
+			<a href="./Game/init.php" class="btn btn-block btn-secondary btn-outline-warning">Jogar</a>
+			<a href="edit_account.php" class="btn btn-block btn-secondary btn-outline-warning">Editar Conta</a>
+			<a href="question_board.php" class="btn btn-block btn-secondary btn-outline-warning">Painel de Perguntas</a>
+			<a href="ranking.php" class="btn btn-block btn-secondary btn-outline-warning" >Hall da Fama</a>
+			<a href="stats.php" class="btn btn-block btn-secondary btn-outline-warning">Visualizar Stats</a>
+			<a href="logout.php" class="btn btn-block btn-secondary btn-outline-warning" href="welcome.php">Deslogar</a>
 
 		</section>
 	</main>
