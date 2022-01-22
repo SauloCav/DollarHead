@@ -16,79 +16,129 @@
 <head>
 	<meta charset="UTF-8">
 	<title>DollarHead</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
-	<style>
 
-		@font-face {
-			font-family: MeriendaOne-Regular;
-			src: url(./fonts/MeriendaOne-Regular.ttf);
+	<style>
+		*{
+			--green: #00c600;
+			--dark-green: #005200;
+			font-family: 'Poppins', sans-serif;
 		}
-		.background {
-			background-image: url(./img/welcomeimg.jpeg);
-			background-position: bottom;
-			background-repeat: no-repeat;
-			background-size: cover;
-			height: 100vh;
-			width: 100%;
-		}
-		.blur {
-			background: rgba(255, 255, 255, 0.2);
-			backdrop-filter: blur(4px);
-			height: 100vh;
-			width: 100%;
-		}
-        .wrapper{ 
-        	width: 800px; 
-        	padding: 40px; 
-			background-color: rgba(100, 100, 100, 0.5);
-			border-radius: 5px;
-			margin: auto;
-			text-align: center;
+
+		.bg-video {
 			position: absolute;
-			left : 25%;
-			top: 20%;
-			width: 50%;
+			top: 0;
+			left: 0;
+			z-index: -1; /*apenas um -1 é necessário quando se trabalha com relative + absolute, sendo pai e filho*/
+			width: 100%;
+			height: 100%;
+			overflow: hidden; /* evita do video passar a altura desejada do .wrap */
+		}
+		.bg-video > video {
+			width: 100%;
+		}
+
+        .wrapper{
+			position: absolute;
+			height: 100vh;
+			text-align: center;
+			
+        	padding: 40px; 
+
+			right: 0%;
+			left: 63%;
+			background-color: rgb(248, 248, 248);
+
         }
         .wrapper h1 {
-			padding: 10px; 
+			padding: 5px; 
 			text-align: center;
-			color:black ;
-			-webkit-text-stroke-width: 2px;
-			-webkit-text-stroke-color:gold;
-			font-family: MeriendaOne-Regular;
-			font-size: 4em;
+			color:rgb(42, 194, 37) ;
+			/* -webkit-text-stroke-width: 2px; */
+			/* -webkit-text-stroke-color:gold; */
+			font-size: 50px;
 		}
 		.wrapper h2 {
 			padding: 10px; 
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
-			font-family: MeriendaOne-Regular;
-			font-size: 2em;
+			color: rgb(102, 102, 102);
+			font-size: 18px;
 		}
-        .wrapper form .form-group span {color: red;}
+		a.btn.btn-block.btn-secondary.btn-outline-warning{
+			/* text-align: left; */
+			width: 350px;
+			height: auto;
+			border-radius: 50px;
+			border-color: rgb(50,50,50);
+			border-color: var(--green);
+			background-color: var(--dark-green);
+			box-shadow: 3px 3px 15px var(--green) inset;
+			box-shadow: -3px -3px 15px var(--green) inset;
+			color: rgb(255, 255, 255);
+
+			margin-top:0;
+			/* justify-self: center;
+			justify-content: center;
+			/* justify-items: center; */
+			margin-bottom: 5%;
+		}
+		a.btn.btn-block.btn-secondary.btn-outline-warning:hover{
+				background-color: rgb(31, 255, 1);
+				/* border-color: var(--dark-green); */
+		}
+		.buttons-menu{
+			position:absolute;
+			left: 14.2vh;
+			/* justify-content: center;
+			justify-items: center; */
+		}
+		img#dollarhead-logo{
+			width: 45vh;
+		}
+		img#money-icon{
+			justify-content: center;
+			justify-items: center;
+			width: 15vh;
+			margin-top:0;
+			/* position: absolute; */
+			margin-top: 50vh;
+			/* left: 45%; */
+		}
+		.txtSubtitle{
+			margin-top: 10px;
+			margin-bottom: 15px;
+		}
+        /* .wrapper form .form-group span {color: red;} */
 	</style>
 </head>
 <body>
 	<main>
-	<div class="background">
-  		<div class="blur"></div>
-	</div>
-		<section class="container wrapper">
+		<div class="bg-video">
+			<video autoplay src="./video/videoplayback.mp4"></video>
+		</div>
+
+		<section class="wrapper">
+			
 			<div class="page-header">
-				<h1 class="display-5"><strong><strong>MoneyHead</strong></strong></h1>
-				<h2 class="display-6"><strong><strong>Bem Vindo(a) <?php echo $_SESSION['nickname']; ?></strong></strong></h1>
+				<img id="dollarhead-logo" src="./img/dollarhead-logo.png" alt="logo">
+				<h2 class="display-6 txtSubtitle"><strong>Bem Vindo(a) <?php echo $_SESSION['nickname']; ?></strong></h1>
 			</div>
-
-			<a href="./Game/init.php" class="btn btn-block btn-secondary btn-outline-warning">Jogar</a>
-			<a href="edit_account.php" class="btn btn-block btn-secondary btn-outline-warning">Editar Conta</a>
-			<a href="question_board.php" class="btn btn-block btn-secondary btn-outline-warning">Painel de Perguntas</a>
-			<a href="ranking.php" class="btn btn-block btn-secondary btn-outline-warning" >Hall da Fama</a>
-			<a href="stats.php" class="btn btn-block btn-secondary btn-outline-warning">Visualizar Stats</a>
-			<a href="logout.php" class="btn btn-block btn-secondary btn-outline-warning" href="welcome.php">Deslogar</a>
-
+			<div class="section buttons-menu">
+				<a href="./Game/init.php" class="btn btn-block btn-secondary btn-outline-warning">Jogar</a>
+				<a href="edit_account.php" class="btn btn-block btn-secondary btn-outline-warning">Editar Conta</a>
+				<a href="question_board.php" class="btn btn-block btn-secondary btn-outline-warning">Painel de Perguntas</a>
+				<a href="ranking.php" class="btn btn-block btn-secondary btn-outline-warning" >Hall da Fama</a>
+				<a href="stats.php" class="btn btn-block btn-secondary btn-outline-warning">Visualizar Stats</a>
+				<a href="logout.php" class="btn btn-block btn-secondary btn-outline-warning" href="welcome.php">Sair</a>
+			</div>
+			<div class="page-footer">
+				<img id="money-icon" src="./img/money-icon.png" alt="logo">
+			</div>
+		
 		</section>
 	</main>
 </body>
