@@ -49,9 +49,11 @@
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 					foreach ($_POST as $key => $value) {
-						$_SESSION["key"] = $key;
+						$_SESSION["keys"] = $key;
 						$_SESSION["value"] = $value;
 					}
+
+					$_SESSION["key"] = $_SESSION[$_SESSION["quest"]][0];
 
 					if(array_key_exists('buttom', $_POST)) {
 						$_SESSION['quest_atual'] = $_SESSION['quest_atual'] + 1;
@@ -233,7 +235,7 @@
 			</form>
 
 			<div id="prize">
-			<h3><br><strong> <?php echo $_SESSION['acertar']; ?> || <?php echo $_SESSION['parar']; ?> || <?php echo $_SESSION['errar']; ?> </strong></h3>
+			<h3><br><strong> <?php echo $_SESSION['acertar']; ?> || <?php echo $_SESSION['parar']; ?> || <?php echo $_SESSION['errar'];?> </strong></h3>
 			</div>
 
 		</section>

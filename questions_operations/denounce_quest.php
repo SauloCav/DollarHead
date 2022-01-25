@@ -77,29 +77,12 @@
 
                                 if($stmt = $mysql_db->prepare($sql_update_valida)){
                                     if($stmt->execute()){
+
                                         if ($_SESSION["denounces_from_where"] === 0) {
                                             header("location: ../question_list.php");
                                         }
                                         elseif ($_SESSION["denounces_from_where"] === 1) {
-                                            header("location: ../Game/Quest_01.php");
-                                        }
-                                        elseif ($_SESSION["denounces_from_where"] === 2) {
-                                            header("location: ../Game/Quest_02.php");
-                                        }
-                                        elseif ($_SESSION["denounces_from_where"] === 3) {
-                                            header("location: ../Game/Quest_03.php");
-                                        }
-                                        elseif ($_SESSION["denounces_from_where"] === 4) {
-                                            header("location: ../Game/Quest_04.php");
-                                        }
-                                        elseif ($_SESSION["denounces_from_where"] === 5) {
-                                            header("location: ../Game/Quest_05.php");
-                                        }
-                                        elseif ($_SESSION["denounces_from_where"] === 6) {
-                                            header("location: ../Game/Quest_06.php");
-                                        }
-                                        elseif ($_SESSION["denounces_from_where"] === 7) {
-                                            header("location: ../Game/Quest_07.php");
+                                            header("location: ../Game/Quests.php");
                                         }
                                         
                                         exit();
@@ -126,30 +109,14 @@
                     
                         if($stmt = $mysql_db->prepare($sqldenuncia)){
                             if($stmt->execute()){
+
                                 if ($_SESSION["denounces_from_where"] === 0) {
                                     header("location: ../question_list.php");
                                 }
                                 elseif ($_SESSION["denounces_from_where"] === 1) {
-                                    header("location: ../Game/Quest_01.php");
+                                    header("location: ../Game/Quests.php");
                                 }
-                                elseif ($_SESSION["denounces_from_where"] === 2) {
-                                    header("location: ../Game/Quest_02.php");
-                                }
-                                elseif ($_SESSION["denounces_from_where"] === 3) {
-                                    header("location: ../Game/Quest_03.php");
-                                }
-                                elseif ($_SESSION["denounces_from_where"] === 4) {
-                                    header("location: ../Game/Quest_04.php");
-                                }
-                                elseif ($_SESSION["denounces_from_where"] === 5) {
-                                    header("location: ../Game/Quest_05.php");
-                                }
-                                elseif ($_SESSION["denounces_from_where"] === 6) {
-                                    header("location: ../Game/Quest_06.php");
-                                }
-                                elseif ($_SESSION["denounces_from_where"] === 7) {
-                                    header("location: ../Game/Quest_07.php");
-                                }
+
                                 exit();
                             } else{
                                 echo "Oops! Algo deu errado, tente novamente mais tarde!";
@@ -171,30 +138,14 @@
                     if($stmt = $mysql_db->prepare($sqldenuncia)){
 
                         if($stmt->execute()){
+
                             if ($_SESSION["denounces_from_where"] === 0) {
                                 header("location: ../question_list.php");
                             }
                             elseif ($_SESSION["denounces_from_where"] === 1) {
-                                header("location: ../Game/Quest_01.php");
+                                header("location: ../Game/Quests.php");
                             }
-                            elseif ($_SESSION["denounces_from_where"] === 2) {
-                                header("location: ../Game/Quest_02.php");
-                            }
-                            elseif ($_SESSION["denounces_from_where"] === 3) {
-                                header("location: ../Game/Quest_03.php");
-                            }
-                            elseif ($_SESSION["denounces_from_where"] === 4) {
-                                header("location: ../Game/Quest_04.php");
-                            }
-                            elseif ($_SESSION["denounces_from_where"] === 5) {
-                                header("location: ../Game/Quest_05.php");
-                            }
-                            elseif ($_SESSION["denounces_from_where"] === 6) {
-                                header("location: ../Game/Quest_06.php");
-                            }
-                            elseif ($_SESSION["denounces_from_where"] === 7) {
-                                header("location: ../Game/Quest_07.php");
-                            }
+
                             exit();
                         } else{
                             echo "Oops! Algo deu errado, tente novamente mais tarde!";
@@ -210,31 +161,12 @@
                     header("location: ../question_list.php");
                 }
                 elseif ($_SESSION["denounces_from_where"] === 1) {
-                    header("location: ../Game/Quest_01.php");
-                }
-                elseif ($_SESSION["denounces_from_where"] === 2) {
-                    header("location: ../Game/Quest_02.php");
-                }
-                elseif ($_SESSION["denounces_from_where"] === 3) {
-                    header("location: ../Game/Quest_03.php");
-                }
-                elseif ($_SESSION["denounces_from_where"] === 4) {
-                    header("location: ../Game/Quest_04.php");
-                }
-                elseif ($_SESSION["denounces_from_where"] === 5) {
-                    header("location: ../Game/Quest_05.php");
-                }
-                elseif ($_SESSION["denounces_from_where"] === 6) {
-                    header("location: ../Game/Quest_06.php");
-                }
-                elseif ($_SESSION["denounces_from_where"] === 7) {
-                    header("location: ../Game/Quest_07.php");
+                    header("location: ../Game/Quests.php");
                 }
             }
 
 	    }
         ?>
-
 
         <?php
 
