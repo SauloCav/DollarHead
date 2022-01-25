@@ -11,13 +11,21 @@
         $sqlrank = "DELETE FROM ranking WHERE id_usuario = $param_id";
 
         if (mysqli_query($mysql_db, $sqlrank)) {
-            $sqluser = "DELETE FROM users WHERE id_user = $param_id";
 
-            if (mysqli_query($mysql_db, $sqluser)) {
-                session_destroy();
-                header("location: index.php");
-                exit();
-            } 
+            $sqlstat = "DELETE FROM stats WHERE id_user_stats = $param_id";
+
+            if (mysqli_query($mysql_db, $sqlstat)) {
+                $sqluser = "DELETE FROM users WHERE id_user = $param_id";
+
+                if (mysqli_query($mysql_db, $sqluser)) {
+                    session_destroy();
+                    header("location: index.php");
+                    exit();
+                } 
+                else {
+                    echo "Erro ao Deletar!";
+                }
+            }
             else {
                 echo "Erro ao Deletar!";
             }
@@ -25,6 +33,7 @@
         else {
             echo "Erro ao Deletar!";
         }
+
 
     }
 
