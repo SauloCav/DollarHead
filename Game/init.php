@@ -31,28 +31,18 @@
 	<link rel="shortcut icon" href="../img/12130brain_109577.ico" />
 	<style>
 		body {
-                background-image: url("../img/photo-1623118176012-9b0c6fa0712d.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(60%); 
+        }
+        .wrapper{ 
+        	width: 1800px; 
+        	padding: 60px; 
         }
         .wrapper h1 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
 		}
-        .wrapper{ 
-            width: 1500px; 
-        	padding: 40px;  
-        }
-        .wrapper{ 
-        	width: 800px; 
-        	padding: 140px; 
-        }
-        .wrapper h1 {text-align: center}
         .wrapper form .form-group span {color: red;}
 	</style>
 </head>
