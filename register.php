@@ -111,7 +111,85 @@
 	
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
-	<link rel="stylesheet" href="./styles/cadastro.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: 'Poppins', sans-serif;
+		}
+		main{
+			background-color: transparent;
+		}
+		.bg-video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.bg-video > video {
+			width: 100%;
+		}
+		.container {
+			width: 100vw;
+			height: 100vh;
+			background-color: transparent;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.box {
+			width: 400px;
+			height: 640px;
+			padding: 2rem;
+			border-radius: 10px;
+			background-color: rgb(252, 252, 252);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 70px rgba(0, 198, 0, 0.6);
+		}
+		.display-4.pt-3{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2.5rem;
+			font-weight: 500;
+			color: rgb(85, 85, 85);
+			
+			margin-bottom: 2rem;
+		}
+		.form-control{
+			border-radius: 5px;
+		}
+		.form-control:focus{
+			border-color: #00c600;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 198, 0, 0.6);
+		}
+		.CriarConta{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 12px;
+			margin-top: 0.5rem;
+		}
+		.cadastreButton{
+			margin-left: 5px;
+			color: #00bd45;
+		}
+		.cadastreButton:hover{
+			color: rgb(0, 145, 0);
+		}
+
+		.btn.btn-block.btn-outline-success{
+			margin-top: 2rem;
+		}
+		img{
+		width: 200px;
+		margin-top: -65px;
+		margin-left: 65px;
+		}
+	</style>
 </head>
 <body>
 	<main>
@@ -121,9 +199,8 @@
 
 		<section class="container">
 			<div class="box">
-				<img src="./assets/dollarhead-logo.png" alt="dollarhead-logo">
+				<img src="./img/dollarhead-logo.png" alt="dollarhead-logo">
 				<h2 class="display-4 pt-3">Cadastrar-se</h2>
-				<!-- <p class="text-center">Insira suas Informações para cadastrar-se</p> -->
 				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
 					<div class="form-group <?php (!empty($username_err))?'has_error':'';?>">
