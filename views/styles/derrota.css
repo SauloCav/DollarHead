@@ -1,0 +1,22 @@
+.wrapper h2 {
+    margin-top: 2rem;
+    text-align: center;
+    color:rgb(51, 51, 51);
+    
+}
+.wrapper{ 
+    width: 350px; 
+    padding: 30px; 
+}
+.wrapper h1 {text-align: center}
+.wrapper h2 {text-align: center}
+.wrapper form .form-group span {color: red;}
+button{
+    margin: 0 15px;
+}
+img{
+    width: 20vh;
+    margin-left: 30%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
