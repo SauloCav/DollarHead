@@ -11,39 +11,35 @@
 	<title>Validar Questão</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/12130brain_109577.ico" />
-	<style>
+	<style type="text/css">
         body {
-                background-image: url("../img/photo-1580508174046-170816f65662.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(35%); 
         }
-		.wrapper h2 {
-			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
-		}
         .wrapper{ 
-        	width: 1400px; 
-        	padding: 60px; 
+        	width: 1800px; 
+        	padding: 20px; 
         }
-        #quest {
-            width: 1400px; 
-        	padding: 40px;
-        }
-        .wrapper h1 {text-align: center}
+        .wrapper h1 {
+			text-align: center;
+		}
+        .wrapper form .form-group span {color: red;}
+        .table {
+			text-align: center;  
+		}
         .wrapper h2 {text-align: center}
         .wrapper form .form-group span {color: red;}
-	</style>
+    </style>
 </head>
 <body>
 	<main>
 		<section class="container wrapper"> 
 
         <h2 class="display-5">Deseja realmente aprovar esta questão?</h2>
+
+        <br><br>
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -164,10 +160,10 @@
             echo "</div>";
 
             echo '<form method="post">';
-            echo '<input type="submit" name="sim" class="btn btn-block btn btn-outline-dark" value="Sim"><br>';
+            echo '<input type="submit" name="sim" class="btn btn-block btn-primary" value="Sim"><br>';
             echo '</form>';
 
-            echo '<a class="btn btn-block btn btn-outline-dark" href="../question_list.php">Nao</a>';
+            echo '<a class="btn btn-block btn-link bg-light" href="../question_list.php">Nao</a>';
 
         ?>
 
