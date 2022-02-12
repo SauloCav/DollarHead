@@ -33,10 +33,10 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			z-index: -1; /*apenas um -1 é necessário quando se trabalha com relative + absolute, sendo pai e filho*/
+			z-index: -1;
 			width: 100%;
 			height: 100%;
-			overflow: hidden; /* evita do video passar a altura desejada do .wrap */
+			overflow: hidden;
 		}
 		.bg-video > video {
 			width: 100%;
@@ -58,8 +58,6 @@
 			padding: 5px; 
 			text-align: center;
 			color:rgb(42, 194, 37) ;
-			/* -webkit-text-stroke-width: 2px; */
-			/* -webkit-text-stroke-color:gold; */
 			font-size: 50px;
 		}
 		.wrapper h2 {
@@ -69,7 +67,6 @@
 			font-size: 18px;
 		}
 		a.btn.btn-block.btn-secondary.btn-outline-warning{
-			/* text-align: left; */
 			width: 350px;
 			height: auto;
 			border-radius: 50px;
@@ -81,20 +78,14 @@
 			color: rgb(255, 255, 255);
 
 			margin-top:0;
-			/* justify-self: center;
-			justify-content: center;
-			/* justify-items: center; */
 			margin-bottom: 5%;
 		}
 		a.btn.btn-block.btn-secondary.btn-outline-warning:hover{
-				background-color: rgb(31, 255, 1);
-				/* border-color: var(--dark-green); */
+			background-color: rgb(31, 255, 1);
 		}
 		.buttons-menu{
 			position:absolute;
 			left: 14.2vh;
-			/* justify-content: center;
-			justify-items: center; */
 		}
 		img#dollarhead-logo{
 			width: 45vh;
@@ -104,15 +95,12 @@
 			justify-items: center;
 			width: 15vh;
 			margin-top:0;
-			/* position: absolute; */
 			margin-top: 50vh;
-			/* left: 45%; */
 		}
 		.txtSubtitle{
 			margin-top: 10px;
 			margin-bottom: 15px;
 		}
-        /* .wrapper form .form-group span {color: red;} */
 	</style>
 </head>
 <body>

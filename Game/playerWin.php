@@ -68,49 +68,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitória</title>
+    
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	
+    
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/12130brain_109577.ico" />
-	<style>
-        body {
-                background-image: url("../img/photo-1610375461246-83df859d849d.jpeg");
-                height: 100%;
-                background-position:left;
-                background-size:cover;
-				
-        }
-        .wrapper h1 {
-			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
-		}
-        .wrapper h2 {
-			text-align: center;
-			color:antiquewhite;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
-		}
-        .wrapper{ 
-        	width: 350px; 
-        	padding: 30px; 
-        }
-        .wrapper h1 {text-align: center}
-        .wrapper h2 {text-align: center}
-        .wrapper form .form-group span {color: red;}
-        button{
-            margin: 0 15px;
-        }
-	</style>
+    <link rel="stylesheet" href="./styles/vitoria.css">
+
 </head>
 <body>
 
-        <?php $_SESSION['n_respostas'] = 7; ?>
-
         <section class="container wrapper">
-            <h1><strong><strong>Parabéns, você venceu!<strong><strong></h1>
-            <h2 class="display-5"><strong><strong> Seu Prêmio: 1 Milhão! <strong></strong></h2>
-            <img src="../img/8fa579722662ef6754b064f8a71c6d9d.jpg" alt="Error" width="100%">
+            
+            <img src="./assets/vitoria.png" alt="vitória" width="100%">
+            <h2 class="display-5">Seu Prêmio: 1 Milhão! </h2>
         </section>
 
         <div class="container wrapper">
