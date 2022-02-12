@@ -1,0 +1,63 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background-image: url("../img/photo-1560780552-ba54683cb263.jpeg");
+    height: 100%;
+    background-position:left;
+    background-size:cover;
+    
+}
+.wrapper h1 {
+    text-align: center;
+    color: #505050;
+}
+.wrapper{ 
+    width: 1400px; 
+    padding: 60px; 
+}
+.wrapper h1 {text-align: center}
+.wrapper form .form-group span {color: red;}
+#prize {
+    text-align: center;
+}
+
+.display-5{
+    text-align: center;
+}
+.formPerguntas{
+    background-color: aqua;
+}
+.txtQuest{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid #afafaf;
+    border-radius: 10px;
+    background-color: rgba(31, 31, 31, 0.07);
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.btn.btn-block.btn.btn-outline-primary{
+    border-color: rgb(0, 145, 0);
+    color: rgb(0, 145, 0);
+    border-radius: 5px;
+    margin-top: -2rem;
+}
+.btn.btn-block.btn.btn-outline-primary:hover{
+    border-color: rgb(0, 145, 0);
+    background: rgb(0, 145, 0);
+    color: rgb(255, 255, 255);
+    transition: ease-in-out .3s;
+}
+.btn.btn-block.btn-outline-warning{
+    border-radius: 5px;
+}
+.btn.btn-block.btn.btn-outline-danger{
+    border-radius: 5px;
+}
+.btn.btn-block.btn.btn-outline-dark{
+    border-radius: 5px;
+}
