@@ -108,22 +108,21 @@
     <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
     <style type="text/css">
         body {
-                background-image: url("./img/photo-1580508174046-170816f65662.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(20%); 
         }
         .wrapper{ 
-            width: 1500px; 
-        	padding: 40px;  
+        	width: 1800px; 
+        	padding: 20px; 
         }
         .wrapper h1 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
+		}
+        .wrapper form .form-group span {color: red;}
+        .table {
+			text-align: center;  
 		}
         .wrapper h2 {text-align: center}
         .wrapper form .form-group span {color: red;}

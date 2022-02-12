@@ -20,7 +20,7 @@
         }
         .wrapper{ 
         	width: 1800px; 
-        	padding: 20px; 
+        	padding: 60px; 
         }
         .wrapper h1 {
 			text-align: center;
@@ -35,7 +35,7 @@
 				<h1>Painel de Questões</h1>
 			</div>
             <a href="question_list.php" class="btn btn-block btn btn btn-outline-primary">Banco/Tratamento de Questões</a>
-			<a href="add_question.php" class="btn btn-block btn btn-outline-info">Adicionar uma Pergunta</a>
+			<a href="add_question.php" class="btn btn-block btn btn-outline-info">Adicionar uma Questão</a>
             <a class="btn btn-block btn-link bg-light" href="welcome.php">Sair</a>
 		</section>
 	</main>

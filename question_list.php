@@ -44,24 +44,22 @@
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
 		body {
-                background-image: url("./img/photo-1580508174046-170816f65662.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+            font-family: 'Poppins', sans-serif;
+            transform: translateY(1%); 
+			padding: 50px; 
         }
-        .wrapper{ 
-        	width: 1800px; 
-        	padding: 0px; 
-        }
-		.wrapper h1 {
+        .wrapper h1 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
 		}
-        .wrapper h1 {text-align: center; padding: 30px;}
+        .table {
+			text-align: center;  
+			width: 1400px; 
+			position: absolute;
+			top: 5; bottom: 5;
+			left: 0; right: 0;
+			margin: auto;
+		}
+        .wrapper h2 {text-align: center}
         .wrapper form .form-group span {color: red;}
 	</style>
 </head>
