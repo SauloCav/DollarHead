@@ -81,24 +81,23 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/12130brain_109577.ico" />
     <style type="text/css">
-    body {
-                background-image: url("../img/photo-1580508174046-170816f65662.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+        body {
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(15%); 
         }
-		.wrapper h2 {
-			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
-		}
         .wrapper{ 
-            width: 1500px; 
-        	padding: 40px;  
+        	width: 1800px; 
+        	padding: 20px; 
         }
+        .wrapper h1 {
+			text-align: center;
+		}
+        .wrapper form .form-group span {color: red;}
+        .table {
+			text-align: center;  
+		}
         .wrapper h2 {text-align: center}
         .wrapper form .form-group span {color: red;}
     </style>
@@ -150,10 +149,10 @@
 
                 <?php
                     echo '<form method="post">';
-                    echo '<br><input type="submit" name="sim" class="btn btn-block btn btn-outline-dark" value="Editar"><br>';
+                    echo '<br><input type="submit" name="sim" class="btn btn-block btn-primary" value="Finalizar Edição"><br>';
                     echo '</form>';
 
-                    echo '<a class="btn btn-block btn btn-outline-dark" href="../question_list.php">Cancelar</a>';
+                    echo '<a class="btn btn-block btn-link bg-light" href="../question_list.php">Cancelar</a>';
                 ?>
 
             </form>
