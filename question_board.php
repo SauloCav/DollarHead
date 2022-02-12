@@ -13,22 +13,17 @@
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
 		body {
-                background-image: url("./img/photo-1580508174046-170816f65662.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(60%); 
         }
         .wrapper{ 
-        	width: 1400px; 
-        	padding: 90px; 
+        	width: 1800px; 
+        	padding: 20px; 
         }
-		.wrapper h1 {
+        .wrapper h1 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
 		}
         .wrapper form .form-group span {color: red;}
 	</style>

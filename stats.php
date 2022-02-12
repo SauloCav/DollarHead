@@ -15,29 +15,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Stats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
         body {
-                background-image: url("./img/photo-1638913658828-afb88c3d4d11.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(75%); 
         }
         .wrapper{ 
-        	width: 1400px; 
-        	padding: 100px; 
+        	width: 1800px; 
+        	padding: 20px; 
         }
         .wrapper h1 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
 		}
         .wrapper form .form-group span {color: red;}
+        .table {
+			text-align: center;  
+		}
 	</style>
 </head>
 <body>
@@ -46,9 +47,9 @@
             <h1 class="display-5"><strong>Stats de <?php echo $_SESSION['nickname']; ?></strong></h1>
                 <br>    
 
-                <?php $pos = 1; ?>
+                <?php $pos = 5; ?>
 
-                <table class="table" border="1">
+                <table class="table" border="3">
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Nº DE PARTIDAS JOGADAS</th>

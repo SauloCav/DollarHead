@@ -25,22 +25,21 @@
     <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
         body {
-                background-image: url("./img/photo-1562953842-188bb7ce6588.jpeg");
-
-                height: 100%;
-
-                background-position: center;
-                background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(8%); 
         }
         .wrapper{ 
-        	width: 1000px;
-        	padding: 20px;  
+        	width: 1800px; 
+        	padding: 20px; 
         }
         .wrapper h1 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
+		}
+        .wrapper form .form-group span {color: red;}
+        .table {
+			text-align: center;  
 		}
         .wrapper form .form-group span {color: red;}
 	</style>
@@ -53,7 +52,7 @@
 
                 <?php $pos = 1; ?>
 
-                <table class="table" border="1">
+                <table class="table" border="3">
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">POSIÇÃO</th>
