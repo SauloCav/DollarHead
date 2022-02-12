@@ -92,7 +92,7 @@
     }
 
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,25 +102,20 @@
     <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
     <style type="text/css">
         body {
-                background-image: url("./img/photo-1579621970563-ebec7560ff3e.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(10%); 
         }
         .wrapper h2 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
 		}
         .wrapper{ 
             width: 500px; 
         	padding: 50px;  
         }
         .wrapper h2 {text-align: center}
-        .wrapper form .form-group span {color: red;}
+        .wrapper form .form-group span {color: red;}    
     </style>
 </head>
 <body>

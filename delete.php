@@ -48,22 +48,17 @@
     <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
     <style type="text/css">
         body {
-                background-image: url("./img/photo-1579621970563-ebec7560ff3e.jpeg");
-
-                height: 100%;
-
-                background-position:inherit;
-                background-size:cover;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(70%); 
         }
         .wrapper h2 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
 		}
         .wrapper{ 
             width: 500px; 
-        	padding: 80px;  
+        	padding: 50px;  
         }
         .wrapper h2 {text-align: center}
         .wrapper form .form-group span {color: red;}
@@ -76,7 +71,7 @@
             <p class="text-center">Deseja realmente excluir sua conta?</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-block btn-primary" value="Sim">
+                    <input type="submit" class="btn btn-block btn-outline-danger" value="Sim">
                     <a class="btn btn-block btn-link bg-light" href="edit_account.php">Cancelar</a>
                 </div>
             </form>
