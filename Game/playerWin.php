@@ -68,23 +68,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitória</title>
-    
-       <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-	
-    
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/12130brain_109577.ico" />
-    <link rel="stylesheet" href="./styles/vitoria.css">
-
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+        .wrapper{ 
+        	width: 350px; 
+        	padding: 20px; 
+        }
+        .wrapper h1 {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            text-align: center
+        }
+        .wrapper h2 {text-align: center}
+        .wrapper form .form-group span {color: red;}
+        button{
+            margin: 0px;
+        }
+        img{
+            width: 500px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-top: 4rem;
+        }
+	</style>
 </head>
 <body>
 
         <section class="container wrapper">
             
-            <img src="./assets/vitoria.png" alt="vitória" width="100%">
+            <img src="../img/vitoria.png" alt="vitória" width="100%">
+            <br><br>
             <h2 class="display-5">Seu Prêmio: 1 Milhão! </h2>
         </section>
 

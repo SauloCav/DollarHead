@@ -70,15 +70,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo Parado</title>
+    <title>Parada</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/12130brain_109577.ico" />
 	<style>
-        .wrapper{
+        body {
+            background-image: url("../img/photo-1610375461246-83df859d849d.jpeg");
+            height: 100%;
+            background-position:left;
+            background-size:cover;
+        }
+        .wrapper h2 {
+            margin-top: 2rem;
             text-align: center;
-        	width: 350px; 
-        	padding: 30px; 
+            color:rgb(51, 51, 51);    
+        }
+        .wrapper{ 
+            width: 350px; 
+            padding: 30px; 
         }
         .wrapper h1 {text-align: center}
         .wrapper h2 {text-align: center}
@@ -86,13 +101,19 @@
         button{
             margin: 0 15px;
         }
+        img{
+            width: 500px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-top: 4rem;
+        }
 	</style>
 </head>
 <body>
     <section class="container wrapper">
-        <h1>Você decidiu parar!</h1> <br/>
-        <h2 class="display-5"><strong>Seu Prêmio: <?php echo $_SESSION["prize"];?> </strong></h2>
-        <img src="https://thumbs.gfycat.com/MerryIndelibleCondor.webp" alt="Error" width="60%">
+        <img src="../img/joao.jpg" alt="">
+        <h1>Decidiu parar...</h1><br/>
+        <h2 class="display-5"><strong>Seu Prêmio: <?php echo $_SESSION["prize"];?> </strong></h2></strong></h2>
     </section>
     <div class="container wrapper">
         <form method="post">
