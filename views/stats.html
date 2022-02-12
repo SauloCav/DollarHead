@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Stats</title>
+    
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	
+	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
+	<style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+                background-image: url("./img/photo-1638913658828-afb88c3d4d11.jpeg");
+
+                height: 100%;
+
+                background-position:inherit;
+                background-size:cover;
+        }
+        .wrapper{ 
+        	width: 1400px; 
+        	padding: 100px; 
+        }
+        .wrapper h1 {
+			text-align: center;
+			color:#505050;
+			/* -webkit-text-stroke-width: 1px; */
+		}
+        .btn.btn-block.btn-outline-danger{
+            background: rgba(255, 0, 0, 0.152);
+            margin-left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30rem;
+            border-radius: 10px;
+        }
+        .btn.btn-block.btn-outline-danger:hover{
+            color: #fff;
+            background: rgb(255, 0, 0);
+        }
+        .wrapper form .form-group span {color: red;}
+	</style>
+</head>
+<body>
+	<main>
+		<section class="container wrapper">
+            <h1 class="display-5"><strong>Stats de <?php echo $_SESSION['nickname']; ?></strong></h1>
+                <br>    
+
+                <?php $pos = 1; ?>
+
+                <table class="table" border="1">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Nº DE PARTIDAS JOGADAS</th>
+                        <th scope="col">Nº DE PERGUNTAS RESPONDIDAS</th>
+                        <th scope="col">Nº DE DERROTAS POR ERRO</th>
+                        <th scope="col">Nº DE DERROTAS POR PARADA</th>
+                        <th scope="col">Nº DE ELIMINAÇÕES DE DUAS ALTERNATIVAS</th>
+                        <th scope="col">PREMIAÇÃO TOTAL ACUMULADA</th>
+                      </tr>       
+                    </td><?php while($dado = $cons->fetch_array()) { ?> 
+                        <tr> 
+                            <th><?php echo $dado['n_partidas_jogadas']; ?></th>
+                            <th><?php echo $dado['n_tot_perg_resp']; ?></th>
+                            <th><?php echo $dado['n_derr_erro']; ?></th>
+                            <th><?php echo $dado['n_derr_parada']; ?></th>
+                            <th><?php echo $dado['n_util_eli_duas_altern']; ?></th>
+                            <th><?php echo $dado['premio_total']; ?></th>
+                        </tr> 
+                    <?php } ?> 
+                </table>
+
+                <a class="btn btn-block btn-outline-danger" href="welcome.php">Sair</a>
+                
+		</section>
+	</main>
+</body>
+</html>
