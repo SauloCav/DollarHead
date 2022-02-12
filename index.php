@@ -78,55 +78,45 @@
 <head>
   <meta charset="UTF-8">
   <title>Entrar</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	
   <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
   <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
-  <style>
-      body {
-                  background-image: url("./img/photo-1592496001020-d31bd830651f.jpeg");
-
-                  height: 100%;
-                  background-size:auto;
-                  text-align: left;
-      }
-      .wrapper h2 {
-        text-align: center;
-        color:gold;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color:black;
-      }
-    .wrapper{ 
-      width: 500px; 
-      padding: 20px; 
-    }
-    .wrapper h2 {text-align: center}
-    .wrapper form .form-group span {color: red;}
-  </style>
+  <link rel="stylesheet" href="./styles/login.css">
 </head>
 <body>
   <main>
-    <section class="container wrapper">
-      <h2 class="display-4 pt-3">Entrar:</h2>
-          <p class="text-center">Insira seu Nome e Senha:</p>
-          <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+    <div class="bg-video">
+			<video autoplay src="./video/videoplayback.mp4"></video>
+		</div>
+    <section class="container">
+      <div class="box">    
+        <img src="./assets/dollarhead-logo.png" alt="dollarhead-logo">
+        <h2 class="display-4 pt-3">Entrar</h2>
+        
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+          
+          <div class="form-group <?php (!empty($username_err))?'has_error':'';?>">
+            <label for="username">Nome de Usuário</label>
+            <input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>">
+            <span class="help-block"><?php echo $username_err;?></span>
+          </div>
 
-            <div class="form-group <?php (!empty($username_err))?'has_error':'';?>">
-              <label for="username">Nome de Usuário:</label>
-              <input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>">
-              <span class="help-block"><?php echo $username_err;?></span>
-            </div>
+          <div class="form-group <?php (!empty($password_err))?'has_error':'';?>">
+            <label for="password">Senha</label>
+            <input type="password" name="password" id="password" class="form-control" value="<?php echo $password ?>">
+            <span class="help-block"><?php echo $password_err;?></span>
+          </div>
 
-            <div class="form-group <?php (!empty($password_err))?'has_error':'';?>">
-              <label for="password">Senha:</label>
-              <input type="password" name="password" id="password" class="form-control" value="<?php echo $password ?>">
-              <span class="help-block"><?php echo $password_err;?></span>
-            </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-block btn-outline-success" value="Entrar">
+          </div>
+          <p class="CriarConta">Ainda não possui uma conta? <a class="cadastreButton" href="register.php"> Cadastre-se</a></p>
 
-            <div class="form-group">
-              <input type="submit" class="btn btn-block btn-outline-primary" value="Entrar">
-            </div>
-            <p>Ainda não possui uma conta? <a href="register.php">Cadastre-se</a></p>
-            
-          </form>
+        </form>
+      </div>
     </section>
   </main>
 </body>
