@@ -106,7 +106,7 @@
 <body>
     <section class="container wrapper">
         <img src="../img/Hand 3.png" alt="">
-        <h1>Você perdeu, tente outra vez!</h1> <br/>
+        <h1>Você Perdeu! Tente outra Vez!</h1> <br/>
         <h2 class="display-5"><strong>Seu Prêmio: <?php echo $_SESSION["prize"];?> </strong></h2></strong></h2>
         
     </section>

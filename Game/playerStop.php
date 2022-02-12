@@ -92,7 +92,7 @@
             color:rgb(51, 51, 51);    
         }
         .wrapper{ 
-            width: 350px; 
+            width: 400px; 
             padding: 30px; 
         }
         .wrapper h1 {text-align: center}
@@ -102,7 +102,6 @@
             margin: 0 15px;
         }
         img{
-            width: 500px;
             margin-left: 50%;
             transform: translateX(-50%);
             margin-top: 4rem;
@@ -112,7 +111,8 @@
 <body>
     <section class="container wrapper">
         <img src="../img/joao.jpg" alt="">
-        <h1>Decidiu parar...</h1><br/>
+        <br><br>
+        <h1> Você Decidiu Parar!</h1><br/>
         <h2 class="display-5"><strong>Seu Prêmio: <?php echo $_SESSION["prize"];?> </strong></h2></strong></h2>
     </section>
     <div class="container wrapper">
