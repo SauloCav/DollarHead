@@ -15,27 +15,22 @@
 	<link rel="shortcut icon" href="../img/12130brain_109577.ico" />
 	<style>
 		body {
-                background-image: url("../img/photo-1560780552-ba54683cb263.jpeg");
-                height: 100%;
-                background-position:left;
-                background-size:cover;
-				
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            top: 20%;
+            transform: translateY(5%); 
+        }
+        .wrapper{ 
+        	width: 1800px; 
+        	padding: 60px; 
         }
         .wrapper h1 {
 			text-align: center;
-			color:gold;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color:black;
 		}
-        .wrapper{ 
-        	width: 1400px; 
-        	padding: 60px; 
-        }
-        .wrapper h1 {text-align: center}
-        .wrapper form .form-group span {color: red;}
-		#prize {
+		.wrapper h3 {
 			text-align: center;
 		}
+        .wrapper form .form-group span {color: red;}
 	</style>
 </head>
 <body>
@@ -235,7 +230,7 @@
 			</form>
 
 			<div id="prize">
-			<h3><br><strong> <?php echo $_SESSION['acertar']; ?> || <?php echo $_SESSION['parar']; ?> || <?php echo $_SESSION['errar'];?> </strong></h3>
+				<h3><br><strong> <?php echo $_SESSION['acertar']; ?> || <?php echo $_SESSION['parar']; ?> || <?php echo $_SESSION['errar'];?> </strong></h3>
 			</div>
 
 		</section>
