@@ -78,13 +78,36 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/12130brain_109577.ico" />
-	<link rel="stylesheet" href="./styles/derrota.css">
+    <style>
+        .wrapper h2 {
+            margin-top: 2rem;
+            text-align: center;
+            color:rgb(51, 51, 51);
+        }
+        .wrapper{ 
+            width: 350px; 
+            padding: 30px; 
+        }
+        .wrapper h1 {text-align: center}
+        .wrapper h2 {text-align: center}
+        .wrapper form .form-group span {color: red;}
+        button{
+            margin: 0 15px;
+        }
+        img{
+            width: 20vh;
+            margin-left: 30%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+	</style>
 </head>
+
 <body>
     <section class="container wrapper">
-        <img src="./assets/Hand 3.png" alt="">
+        <img src="../img/Hand 3.png" alt="">
         <h1>Você perdeu, tente outra vez!</h1> <br/>
-        <h2 class="display-5"><strong>Seu Prêmio: </strong></h2>
+        <h2 class="display-5"><strong>Seu Prêmio: <?php echo $_SESSION["prize"];?> </strong></h2></strong></h2>
         
     </section>
     <div class="container wrapper">
