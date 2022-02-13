@@ -25,6 +25,10 @@
         .wrapper h1 {
 			text-align: center;
 		}
+        .wrapper h4 {
+			color: red;
+            text-align: center;
+		}
         .wrapper form .form-group span {color: red;}
         .table {
 			text-align: center;  
@@ -96,7 +100,7 @@
                         $mysql_db->close();
                     }
                     else {
-                        echo '<br/><h3>Você já denunciou essa Questão!</h3>';
+                        echo '<br/><h4>Você já denunciou essa Questão!</h4>';
                     }
                 }
                 elseif ($dado[2] === '1') {
@@ -125,7 +129,7 @@
                         $mysql_db->close();
                     }
                     else {
-                        echo '<br/><h3>Você já denunciou essa Questão!</h3>';
+                        echo '<br/><h4>Você já denunciou essa Questão!</h4>';
                     }
                 }
                 elseif ($dado[2] === '0') {

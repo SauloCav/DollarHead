@@ -25,6 +25,10 @@
         .wrapper h1 {
 			text-align: center;
 		}
+        .wrapper h4 {
+			color: red;
+            text-align: center;  
+		}
         .wrapper form .form-group span {color: red;}
         .table {
 			text-align: center;  
@@ -38,8 +42,6 @@
 		<section class="container wrapper"> 
 
         <h2 class="display-5">Deseja realmente aprovar esta questão?</h2>
-
-        <br><br>
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -90,7 +92,7 @@
                         $mysql_db->close();
                     }
                     else {
-                        echo '<br/><h3>Você já validou essa Questão!</h3>';
+                        echo '<br/><h4>Você já validou essa Questão!</h4>';
                     }
                 }
                 elseif ($dado[2] === '1') {
@@ -112,7 +114,7 @@
                         $mysql_db->close();
                     }
                     else {
-                        echo '<br/><h3>Você já validou essa Questão!</h3>';
+                        echo '<br/><h4>Você já validou essa Questão!</h4>';
                     }
                 }
                 elseif ($dado[2] === '0') {
@@ -132,7 +134,7 @@
                         $stmt->close();
                     }
                     $mysql_db->close();
-                }
+                }         
 
             }
 	    }
@@ -150,7 +152,7 @@
             $dado = $ques->fetch_array();
 
             echo "<div id='quest'>";
-
+                echo '<br>';
                 echo "<h3><strong> Pergunta: " . $dado['pergunta'] . "</strong></h3>";
                 echo "<h3><strong> Resposta correta: " . $dado['resp_correta'] . "</strong></h3>"; 
                 echo "<h3><strong> Resposta incorreta 1: " . $dado['resp_a'] . "</strong></h3>";
