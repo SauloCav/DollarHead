@@ -97,7 +97,7 @@
         img{
             width: 20vh;
             margin-left: 30%;
-            margin-top: 2rem;
+            margin-top: 5rem;
             margin-bottom: 2rem;
         }
 	</style>
