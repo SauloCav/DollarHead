@@ -21,14 +21,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
-
 	<style>
 		*{
 			--green: #00c600;
 			--dark-green: #005200;
 			font-family: 'Poppins', sans-serif;
 		}
-
 		.bg-video {
 			position: absolute;
 			top: 0;
@@ -41,18 +39,14 @@
 		.bg-video > video {
 			width: 100%;
 		}
-
         .wrapper{
 			position: absolute;
 			height: 100vh;
 			text-align: center;
-			
-        	padding: 40px; 
-
+			padding: 40px; 
 			right: 0%;
 			left: 63%;
 			background-color: rgb(248, 248, 248);
-
         }
         .wrapper h1 {
 			padding: 5px; 
@@ -76,12 +70,11 @@
 			box-shadow: 3px 3px 15px var(--green) inset;
 			box-shadow: -3px -3px 15px var(--green) inset;
 			color: rgb(255, 255, 255);
-
 			margin-top:0;
 			margin-bottom: 5%;
 		}
 		a.btn.btn-block.btn-secondary.btn-outline-warning:hover{
-			background-color: rgb(31, 255, 1);
+			background-color: rgb(31, 120, 1);
 		}
 		.buttons-menu{
 			position:absolute;

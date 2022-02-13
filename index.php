@@ -94,10 +94,10 @@
           position: absolute;
           top: 0;
           left: 0;
-          z-index: -1; /*apenas um -1 é necessário quando se trabalha com relative + absolute, sendo pai e filho*/
+          z-index: -1;
           width: 100%;
           height: 100%;
-          overflow: hidden; /* evita do video passar a altura desejada do .wrap */
+          overflow: hidden;
       }
       .bg-video > video {
           width: 100%;

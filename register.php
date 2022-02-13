@@ -196,37 +196,31 @@
 		<div class="bg-video">
 			<video autoplay src="./video/videoplayback.mp4"></video>
 		</div>
-
 		<section class="container">
 			<div class="box">
 				<img src="./img/dollarhead-logo.png" alt="dollarhead-logo">
 				<h2 class="display-4 pt-3">Cadastrar-se</h2>
 				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-
 					<div class="form-group <?php (!empty($username_err))?'has_error':'';?>">
 						<label for="username">Nome de Usuário</label>
 						<input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>">
 						<span class="help-block"><?php echo $username_err;?></span>
 					</div>
-
 					<div class="form-group <?php (!empty($nickname_err))?'has_error':'';?>">
 						<label for="nickname">Nickname</label>
 						<input type="text" name="nickname" id="nickname" class="form-control" value="<?php echo $nickname ?>">
 						<span class="help-block"><?php echo $nickname_err;?></span>
 					</div>
-
 					<div class="form-group <?php (!empty($password_err))?'has_error':'';?>">
 						<label for="password">Senha</label>
 						<input type="password" name="password" id="password" class="form-control" value="<?php echo $password ?>">
 						<span class="help-block"><?php echo $password_err; ?></span>
 					</div>
-
 					<div class="form-group <?php (!empty($confirm_password_err))?'has_error':'';?>">
 						<label for="confirm_password">Confirme a senha</label>
 						<input type="password" name="confirm_password" id="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
 						<span class="help-block"><?php echo $confirm_password_err;?></span>
 					</div>
-
 					<div class="form-group">
 						<input type="submit" class="btn btn-block btn-outline-success" value="Enviar">
 						<input type="reset" class="btn btn-block btn-outline-warning" value="Limpar">
