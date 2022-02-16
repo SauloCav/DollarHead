@@ -215,14 +215,14 @@
 					}
 
 					if ($_SESSION["elimina_alternativas"] === 0) {
-						echo '<input type="submit" name="elimina" class="btn btn-block btn-outline-warning"value="Eliminar duas Alternativas">';
+						echo '<input type="submit" name="elimina" class="btn btn-block btn btn-warning"value="Eliminar duas Alternativas">';
 					}
 
 					echo "<br/><br/>";
-					echo '<input type="submit" name='.$_SESSION["quest_1"][0].' class="btn btn-block btn btn-outline-danger" value="Denunciar">';
+					echo '<input type="submit" name="parar" class="btn btn-block btn btn-dark" value="Parar">';
 
 					echo "<br/><br/>";
-					echo '<input type="submit" name="parar" class="btn btn-block btn btn-outline-dark" value="Parar">';
+					echo '<input type="submit" name='.$_SESSION["quest_1"][0].' class="btn btn-block btn btn-danger" value="Denunciar">';
 	
 				?>
 				
