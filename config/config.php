@@ -4,7 +4,6 @@
 	define('DB_USERNAME', 'root');
 	define('DB_PASSWORD', 'password');
 	define('DB_NAME', 'quizGame');
-
 	$mysql_db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 	if (!$mysql_db) {
