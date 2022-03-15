@@ -1,7 +1,5 @@
 create database quizGame;
 
-drop database quizGame;
-
 CREATE TABLE users (
     id_user INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -49,11 +47,7 @@ CREATE TABLE ranking (
 );
 
 select *from users;
-
 select *from questoes_respostas;
-
 select *from denuncia_validacao;
-
 select *from stats;
-
 select *from ranking;
