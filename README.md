@@ -1,3 +1,3 @@
 # DollarHead
 
-Um jogo de Perguntas e Respostas onde o conteúdo é gerenciado pela comunidade de Jogadores
+A quiz game where the content is managed by the community of players.
