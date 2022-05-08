@@ -4,7 +4,7 @@
 
 	require_once 'config/config.php';
 
-	$ranking = "SELECT ra.pontuacao, us.nickname
+	$ranking = "SELECT ra.pontuacao, us.nickname, ra.data_pont
 	FROM (ranking ra 
 		  JOIN 
           users us
@@ -55,15 +55,17 @@
                 <table class="table" border="3">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">POSIÇÃO</th>
-                        <th scope="col">PONTUAÇÃO</th>
-                        <th scope="col">NICKNAME DO JOGADOR</th>
+                        <th scope="col">Posição</th>
+                        <th scope="col">Nickname</th>
+                        <th scope="col">Pontuação</th>
+                        <th scope="col">Data e Hora da Jogada</th>
                       </tr>       
                     </td><?php while($dado = $ran->fetch_array()) { ?> 
                         <tr> 
                             <th><?php echo $pos; ?></th>
-                            <th><?php echo $dado['pontuacao']; ?></th> 
                             <th><?php echo $dado['nickname']; ?></th>
+                            <th><?php echo $dado['pontuacao']; ?></th> 
+                            <th><?php echo $dado['data_pont']; ?></th>
                             <?php $pos++; ?>
                         </tr> 
                     <?php } ?> 
