@@ -79,7 +79,7 @@ insert into questoes_respostas values
     (default, 'Qual a montanha mais alta do Brasil?', 'Pico da Neblina', 'Pico Paraná', 'Monte Roraima', 'Pico da Bandeira', 1, 'v'),
     (default, 'Quem é o autor de “O Príncipe”?', 'Maquiavel', 'Montesquieu', 'Hobbes', 'Rousseau', 1, 'v');
     
-    insert into denuncia_validacao values
+insert into denuncia_validacao values
 	(default, 0, 0, NULL, NULL, 1),
     (default, 0, 0, NULL, NULL, 2),
     (default, 0, 0, NULL, NULL, 3),
@@ -158,5 +158,4 @@ insert into questoes_respostas values
     (default, 0, 0, NULL, NULL, 76),
     (default, 0, 0, NULL, NULL, 77),
     (default, 0, 0, NULL, NULL, 78),
-    (default, 0, 0, NULL, NULL, 79),
-    (default, 0, 0, NULL, NULL, 80);
+    (default, 0, 0, NULL, NULL, 79);

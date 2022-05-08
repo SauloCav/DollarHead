@@ -43,7 +43,7 @@
 	    }
 
         if (empty(trim($_POST['indice_dif']))) {
-			$indice_dif_err = "Informe o índice de dificuldade da questão!";
+			$indice_dif_err = "O Índice de Dificuldade deve ser Informado!";
 		}
 		else{
 	        $questao = trim($_POST["indice_dif"]);
@@ -166,7 +166,7 @@
                     <input type="text" name="resposta_c" class="form-control" value="<?php echo $resposta_c; ?>">
                     <span class="help-block"><?php echo $resposta_c_err; ?></span>
                 </div>
-                <div class="form-group <?php echo (!empty($indice_dif_err)) ? 'Informe o índice de Dificuldade da questão!' : ''; ?>">
+                <div class="form-group <?php echo (!empty($indice_dif_err)) ? 'O Índice de Dificuldade deve ser Informado!' : ''; ?>">
                     <label>Índice de Dificuldade:</label>
                     <input type="text" name="indice_dif" class="form-control" value="<?php echo $indice_dif; ?>">
                     <span class="help-block"><?php echo $indice_dif_err; ?></span>

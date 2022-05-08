@@ -4,7 +4,7 @@
 
 	require_once 'config/config.php';
 
-	$consulta = "SELECT qr.id_questao, qr.pergunta, qr.resp_correta, qr.resp_a, qr.resp_b, qr.resp_c, qr.valida, dv.num_denuncias, dv.num_validacoes
+	$consulta = "SELECT qr.id_questao, qr.pergunta, qr.resp_correta, qr.resp_a, qr.resp_b, qr.resp_c, qr.indice_dif, qr.valida, dv.num_denuncias, dv.num_validacoes
 		FROM (questoes_respostas qr 
 		  JOIN 
           denuncia_validacao dv
@@ -80,6 +80,7 @@
 						<th scope="col">Resposta Incorreta 01</th> 
 						<th scope="col">Resposta Incorreta 02</th> 
 						<th scope="col">Resposta Incorreta 03</th> 
+						<th scope="col">Índice Dificuldade</th> 
 						<th scope="col">((V)/(I))</th>
 						<th scope="col">Validações/ Denúncias</th> 
 						<th scope="col">Validar/ Denunciar</th> 
@@ -93,6 +94,7 @@
 					<th><?php echo $dado['resp_a']; ?></th>
 					<th><?php echo $dado['resp_b']; ?></th>
 					<th><?php echo $dado['resp_c']; ?></th>
+					<th><?php echo $dado['indice_dif']; ?></th>
 					<th style="text-align: center;"><?php echo $dado['valida']; ?></th>
 					<?php $_SESSION["dados"] = $dado;?>
 
