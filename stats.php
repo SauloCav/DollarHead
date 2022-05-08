@@ -53,7 +53,6 @@
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Nº DE PARTIDAS JOGADAS</th>
-                        <th scope="col">Nº DE PERGUNTAS RESPONDIDAS</th>
                         <th scope="col">Nº DE DERROTAS POR ERRO</th>
                         <th scope="col">Nº DE DERROTAS POR PARADA</th>
                         <th scope="col">Nº DE ELIMINAÇÕES DE DUAS ALTERNATIVAS</th>
@@ -62,7 +61,6 @@
                     </td><?php while($dado = $cons->fetch_array()) { ?> 
                         <tr> 
                             <th><?php echo $dado['n_partidas_jogadas']; ?></th>
-                            <th><?php echo $dado['n_tot_perg_resp']; ?></th>
                             <th><?php echo $dado['n_derr_erro']; ?></th>
                             <th><?php echo $dado['n_derr_parada']; ?></th>
                             <th><?php echo $dado['n_util_eli_duas_altern']; ?></th>
