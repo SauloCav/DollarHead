@@ -1,8 +1,6 @@
 <?php
-
 	session_start();
 	require_once 'linked_list.php';
-
 ?>
 
 <!DOCTYPE html>
