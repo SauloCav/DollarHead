@@ -43,14 +43,14 @@
 	        $resposta_c = trim($_POST["resposta_c"]);
 	    }
 
-        if (empty(trim($_POST['indice_dif']))) {
-			$indice_dif_err = "O Índice de Dificuldade deve ser Informado!";
+        if (empty(trim($_POST['indice_dif'])) || ((trim($_POST['indice_dif'])) != '1' && (trim($_POST['indice_dif'])) != '2' && (trim($_POST['indice_dif'])) != '3')) {
+			$indice_dif_err = "O Índice de Dificuldade deve ser Informado: (1|2|3)!";
 		}
 		else{
 	        $indice_dif = trim($_POST["indice_dif"]);
 	    }
 
-	    if (empty($questao_err) && empty($resposta_certa_err) && empty($resposta_a_err) && empty($resposta_b_err) && empty($resposta_c_err)) {
+	    if (empty($questao_err) && empty($resposta_certa_err) && empty($resposta_a_err) && empty($resposta_b_err) && empty($resposta_c_err) && empty($indice_dif_err)) {
 
             $param_questao = $questao;
             $param_resposta_certa = $resposta_certa;

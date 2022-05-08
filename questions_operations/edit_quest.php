@@ -4,8 +4,8 @@
 
     require_once '../config/config.php';
 
-	$questao = $resposta_certa = $resposta_a = $resposta_b = $resposta_c = "";
-	$questao_err = $resposta_certa_err = $resposta_a_err = $resposta_b_err = $resposta_c_err = "";
+    $questao = $resposta_certa = $resposta_a = $resposta_b = $resposta_c = $indice_dif = "";
+	$questao_err = $resposta_certa_err = $resposta_a_err = $resposta_b_err = $resposta_c_err = $indice_dif_err = "";
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -44,7 +44,14 @@
 	        $resposta_c = trim($_POST["resposta_c"]);
 	    }
 
-	    if (empty($questao_err) && empty($resposta_certa_err) && empty($resposta_a_err) && empty($resposta_b_err) && empty($resposta_c_err)) {
+        if (empty(trim($_POST['indice_dif'])) || ((trim($_POST['indice_dif'])) != '1' && (trim($_POST['indice_dif'])) != '2' && (trim($_POST['indice_dif'])) != '3')) {
+			$indice_dif_err = "O Índice de Dificuldade deve ser Informado: (1|2|3)!";
+		}
+		else{
+	        $indice_dif = trim($_POST["indice_dif"]);
+	    }
+
+	    if (empty($questao_err) && empty($resposta_certa_err) && empty($resposta_a_err) && empty($resposta_b_err) && empty($resposta_c_err) && empty($indice_dif_err)) {
 
             $param_questao = $questao;
             $param_resposta_certa = $resposta_certa;
@@ -52,8 +59,9 @@
             $param_resposta_b = $resposta_b;
             $param_resposta_c = $resposta_c;
             $param_id = $_SESSION["key"];
+            $param_indice_dif = (int)$indice_dif;
             
-            $sqlUpQuest = "UPDATE questoes_respostas SET pergunta = '$param_questao', resp_correta = '$param_resposta_certa', resp_a = '$param_resposta_a', resp_b = '$param_resposta_b', resp_c = '$param_resposta_c' WHERE id_questao = '$param_id'";
+            $sqlUpQuest = "UPDATE questoes_respostas SET pergunta = '$param_questao', resp_correta = '$param_resposta_certa', resp_a = '$param_resposta_a', resp_b = '$param_resposta_b', resp_c = '$param_resposta_c', indice_dif = '$param_indice_dif' WHERE id_questao = '$param_id'";
             
             if ($stmt = $mysql_db->prepare($sqlUpQuest)) {
                 if ($stmt->execute()) {
@@ -85,7 +93,7 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(12%); 
+            transform: translateY(10%); 
         }
         .wrapper{ 
         	width: 1800px; 
@@ -145,6 +153,11 @@
                     <label>Resposta Incorreta 03:</label>
                     <input type="text" name="resposta_c" class="form-control" value="<?php echo $dado[5]; ?>">
                     <span class="help-block"><?php echo $resposta_c_err; ?></span>
+                </div>
+                <div class="form-group <?php echo (!empty($indice_dif_err)) ? 'O Índice de Dificuldade deve ser Informado!' : ''; ?>">
+                    <label>Índice de Dificuldade:</label>
+                    <input type="text" name="indice_dif" class="form-control" value="<?php echo $dado[6]; ?>">
+                    <span class="help-block"><?php echo $indice_dif_err; ?></span>
                 </div>
 
                 <?php
