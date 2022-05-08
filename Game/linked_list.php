@@ -49,7 +49,9 @@
     
     $_SESSION["prize"] = 0;
 
-    shuffle($row);
+    shuffle($row_dif_1);
+    shuffle($row_dif_2);
+    shuffle($row_dif_3);
 
     $MyList = new LinkedList();
 
