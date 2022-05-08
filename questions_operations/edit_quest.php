@@ -85,7 +85,7 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(15%); 
+            transform: translateY(12%); 
         }
         .wrapper{ 
         	width: 1800px; 

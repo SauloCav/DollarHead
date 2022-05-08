@@ -5,6 +5,7 @@
 	$questao = $resposta_certa = $resposta_a = $resposta_b = $resposta_c = $indice_dif = "";
 	$questao_err = $resposta_certa_err = $resposta_a_err = $resposta_b_err = $resposta_c_err = $indice_dif_err = "";
 
+
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		if (empty(trim($_POST['questao']))) {
@@ -46,7 +47,7 @@
 			$indice_dif_err = "O Índice de Dificuldade deve ser Informado!";
 		}
 		else{
-	        $questao = trim($_POST["indice_dif"]);
+	        $indice_dif = trim($_POST["indice_dif"]);
 	    }
 
 	    if (empty($questao_err) && empty($resposta_certa_err) && empty($resposta_a_err) && empty($resposta_b_err) && empty($resposta_c_err)) {
@@ -56,16 +57,22 @@
             $param_resposta_a = $resposta_a;
             $param_resposta_b = $resposta_b;
             $param_resposta_c = $resposta_c;
-            $param_indice_dif = $indice_dif;
+            $param_indice_dif = (int)$indice_dif;
 
-			$sql = "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, valida) 
-                VALUES ('$param_questao', '$param_resposta_certa', '$param_resposta_a', '$param_resposta_b', '$param_resposta_c', '$param_indice_dif' 'i')";
+			$sql = "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, indice_dif, valida) 
+                VALUES ('$param_questao', '$param_resposta_certa', '$param_resposta_a', '$param_resposta_b', '$param_resposta_c', '$param_indice_dif', 'i')";
 
 			if ($stmt = $mysql_db->prepare($sql)) {
 
+                echo('1');
+
 				if ($stmt->execute()) {
+
+                    echo('2');
                     
                     if ($stmt = $mysql_db->prepare($sql)) {
+
+                        echo('3');
 
                         $param_id_resp = mysqli_insert_id($mysql_db);
 
