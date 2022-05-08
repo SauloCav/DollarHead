@@ -2,8 +2,8 @@
 
     require_once 'config/config.php';
 
-	$questao = $resposta_certa = $resposta_a = $resposta_b = $resposta_c = "";
-	$questao_err = $resposta_certa_err = $resposta_a_err = $resposta_b_err = $resposta_c_err = "";
+	$questao = $resposta_certa = $resposta_a = $resposta_b = $resposta_c = $indice_dif = "";
+	$questao_err = $resposta_certa_err = $resposta_a_err = $resposta_b_err = $resposta_c_err = $indice_dif_err = "";
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -42,6 +42,13 @@
 	        $resposta_c = trim($_POST["resposta_c"]);
 	    }
 
+        if (empty(trim($_POST['indice_dif']))) {
+			$indice_dif_err = "Informe o índice de dificuldade da questão!";
+		}
+		else{
+	        $questao = trim($_POST["indice_dif"]);
+	    }
+
 	    if (empty($questao_err) && empty($resposta_certa_err) && empty($resposta_a_err) && empty($resposta_b_err) && empty($resposta_c_err)) {
 
             $param_questao = $questao;
@@ -49,9 +56,10 @@
             $param_resposta_a = $resposta_a;
             $param_resposta_b = $resposta_b;
             $param_resposta_c = $resposta_c;
+            $param_indice_dif = $indice_dif;
 
 			$sql = "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, valida) 
-                VALUES ('$param_questao', '$param_resposta_certa', '$param_resposta_a', '$param_resposta_b', '$param_resposta_c', 'i')";
+                VALUES ('$param_questao', '$param_resposta_certa', '$param_resposta_a', '$param_resposta_b', '$param_resposta_c', '$param_indice_dif' 'i')";
 
 			if ($stmt = $mysql_db->prepare($sql)) {
 
@@ -111,7 +119,7 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(20%); 
+            transform: translateY(12%); 
         }
         .wrapper{ 
         	width: 1800px; 
@@ -157,6 +165,11 @@
                     <label>Resposta Incorreta 03:</label>
                     <input type="text" name="resposta_c" class="form-control" value="<?php echo $resposta_c; ?>">
                     <span class="help-block"><?php echo $resposta_c_err; ?></span>
+                </div>
+                <div class="form-group <?php echo (!empty($indice_dif_err)) ? 'Informe o índice de Dificuldade da questão!' : ''; ?>">
+                    <label>Índice de Dificuldade:</label>
+                    <input type="text" name="indice_dif" class="form-control" value="<?php echo $indice_dif; ?>">
+                    <span class="help-block"><?php echo $indice_dif_err; ?></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-block btn-primary" value="Enviar">

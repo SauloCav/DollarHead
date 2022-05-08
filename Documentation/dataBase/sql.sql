@@ -1,5 +1,7 @@
 create database quizGame;
 
+drop database quizGame;
+
 CREATE TABLE users (
     id_user INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -14,6 +16,7 @@ CREATE TABLE questoes_respostas (
     resp_a varchar(50) NOT NULL,
 	resp_b varchar(50) NOT NULL,
 	resp_c varchar(50) NOT NULL,
+    indice_dif INT NOT NULL,
 	valida enum ('v','i') NOT NULL
 );
 
@@ -46,8 +49,8 @@ CREATE TABLE ranking (
 	FOREIGN KEY(id_usuario) references users(id_user)
 );
 
-select *from users;
-select *from questoes_respostas;
-select *from denuncia_validacao;
-select *from stats;
-select *from ranking;
+select * from users;
+select * from questoes_respostas;
+select * from denuncia_validacao;
+select * from stats;
+select * from ranking;
