@@ -5,7 +5,6 @@
 	$questao = $resposta_certa = $resposta_a = $resposta_b = $resposta_c = $indice_dif = "";
 	$questao_err = $resposta_certa_err = $resposta_a_err = $resposta_b_err = $resposta_c_err = $indice_dif_err = "";
 
-
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		if (empty(trim($_POST['questao']))) {
@@ -188,3 +187,11 @@
 </body>
 
 </html>
+
+Ciências da Natureza
+Ciências Humanas
+Conhecimentos Gerais
+Esportes
+Linguagens
+Artes
+Exatas
