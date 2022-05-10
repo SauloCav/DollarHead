@@ -21,7 +21,7 @@
 <body>
 	<main>
 		<section class="container wrapper">
-            <h1>Ximira Peixola</h1>
+            <h1>rules of the game</h1>
 		</section>
 	</main>
 </body>
