@@ -15,7 +15,7 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(5%); 
+            transform: translateY(4%); 
         }
         .wrapper{ 
         	width: 1800px; 
@@ -27,6 +27,11 @@
 		.wrapper h3 {
 			text-align: center;
 		}
+		.wrapper h5 {
+			transform: translateY(-20%); 
+			text-align: center;
+			color: green;
+		}
         .wrapper form .form-group span {color: red;}
 	</style>
 </head>
@@ -35,6 +40,7 @@
 		<section class="container wrapper">
 			<div class="page-header">
 				<h1 class="display-5"><strong> Questão <?php echo $_SESSION['quest_atual']; ?></strong></h1>
+				<h5 class="display-5"><strong> ( <?php echo $_SESSION[$_SESSION["quest"]][7]; ?> ) </strong></h5>
 			</div>
 
 			<?php
