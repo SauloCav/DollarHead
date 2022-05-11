@@ -1,7 +1,5 @@
 <?php
-
 	session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +14,7 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(25%); 
+            transform: translateY(20%); 
         }
         .wrapper{ 
         	width: 1800px; 
@@ -153,7 +151,8 @@
 
             echo "<div id='quest'>";
                 echo '<br><br>';
-                echo "<h3><strong> Pergunta: " . $dado['pergunta'] . "</strong></h3><br>";
+                echo "<h3><strong> Pergunta: " . $dado['pergunta'] . "</strong></h3> ";
+                echo "<h3><strong> (" . $dado['quest_topico'] . ")</strong></h3><br>";
                 echo "<h3><strong> Resposta correta: " . $dado['resp_correta'] . "</strong></h3>"; 
                 echo "<h3><strong> Resposta incorreta 1: " . $dado['resp_a'] . "</strong></h3>";
                 echo "<h3><strong> Resposta incorreta 2: " . $dado['resp_b'] . "</strong></h3>";

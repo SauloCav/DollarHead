@@ -111,7 +111,7 @@
 			<div class="section buttons-menu">
 				<a href="./Game/init.php" class="btn btn-block btn-secondary btn-outline-warning">Jogar</a>
 				<a href="edit_account.php" class="btn btn-block btn-secondary btn-outline-warning">Editar Conta</a>
-				<a href="question_board.php" class="btn btn-block btn-secondary btn-outline-warning">Painel de Perguntas</a>
+				<a href="question_board.php" class="btn btn-block btn-secondary btn-outline-warning">Painel de Questões</a>
 				<a href="ranking.php" class="btn btn-block btn-secondary btn-outline-warning" >Hall da Fama</a>
 				<a href="stats.php" class="btn btn-block btn-secondary btn-outline-warning">Visualizar Stats</a>
 				<a href="rules.php" class="btn btn-block btn-secondary btn-outline-warning">Regras do Jogo</a>

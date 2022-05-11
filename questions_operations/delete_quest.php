@@ -40,7 +40,7 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(22%); 
+            transform: translateY(15%); 
         }
         .wrapper{ 
         	width: 1800px; 
@@ -78,7 +78,8 @@
             $dado = $ques->fetch_array();
 
             echo "<div id='quest'>";
-                echo "<h3><strong> Pergunta: " . $dado['pergunta'] . "</strong></h3><br>";
+                echo "<h3><strong> Pergunta: " . $dado['pergunta'] . "</strong></h3>";
+                echo "<h3><strong> (" . $dado['quest_topico'] . ")</strong></h3><br>";
                 echo "<h3><strong> Resposta correta: " . $dado['resp_correta'] . "</strong></h3>"; 
                 echo "<h3><strong> Resposta incorreta 1: " . $dado['resp_a'] . "</strong></h3>";
                 echo "<h3><strong> Resposta incorreta 2: " . $dado['resp_b'] . "</strong></h3>";
