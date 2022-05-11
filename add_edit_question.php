@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty(trim($_POST['indice_dif']))) {
-        $indice_dif_err = "O Índice de Dificuldade deve ser Informado: (1|2|3)!";
+        $indice_dif_err = "O Índice de Dificuldade deve ser Informado!";
     } else {
         $indice_dif = trim($_POST["indice_dif"]);
     }
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $assunto_quest = trim($_POST["assunto_quest"]);
     }
 
-    if (empty($questao_err) && empty($resposta_certa_err) && empty($resposta_a_err) && empty($resposta_b_err) && empty($resposta_c_err) && empty($indice_dif_err)) {
+    if (empty($questao_err) && empty($resposta_certa_err) && empty($resposta_a_err) && empty($resposta_b_err) && empty($resposta_c_err) && empty($indice_dif_err) && empty($assunto_quest_err)) {
 
         $param_questao = $questao;
         $param_resposta_certa = $resposta_certa;
@@ -57,9 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $param_resposta_b = $resposta_b;
         $param_resposta_c = $resposta_c;
         $param_indice_dif = (int)$indice_dif;
+        $param_assunto_quest = $assunto_quest;
 
-        $sql = "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, indice_dif, valida) 
-                VALUES ('$param_questao', '$param_resposta_certa', '$param_resposta_a', '$param_resposta_b', '$param_resposta_c', '$param_indice_dif', 'i')";
+        $sql = "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, indice_dif, quest_topico, valida) 
+                VALUES ('$param_questao', '$param_resposta_certa', '$param_resposta_a', '$param_resposta_b', '$param_resposta_c', '$param_indice_dif', '$param_assunto_quest', 'i')";
 
         if ($stmt = $mysql_db->prepare($sql)) {
 
@@ -154,9 +155,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <main class="container wrapper">
         <section>
-            <h2>Adicionar Questão</h2><br>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+        <?php
+        
+            if($_SESSION["isEdit"] === 0){
+                echo '<h2>Editar Questão</h2><br>';
+                echo($_SESSION["isEdit"]); echo("\n\n\n\n\n");
+            }
+            else {
+                echo($_SESSION["isEdit"]); echo("\n\n\n\n\n");  
+                echo '<h2>Adicionar Questão</h2><br>';
+                echo("vai se fuder");
+            }
+        
+        ?>
             
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
                 <div class="form-group" >
                     <label>Pergunta:</label>
                     <input type="text" name="questao" class="form-control" value="<?php echo $questao; ?>">
