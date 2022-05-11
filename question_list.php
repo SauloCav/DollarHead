@@ -49,12 +49,16 @@
             transform: translateY(1%); 
 			padding: 50px; 
         }
+		.wrapper a {
+			width: 1400px; 
+			position: relative;
+		}
         .wrapper h1 {
 			text-align: center;
 		}
         .table {
 			text-align: center;  
-			width: 1400px; 
+			width: 1500px; 
 			position: absolute;
 			top: 5; bottom: 5;
 			left: 0; right: 0;

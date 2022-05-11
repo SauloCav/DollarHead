@@ -60,48 +60,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $param_resposta_c = $resposta_c;
         $param_indice_dif = (int)$indice_dif;
         $param_assunto_quest = $assunto_quest;
+        $param_id = $_SESSION["key"];
 
-        $sql = "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, indice_dif, quest_topico, valida) 
+        if($_SESSION["isEdit"] === 0){
+            $sql = 
+            "UPDATE questoes_respostas SET pergunta = '$param_questao', resp_correta = '$param_resposta_certa', resp_a = '$param_resposta_a', resp_b = '$param_resposta_b', resp_c = '$param_resposta_c', indice_dif = '$param_indice_dif', quest_topico = '$param_assunto_quest' WHERE id_questao = '$param_id'";
+        }
+        else {
+            $sql = 
+            "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, indice_dif, quest_topico, valida) 
                 VALUES ('$param_questao', '$param_resposta_certa', '$param_resposta_a', '$param_resposta_b', '$param_resposta_c', '$param_indice_dif', '$param_assunto_quest', 'i')";
-
+        }
+        
         if ($stmt = $mysql_db->prepare($sql)) {
 
-            echo ('1');
-
-            if ($stmt->execute()) {
-
-                echo ('2');
-
-                if ($stmt = $mysql_db->prepare($sql)) {
-
-                    echo ('3');
+            if($_SESSION["isEdit"] === 0){
+                if ($stmt->execute()) {
+                    if ($stmt = $mysql_db->prepare($sql)) {
+                        header("location: question_list.php");
+                    }   
+                    else {
+                        echo "Algo deu errado, Tente Novamente!";
+                    } 
+                } else {
+                    echo "Algo deu errado, Tente Novamente!";
+                }
+            }
+            else {
+                if ($stmt->execute()) {
 
                     $param_id_resp = mysqli_insert_id($mysql_db);
-
+    
                     $sqldv = "INSERT INTO denuncia_validacao (num_denuncias, num_validacoes, id_quest) 
                             VALUES (0, 0, '$param_id_resp')";
-
+    
                     if ($stmt = $mysql_db->prepare($sqldv)) {
-
+    
                         if ($stmt->execute()) {
-
+    
                             if ($stmt = $mysql_db->prepare($sqldv)) {
-
-                                header('location: ./question_board.php');
+    
+                                    header('location: ./question_board.php');
+    
                             } else {
                                 echo "Algo deu errado, Tente Novamente!";
                             }
                         } else {
                             echo "Algo deu errado, Tente Novamente!";
                         }
-
+    
                         $stmt->close();
                     }
                 } else {
                     echo "Algo deu errado, Tente Novamente!";
                 }
-            } else {
-                echo "Algo deu errado, Tente Novamente!";
             }
 
             $stmt->close();
@@ -186,65 +198,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label>Pergunta:</label>
                         <?php
                             if($_SESSION["isEdit"] === 0){
-                                echo '<input type="text" name="questao" class="form-control" value= "'.$dado[1].'" /> </div>';
+                                echo '<input type="text" name="questao" class="form-control" value= "'.$dado[1].'" />';
                             }
                             else {
                                 echo '<input type="text" name="questao" class="form-control">';
                             }
                         ?>
-                    <span class="help-block" style="color: red;"><?php echo $questao_err; ?></span>
+                    <a class="help-block" style="color: red;"><?php echo $questao_err; ?></a>
                 </div>
 
                 <div class="form-group" >
                     <label>Resposta Correta:</label>
                         <?php
                             if($_SESSION["isEdit"] === 0){
-                                echo '<input type="text" name="resposta_certa" class="form-control" value= "'.$dado[2].'" /> </div>';
+                                echo '<input type="text" name="resposta_certa" class="form-control" value= "'.$dado[2].'" />';
                             }
                             else {
                                 echo '<input type="text" name="resposta_certa" class="form-control">';
                             }
                         ?>
-                    <span class="help-block" style="color: red;"><?php echo $resposta_certa_err; ?></span>
+                    <a class="help-block" style="color: red;"><?php echo $resposta_certa_err; ?></a>
                 </div>
 
                 <div class="form-group" >
                     <label>Resposta Incorreta 01:</label>
                         <?php
                             if($_SESSION["isEdit"] === 0){
-                                echo '<input type="text" name="resposta_a" class="form-control" value= "'.$dado[3].'" /></div>';
+                                echo '<input type="text" name="resposta_a" class="form-control" value= "'.$dado[3].'" />';
                             }
                             else {
                                 echo '<input type="text" name="resposta_a" class="form-control">';
                             }
                         ?>
-                    <span class="help-block" style="color: red;"><?php echo $resposta_a_err; ?></span>
+                    <a class="help-block" style="color: red;"><?php echo $resposta_a_err; ?></a>
                 </div>
 
                 <div class="form-group" >
                     <label>Resposta Incorreta 02:</label>
                         <?php
                             if($_SESSION["isEdit"] === 0){
-                                echo '<input type="text" name="resposta_b" class="form-control" value= "'.$dado[4].'" /></div>';
+                                echo '<input type="text" name="resposta_b" class="form-control" value= "'.$dado[4].'" />';
                             }
                             else {
                                 echo '<input type="text" name="resposta_b" class="form-control">';
                             }
                         ?>
-                    <span class="help-block" style="color: red;"><?php echo $resposta_b_err; ?></span>
+                    <a class="help-block" style="color: red;"><?php echo $resposta_b_err; ?></a>
                 </div>
 
                 <div class="form-group" >
                     <label>Resposta Incorreta 03:</label>
                         <?php
                             if($_SESSION["isEdit"] === 0){
-                                echo '<input type="text" name="resposta_c" class="form-control" value= "'.$dado[5].'" /></div>';
+                                echo '<input type="text" name="resposta_c" class="form-control" value= "'.$dado[5].'" />';
                             }
                             else {
                                 echo '<input type="text" name="resposta_c" class="form-control">';
                             }
                         ?>
-                    <span class="help-block" style="color: red;"><?php echo $resposta_c_err; ?></span>
+                    <a class="help-block" style="color: red;"><?php echo $resposta_c_err; ?></a>
                 </div>
 
                 <div class="col-md-14" style="display: flex;">
