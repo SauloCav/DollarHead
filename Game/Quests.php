@@ -41,7 +41,7 @@
 			<div class="page-header">
 				<h1 class="display-5"><strong> Questão <?php echo $_SESSION['quest_atual']; ?></strong></h1>
 				<h5 class="display-5"><strong> ( <?php echo $_SESSION[$_SESSION["quest"]][7]; ?> ) </strong></h5>
-			</div>
+			</div>echo ($_SESSION["isEdit"]);
 
 			<?php
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {

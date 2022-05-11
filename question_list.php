@@ -19,6 +19,7 @@
 			$_SESSION["value"] = $value;
 		}
 		if ($_SESSION["value"] === 'Editar') {
+			$_SESSION['isEdit'] = 0;
 			header('location: add_edit_question.php');
 		}
 		if ($_SESSION["value"] === 'Validar') {

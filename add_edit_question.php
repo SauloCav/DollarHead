@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once 'config/config.php';
 
 $questao = $resposta_certa = $resposta_a = $resposta_b = $resposta_c = $indice_dif = $assunto_quest = "";
@@ -122,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(5%);
+            transform: translateY(6%);
         }
 
         .wrapper {
@@ -157,15 +159,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <section>
 
         <?php
+
+            $param_key = $_SESSION["key"];
+            
+            $quest = "SELECT *FROM questoes_respostas WHERE (id_questao = $param_key)";
+            $ques = $mysql_db->query($quest) or die($mysql_db->error);
+
+            $dado = $ques->fetch_array();
+
+        ?>
+
+        <?php
         
             if($_SESSION["isEdit"] === 0){
                 echo '<h2>Editar Questão</h2><br>';
-                echo($_SESSION["isEdit"]); echo("\n\n\n\n\n");
             }
             else {
-                echo($_SESSION["isEdit"]); echo("\n\n\n\n\n");  
                 echo '<h2>Adicionar Questão</h2><br>';
-                echo("vai se fuder");
             }
         
         ?>
@@ -174,32 +184,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group" >
                     <label>Pergunta:</label>
-                    <input type="text" name="questao" class="form-control" value="<?php echo $questao; ?>">
-                    <span class="help-block"><?php echo $questao_err; ?></span>
+                        <?php
+                            if($_SESSION["isEdit"] === 0){
+                                echo '<input type="text" name="questao" class="form-control" value= "'.$dado[1].'" /> </div>';
+                            }
+                            else {
+                                echo '<input type="text" name="questao" class="form-control">';
+                            }
+                        ?>
+                    <span class="help-block" style="color: red;"><?php echo $questao_err; ?></span>
                 </div>
 
                 <div class="form-group" >
                     <label>Resposta Correta:</label>
-                    <input type="text" name="resposta_certa" class="form-control" value="<?php echo $resposta_certa; ?>">
-                    <span class="help-block"><?php echo $resposta_certa_err; ?></span>
+                        <?php
+                            if($_SESSION["isEdit"] === 0){
+                                echo '<input type="text" name="resposta_certa" class="form-control" value= "'.$dado[2].'" /> </div>';
+                            }
+                            else {
+                                echo '<input type="text" name="resposta_certa" class="form-control">';
+                            }
+                        ?>
+                    <span class="help-block" style="color: red;"><?php echo $resposta_certa_err; ?></span>
                 </div>
 
                 <div class="form-group" >
                     <label>Resposta Incorreta 01:</label>
-                    <input type="text" name="resposta_a" class="form-control" value="<?php echo $resposta_a; ?>">
-                    <span class="help-block"><?php echo $resposta_a_err; ?></span>
+                        <?php
+                            if($_SESSION["isEdit"] === 0){
+                                echo '<input type="text" name="resposta_a" class="form-control" value= "'.$dado[3].'" /></div>';
+                            }
+                            else {
+                                echo '<input type="text" name="resposta_a" class="form-control">';
+                            }
+                        ?>
+                    <span class="help-block" style="color: red;"><?php echo $resposta_a_err; ?></span>
                 </div>
 
                 <div class="form-group" >
                     <label>Resposta Incorreta 02:</label>
-                    <input type="text" name="resposta_b" class="form-control" value="<?php echo $resposta_b; ?>">
-                    <span class="help-block"><?php echo $resposta_b_err; ?></span>
+                        <?php
+                            if($_SESSION["isEdit"] === 0){
+                                echo '<input type="text" name="resposta_b" class="form-control" value= "'.$dado[4].'" /></div>';
+                            }
+                            else {
+                                echo '<input type="text" name="resposta_b" class="form-control">';
+                            }
+                        ?>
+                    <span class="help-block" style="color: red;"><?php echo $resposta_b_err; ?></span>
                 </div>
 
                 <div class="form-group" >
                     <label>Resposta Incorreta 03:</label>
-                    <input type="text" name="resposta_c" class="form-control" value="<?php echo $resposta_c; ?>">
-                    <span class="help-block"><?php echo $resposta_c_err; ?></span>
+                        <?php
+                            if($_SESSION["isEdit"] === 0){
+                                echo '<input type="text" name="resposta_c" class="form-control" value= "'.$dado[5].'" /></div>';
+                            }
+                            else {
+                                echo '<input type="text" name="resposta_c" class="form-control">';
+                            }
+                        ?>
+                    <span class="help-block" style="color: red;"><?php echo $resposta_c_err; ?></span>
                 </div>
 
                 <div class="col-md-14" style="display: flex;">
@@ -207,11 +252,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="form-group" >
                             <label>Índice de Dificuldade:</label><br>
                                 <select type="select" class="form-control" name="indice_dif" id="indice_dif">
-                                <option disabled selected value="null">Selecione um Índice</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
+                                    <?php
+                                        if($_SESSION["isEdit"] === 0){
+                                            if($dado[6] == 1){
+                                                echo '<option selected value="1">1</option>';
+                                                echo '<option value="2">2</option>';
+                                                echo '<option value="3">3</option>';
+                                            }
+                                            if($dado[6] == 2){
+                                                echo '<option value="1">1</option>';
+                                                echo '<option selected value="2">2</option>';
+                                                echo '<option value="3">3</option>';
+                                            }
+                                            if($dado[6] == 3){
+                                                echo '<option value="1">1</option>';
+                                                echo '<option value="2">2</option>';
+                                                echo '<option selected value="3">3</option>';
+                                            }
+                                        }
+                                        else {
+                                            echo '<option disabled selected value="null">Selecione um Índice</option>';
+                                            echo '<option value="1">1</option>';
+                                            echo '<option value="2">2</option>';
+                                            echo '<option value="3">3</option>';
+                                        }
+                                    ?>
+                                </select>
                             <span class="help-block"><?php echo $indice_dif_err; ?></span>
                         </div>
                     </div>
@@ -219,14 +285,83 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="form-group" >
                             <label>Assunto da Questão:</label><br>
                             <select type="select" class="form-control" name="assunto_quest" id="assunto_quest">
-                                <option disabled selected value="null">Selecione um Assunto</option>
-                                <option value="Ciências da Natureza">Ciências da Natureza</option>
-                                <option value="Ciências Humanas">Ciências Humanas</option>
-                                <option value="Conhecimentos Gerais">Conhecimentos Gerais</option>
-                                <option value="Esportes">Esportes</option>
-                                <option value="Linguagens">Linguagens</option>
-                                <option value="Artes">Artes</option>
-                                <option value="Exatas">Exatas</option>
+                                    <?php
+                                        if($_SESSION["isEdit"] === 0){
+                                            if($dado[7] === 'Ciências da Natureza'){
+                                                echo '<option selected value="Ciências da Natureza">Ciências da Natureza</option>';
+                                                echo '<option value="Ciências Humanas">Ciências Humanas</option>';
+                                                echo '<option value="Conhecimentos Gerais">Conhecimentos Gerais</option>';
+                                                echo '<option value="Esportes">Esportes</option>';
+                                                echo '<option value="Linguagens">Linguagens</option>';
+                                                echo '<option value="Artes">Artes</option>';
+                                                echo '<option value="Exatas">Exatas</option>';
+                                            }
+                                            if($dado[7] === 'Ciências Humanas'){
+                                                echo '<option value="Ciências da Natureza">Ciências da Natureza</option>';
+                                                echo '<option selected value="Ciências Humanas">Ciências Humanas</option>';
+                                                echo '<option value="Conhecimentos Gerais">Conhecimentos Gerais</option>';
+                                                echo '<option value="Esportes">Esportes</option>';
+                                                echo '<option value="Linguagens">Linguagens</option>';
+                                                echo '<option value="Artes">Artes</option>';
+                                                echo '<option value="Exatas">Exatas</option>';
+                                            }
+                                            if($dado[7] === 'Conhecimentos Gerais'){
+                                                echo '<option value="Ciências da Natureza">Ciências da Natureza</option>';
+                                                echo '<option value="Ciências Humanas">Ciências Humanas</option>';
+                                                echo '<option selected value="Conhecimentos Gerais">Conhecimentos Gerais</option>';
+                                                echo '<option value="Esportes">Esportes</option>';
+                                                echo '<option value="Linguagens">Linguagens</option>';
+                                                echo '<option value="Artes">Artes</option>';
+                                                echo '<option value="Exatas">Exatas</option>';
+                                            }
+                                            if($dado[7] === 'Esportes'){
+                                                echo '<option value="Ciências da Natureza">Ciências da Natureza</option>';
+                                                echo '<option value="Ciências Humanas">Ciências Humanas</option>';
+                                                echo '<option value="Conhecimentos Gerais">Conhecimentos Gerais</option>';
+                                                echo '<option selected value="Esportes">Esportes</option>';
+                                                echo '<option value="Linguagens">Linguagens</option>';
+                                                echo '<option value="Artes">Artes</option>';
+                                                echo '<option value="Exatas">Exatas</option>';
+                                            }
+                                            if($dado[7] === 'Linguagens'){
+                                                echo '<option value="Ciências da Natureza">Ciências da Natureza</option>';
+                                                echo '<option value="Ciências Humanas">Ciências Humanas</option>';
+                                                echo '<option value="Conhecimentos Gerais">Conhecimentos Gerais</option>';
+                                                echo '<option value="Esportes">Esportes</option>';
+                                                echo '<option selected value="Linguagens">Linguagens</option>';
+                                                echo '<option value="Artes">Artes</option>';
+                                                echo '<option value="Exatas">Exatas</option>';
+                                            }
+                                            if($dado[7] === 'Artes'){
+                                                echo '<option value="Ciências da Natureza">Ciências da Natureza</option>';
+                                                echo '<option value="Ciências Humanas">Ciências Humanas</option>';
+                                                echo '<option value="Conhecimentos Gerais">Conhecimentos Gerais</option>';
+                                                echo '<option value="Esportes">Esportes</option>';
+                                                echo '<option value="Linguagens">Linguagens</option>';
+                                                echo '<option selected value="Artes">Artes</option>';
+                                                echo '<option value="Exatas">Exatas</option>';
+                                            }
+                                            if($dado[7] === 'Exatas'){
+                                                echo '<option value="Ciências da Natureza">Ciências da Natureza</option>';
+                                                echo '<option value="Ciências Humanas">Ciências Humanas</option>';
+                                                echo '<option value="Conhecimentos Gerais">Conhecimentos Gerais</option>';
+                                                echo '<option value="Esportes">Esportes</option>';
+                                                echo '<option value="Linguagens">Linguagens</option>';
+                                                echo '<option value="Artes">Artes</option>';
+                                                echo '<option selected value="Exatas">Exatas</option>';
+                                            }
+                                        }
+                                        else {
+                                            echo '<option disabled selected value="null">Selecione um Assunto</option>';
+                                            echo '<option value="Ciências da Natureza">Ciências da Natureza</option>';
+                                            echo '<option value="Ciências Humanas">Ciências Humanas</option>';
+                                            echo '<option value="Conhecimentos Gerais">Conhecimentos Gerais</option>';
+                                            echo '<option value="Esportes">Esportes</option>';
+                                            echo '<option value="Linguagens">Linguagens</option>';
+                                            echo '<option value="Artes">Artes</option>';
+                                            echo '<option value="Exatas">Exatas</option>';
+                                        }
+                                    ?>               
                             </select>
                             <span class="help-block"><?php echo $assunto_quest_err; ?></span>
                         </div>
@@ -235,7 +370,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group">
                     <input type="submit" class="btn btn-block btn-primary" value="Enviar">
-                    <a class="btn btn-block btn-link bg-light" href="question_board.php">Cancelar</a>
+                    <?php
+                        if($_SESSION["isEdit"] === 0){
+                            echo '<a class="btn btn-block btn-link bg-light" href="question_list.php">Cancelar</a>';
+                        }
+                        else {
+                            echo '<a class="btn btn-block btn-link bg-light" href="question_board.php">Cancelar</a>';
+                        }
+                    ?>
                 </div>
             </form>
         </section>
