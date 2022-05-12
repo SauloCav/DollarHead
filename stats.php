@@ -57,6 +57,8 @@
                         <th scope="col">Nº DE DERROTAS POR PARADA</th>
                         <th scope="col">Nº DE ELIMINAÇÕES DE DUAS ALTERNATIVAS</th>
                         <th scope="col">PREMIAÇÃO TOTAL ACUMULADA</th>
+                        <th scope="col">Nº DE CONTRIBUIÇÕES</th>
+                        <th scope="col">NÍVEL DO USUÁRIO</th>
                       </tr>       
                     </td><?php while($dado = $cons->fetch_array()) { ?> 
                         <tr> 
@@ -65,6 +67,8 @@
                             <th><?php echo $dado['n_derr_parada']; ?></th>
                             <th><?php echo $dado['n_util_eli_duas_altern']; ?></th>
                             <th><?php echo $dado['premio_total']; ?></th>
+                            <th><?php echo $dado['num_contributions']; ?></th>
+                            <th><?php echo $dado['user_level']; ?></th>
                         </tr> 
                     <?php } ?> 
                 </table>
