@@ -108,29 +108,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             VALUES (0, 0, '$param_id_resp')";
     
                     if ($stmt = $mysql_db->prepare($sqldv)) {
-
-                        if ($stmt->execute()) {
                         
-                            $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                            $dado = $cons->fetch_array();
+                        $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+                        $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+                        $dado = $cons->fetch_array();
 
-                            $param_num_contributions = $dado['num_contributions'] + 1;
-                            $param_user_level = $dado['user_level'];
+                        $param_num_contributions = $dado['num_contributions'] + 1;
+                        $param_user_level = $dado['user_level'];
 
-                            if($param_num_contributions >= 20){
-                                $param_user_level = 'Abundoso';
+                        if($param_num_contributions >= 20){
+                            $param_user_level = 'Abundoso';
+                        }
+            
+                        $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                        
+                        if($stmt = $mysql_db->prepare($sqlStats)){  
+                            if($stmt->execute()){
+                                header('location: ./question_board.php');
                             }
-                
-                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
-                            
-                            if($stmt = $mysql_db->prepare($sqlStats)){  
-                                if($stmt->execute()){
-                                    header('location: ./question_board.php');
-                                }
-                                else {
-                                    echo "Algo deu errado, Tente Novamente!";
-                                }
+                            else {
+                                echo "Algo deu errado, Tente Novamente!";
                             }
                         }
 

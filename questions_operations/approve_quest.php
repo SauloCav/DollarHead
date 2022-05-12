@@ -76,9 +76,32 @@
                                 $sql_update_valida = "UPDATE questoes_respostas SET valida = '$param_valida' WHERE id_questao = '$param_id'";
 
                                 if($stmt = $mysql_db->prepare($sql_update_valida)){
-                                    if($stmt->execute()){
-                                        header("location: ../question_list.php");
-                                        exit();
+                                    if ($stmt->execute()) {
+                                        $consul = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+                                        $cons = $mysql_db->query($consul) or die($mysql_db->error);
+                                        $dado = $cons->fetch_array();
+                    
+                                        $param_num_contributions = $dado['num_contributions'] + 1;
+                                        $param_user_level = $dado['user_level'];
+                    
+                                        if($param_num_contributions >= 20){
+                                            $param_user_level = 'Abundoso';
+                                        }
+                            
+                                        $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                                        
+                                        if($stmt = $mysql_db->prepare($sqlStats)){  
+                                            if($stmt->execute()){
+                                                echo($param_num_contributions);
+                                                echo($param_user_level);
+                                                //header("location: ../question_list.php");
+                                            }
+                                            else {
+                                                echo "Algo deu errado, Tente Novamente!";
+                                            }
+                                        }
+                                    } else {
+                                        echo "Algo deu errado, Tente Novamente!";
                                     }
                                 }
 
@@ -101,11 +124,32 @@
                         $sql = "UPDATE denuncia_validacao SET num_validacoes = '$param_num_validacoes', username_2 = '$param_username_2' WHERE id_quest = '$param_id'";
                     
                         if($stmt = $mysql_db->prepare($sql)){
-                            if($stmt->execute()){
-                                header("location: ../question_list.php");
-                                exit();
-                            } else{
-                                echo "Oops! Algo deu errado, tente novamente mais tarde!";
+                            if ($stmt->execute()) {
+                                $consul = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+                                $cons = $mysql_db->query($consul) or die($mysql_db->error);
+                                $dado = $cons->fetch_array();
+            
+                                $param_num_contributions = $dado['num_contributions'] + 1;
+                                $param_user_level = $dado['user_level'];
+            
+                                if($param_num_contributions >= 20){
+                                    $param_user_level = 'Abundoso';
+                                }
+                    
+                                $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                                
+                                if($stmt = $mysql_db->prepare($sqlStats)){  
+                                    if($stmt->execute()){
+                                        echo($param_num_contributions);
+                                        echo($param_user_level);
+                                        //header("location: ../question_list.php");
+                                    }
+                                    else {
+                                        echo "Algo deu errado, Tente Novamente!";
+                                    }
+                                }
+                            } else {
+                                echo "Algo deu errado, Tente Novamente!";
                             }
                             $stmt->close();
                         }
@@ -123,11 +167,32 @@
                     
                     if($stmt = $mysql_db->prepare($sql)){
 
-                        if($stmt->execute()){
-                            header("location: ../question_list.php");
-                            exit();
-                        } else{
-                            echo "Oops! Algo deu errado, tente novamente mais tarde!";
+                        if ($stmt->execute()) {
+                            $consul = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+                            $cons = $mysql_db->query($consul) or die($mysql_db->error);
+                            $dado = $cons->fetch_array();
+        
+                            $param_num_contributions = $dado['num_contributions'] + 1;
+                            $param_user_level = $dado['user_level'];
+        
+                            if($param_num_contributions >= 20){
+                                $param_user_level = 'Abundoso';
+                            }
+                
+                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                            
+                            if($stmt = $mysql_db->prepare($sqlStats)){  
+                                if($stmt->execute()){
+                                    echo($param_num_contributions);
+                                    echo($param_user_level);
+                                    //header("location: ../question_list.php");
+                                }
+                                else {
+                                    echo "Algo deu errado, Tente Novamente!";
+                                }
+                            }
+                        } else {
+                            echo "Algo deu errado, Tente Novamente!";
                         }
                         $stmt->close();
                     }

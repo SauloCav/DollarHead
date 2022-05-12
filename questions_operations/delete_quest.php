@@ -14,8 +14,30 @@
             $sqlquests = "DELETE FROM questoes_respostas WHERE id_questao = $param_id";
 
             if (mysqli_query($mysql_db, $sqlquests)) {
-                header("location: ../question_list.php");
-                exit();
+
+                $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+                $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+                $dado = $cons->fetch_array();
+
+                echo($dado);
+                
+                $param_num_contributions = $dado['num_contributions'] + 1;
+                $param_user_level = $dado['user_level'];
+
+                if($param_num_contributions >= 20){
+                    $param_user_level = 'Abundoso';
+                }
+    
+                $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                
+                if($stmt = $mysql_db->prepare($sqlStats)){  
+                    if($stmt->execute()){
+                        //header("location: ../question_list.php");
+                    }
+                    else {
+                        echo "Algo deu errado, Tente Novamente!";
+                    }
+                }
             } 
             else {
                 echo "Erro ao Deletar!";

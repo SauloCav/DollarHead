@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	require_once 'linked_list.php';
 ?>
 
 <!DOCTYPE html>
@@ -41,9 +40,11 @@
 			<div class="page-header">
 				<h1 class="display-5"><strong> Questão <?php echo $_SESSION['quest_atual']; ?></strong></h1>
 				<h5 class="display-5"><strong> ( <?php echo $_SESSION[$_SESSION["quest"]][7]; ?> ) </strong></h5>
+				<h5 class="display-5"><strong> ( <?php echo $_SESSION[$_SESSION["quest"]][6]; ?> ) </strong></h5>
 			</div>
 
 			<?php
+
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 					foreach ($_POST as $key => $value) {
@@ -182,6 +183,8 @@
 			<form method="post">
 
 				<?php
+
+				echo $_SESSION['quest_atual'];
 
 					if (array_key_exists('elimina', $_POST)) {
 

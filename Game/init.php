@@ -3,7 +3,23 @@
 	session_start();
 
 	require_once '../config/config.php';
-	require_once 'linked_list.php';
+
+	$_SESSION["prize"] = 0;
+
+	$quests_one = "SELECT * FROM questoes_respostas WHERE valida = 'v' AND indice_dif = 1"; 
+    $ques_one = $mysql_db->query($quests_one) or die($mysql_db->error);
+    $row_dif_1 = mysqli_fetch_all($ques_one);
+    shuffle($row_dif_1);
+
+    $quests_two = "SELECT * FROM questoes_respostas WHERE valida = 'v' AND indice_dif = 2"; 
+    $ques_two = $mysql_db->query($quests_two) or die($mysql_db->error);
+    $row_dif_2 = mysqli_fetch_all($ques_two);
+    shuffle($row_dif_2);
+
+    $quests_three = "SELECT * FROM questoes_respostas WHERE valida = 'v' AND indice_dif = 3"; 
+    $ques_three = $mysql_db->query($quests_three) or die($mysql_db->error);
+    $row_dif_3 = mysqli_fetch_all($ques_three);
+    shuffle($row_dif_3);
 
 	$_SESSION["elimina_alternativas"] = 0;
 	$_SESSION['n_respostas'] = 0;
@@ -11,13 +27,13 @@
 	$_SESSION['parar'] = "Parar: R$ 0 Mil";
 	$_SESSION['errar'] = "Errar: R$ 0 Mil";
 	$_SESSION['quest_atual'] = 1;
-	$_SESSION["quest_1"] = $MyList->findObject(0);
-	$_SESSION["quest_2"] = $MyList->findObject(1);
-	$_SESSION["quest_3"] = $MyList->findObject(2);
-	$_SESSION["quest_4"] = $MyList->findObject(3);
-	$_SESSION["quest_5"] = $MyList->findObject(4);
-	$_SESSION["quest_6"] = $MyList->findObject(5);
-	$_SESSION["quest_7"] = $MyList->findObject(6);
+	$_SESSION["quest_1"] = $row_dif_1[5];
+	$_SESSION["quest_2"] = $row_dif_1[8];
+	$_SESSION["quest_3"] = $row_dif_2[9];
+	$_SESSION["quest_4"] = $row_dif_2[2];
+	$_SESSION["quest_5"] = $row_dif_2[5];
+	$_SESSION["quest_6"] = $row_dif_3[3];
+	$_SESSION["quest_7"] = $row_dif_3[6];
 
 ?>
 
