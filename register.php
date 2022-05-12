@@ -1,7 +1,8 @@
 <?php
 
+	session_start();
 	require_once 'config/config.php';
-
+	
 	$username = $password = $confirm_password = $nickname = "";
 	$username_err = $password_err = $confirm_password_err = $nickname_err = "";
 
@@ -46,20 +47,23 @@
 
 	    if(empty(trim($_POST["password"]))){
 	        $password_err = "Insira uma Senha!";     
-	    } elseif(strlen(trim($_POST["password"])) < 6){
+	    } 
+		elseif(strlen(trim($_POST["password"])) < 6){
 	        $password_err = "A Senha deve possuir no mínimo 6 caracteres!";
-	    } else{
+	    } 
+		else{
 	        $password = trim($_POST["password"]);
 	    }
     
 	    if(empty(trim($_POST["confirm_password"]))){
 	        $confirm_password_err = "Insira a confirmação da Senha!";     
-	    } else{
+	    } 
+		else{
 	        $confirm_password = trim($_POST["confirm_password"]);
 	        if(empty($password_err) && ($password != $confirm_password)){
 	            $confirm_password_err = "As Senhas não Batem!";
 	        }
-	    }
+		}
 
 	    if (empty($username_err) && empty($password_err) && empty($confirm_err) && empty($nickname_err)) {
 
@@ -70,20 +74,18 @@
 				$param_username = $username;
 				$param_password = password_hash($password, PASSWORD_DEFAULT);
 				$param_nickname = $nickname;
+				$param_user_level = 'Indigente';
 
 				$stmt->bind_param('sss', $param_username, $param_password, $param_nickname);
-				echo "Diabo2!";
 
 				if ($stmt->execute()) {
-					echo "Diabo3!";
 
 					$param_id_stats = mysqli_insert_id($mysql_db);
 		
-					$sqlStats = "INSERT INTO stats (n_partidas_jogadas, n_tot_perg_resp, premio_total, n_util_eli_duas_altern, n_derr_erro, n_derr_parada, id_user_stats) 
-					VALUES(0, 0, 0, 0, 0, 0, '$param_id_stats')";
+					$sqlStats = "INSERT INTO stats (n_partidas_jogadas, premio_total, n_util_eli_duas_altern, n_derr_erro, n_derr_parada, num_contributions, user_level, id_user_stats) 
+					VALUES(0, 0, 0, 0, 0, 0, '$param_user_level', '$param_id_stats')";
 							
 					if ($stmt = $mysql_db->prepare($sqlStats)) {
-						echo "Diabo4!";
 						if ($stmt->execute()) {
 							header('location: ./index.php');
 						} 
@@ -204,22 +206,22 @@
 					<div class="form-group <?php (!empty($username_err))?'has_error':'';?>">
 						<label for="username">Nome de Usuário</label>
 						<input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>">
-						<span class="help-block"><?php echo $username_err;?></span>
+						<span class="help-block" style="color: red><?php echo $username_err;?></span>
 					</div>
 					<div class="form-group <?php (!empty($nickname_err))?'has_error':'';?>">
 						<label for="nickname">Nickname</label>
 						<input type="text" name="nickname" id="nickname" class="form-control" value="<?php echo $nickname ?>">
-						<span class="help-block"><?php echo $nickname_err;?></span>
+						<span class="help-block" style="color: red><?php echo $nickname_err;?></span>
 					</div>
 					<div class="form-group <?php (!empty($password_err))?'has_error':'';?>">
 						<label for="password">Senha</label>
 						<input type="password" name="password" id="password" class="form-control" value="<?php echo $password ?>">
-						<span class="help-block"><?php echo $password_err; ?></span>
+						<span class="help-block" style="color: red><?php echo $password_err; ?></span>
 					</div>
 					<div class="form-group <?php (!empty($confirm_password_err))?'has_error':'';?>">
 						<label for="confirm_password">Confirme a senha</label>
 						<input type="password" name="confirm_password" id="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-						<span class="help-block"><?php echo $confirm_password_err;?></span>
+						<span class="help-block" style="color: red><?php echo $confirm_password_err;?></span>
 					</div>
 					<div class="form-group">
 						<input type="submit" class="btn btn-block btn-outline-success" value="Enviar">

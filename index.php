@@ -179,13 +179,13 @@
           <div class="form-group <?php (!empty($username_err))?'has_error':'';?>">
             <label for="username">Nome de Usuário</label>
             <input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>">
-            <span class="help-block"><?php echo $username_err;?></span>
+            <span class="help-block" style="color: red;"><?php echo $username_err;?></span>
           </div>
 
           <div class="form-group <?php (!empty($password_err))?'has_error':'';?>">
             <label for="password">Senha</label>
             <input type="password" name="password" id="password" class="form-control" value="<?php echo $password ?>">
-            <span class="help-block"><?php echo $password_err;?></span>
+            <span class="help-block" style="color: red><?php echo $password_err;?></span>
           </div>
 
           <div class="form-group">
