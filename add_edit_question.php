@@ -60,15 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $param_resposta_c = $resposta_c;
         $param_indice_dif = (int)$indice_dif;
         $param_assunto_quest = $assunto_quest;
-        $param_id = $_SESSION["key"];
+        $param_id = $_SESSION['id_user'];
 
         if($_SESSION["isEdit"] === 0){
-            $sql = 
-            "UPDATE questoes_respostas SET pergunta = '$param_questao', resp_correta = '$param_resposta_certa', resp_a = '$param_resposta_a', resp_b = '$param_resposta_b', resp_c = '$param_resposta_c', indice_dif = '$param_indice_dif', quest_topico = '$param_assunto_quest' WHERE id_questao = '$param_id'";
+            $sql = "UPDATE questoes_respostas SET pergunta = '$param_questao', resp_correta = '$param_resposta_certa', resp_a = '$param_resposta_a', resp_b = '$param_resposta_b', resp_c = '$param_resposta_c', indice_dif = '$param_indice_dif', quest_topico = '$param_assunto_quest' WHERE id_questao = '$param_id'";
         }
         else {
-            $sql = 
-            "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, indice_dif, quest_topico, valida) 
+            $sql = "INSERT INTO questoes_respostas (pergunta, resp_correta, resp_a, resp_b, resp_c, indice_dif, quest_topico, valida) 
                 VALUES ('$param_questao', '$param_resposta_certa', '$param_resposta_a', '$param_resposta_b', '$param_resposta_c', '$param_indice_dif', '$param_assunto_quest', 'i')";
         }
         
@@ -76,12 +74,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if($_SESSION["isEdit"] === 0){
                 if ($stmt->execute()) {
-                    if ($stmt = $mysql_db->prepare($sql)) {
-                        header("location: question_list.php");
-                    }   
-                    else {
-                        echo "Algo deu errado, Tente Novamente!";
-                    } 
+                    $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+                    $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+                    $dado = $cons->fetch_array();
+
+                    $param_num_contributions = $dado['num_contributions'] + 1;
+                    $param_user_level = $dado['user_level'];
+
+                    if($param_num_contributions >= 20){
+                        $param_user_level = 'Abundoso';
+                    }
+        
+                    $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                    
+                    if($stmt = $mysql_db->prepare($sqlStats)){  
+                        if($stmt->execute()){
+                            header("location: question_list.php");
+                        }
+                        else {
+                            echo "Algo deu errado, Tente Novamente!";
+                        }
+                    }
                 } else {
                     echo "Algo deu errado, Tente Novamente!";
                 }
@@ -95,21 +108,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             VALUES (0, 0, '$param_id_resp')";
     
                     if ($stmt = $mysql_db->prepare($sqldv)) {
-    
+
                         if ($stmt->execute()) {
-    
-                            if ($stmt = $mysql_db->prepare($sqldv)) {
-    
-                                    header('location: ./question_board.php');
-    
-                            } else {
-                                echo "Algo deu errado, Tente Novamente!";
+                        
+                            $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+                            $dado = $cons->fetch_array();
+
+                            $param_num_contributions = $dado['num_contributions'] + 1;
+                            $param_user_level = $dado['user_level'];
+
+                            if($param_num_contributions >= 20){
+                                $param_user_level = 'Abundoso';
                             }
-                        } else {
-                            echo "Algo deu errado, Tente Novamente!";
+                
+                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                            
+                            if($stmt = $mysql_db->prepare($sqlStats)){  
+                                if($stmt->execute()){
+                                    header('location: ./question_board.php');
+                                }
+                                else {
+                                    echo "Algo deu errado, Tente Novamente!";
+                                }
+                            }
                         }
-    
-                        $stmt->close();
+
                     }
                 } else {
                     echo "Algo deu errado, Tente Novamente!";
