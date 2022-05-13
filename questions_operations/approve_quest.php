@@ -49,6 +49,7 @@
                 require_once '../config/config.php';
 
                 $param_id = $_SESSION["key"];
+                $param_id_user = $_SESSION['id_user'];
 
                 $consulta = "SELECT qr.id_questao, qr.valida, dv.num_validacoes, dv.username_1, dv.username_2, dv.id_quest
                 FROM (questoes_respostas qr 
@@ -77,24 +78,25 @@
 
                                 if($stmt = $mysql_db->prepare($sql_update_valida)){
                                     if ($stmt->execute()) {
-                                        $consul = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                                        $cons = $mysql_db->query($consul) or die($mysql_db->error);
+                                        
+                                        $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
+                                        $cons = $mysql_db->query($consulta) or die($mysql_db->error);
                                         $dado = $cons->fetch_array();
-                    
+                                        
                                         $param_num_contributions = $dado['num_contributions'] + 1;
                                         $param_user_level = $dado['user_level'];
-                    
+
                                         if($param_num_contributions >= 20){
                                             $param_user_level = 'Abundoso';
                                         }
                             
-                                        $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                                        $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
                                         
                                         if($stmt = $mysql_db->prepare($sqlStats)){  
                                             if($stmt->execute()){
                                                 echo($param_num_contributions);
                                                 echo($param_user_level);
-                                                //header("location: ../question_list.php");
+                                                header("location: ../question_list.php");
                                             }
                                             else {
                                                 echo "Algo deu errado, Tente Novamente!";
@@ -125,24 +127,22 @@
                     
                         if($stmt = $mysql_db->prepare($sql)){
                             if ($stmt->execute()) {
-                                $consul = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                                $cons = $mysql_db->query($consul) or die($mysql_db->error);
+                                $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
+                                $cons = $mysql_db->query($consulta) or die($mysql_db->error);
                                 $dado = $cons->fetch_array();
-            
+                                
                                 $param_num_contributions = $dado['num_contributions'] + 1;
                                 $param_user_level = $dado['user_level'];
-            
+
                                 if($param_num_contributions >= 20){
                                     $param_user_level = 'Abundoso';
                                 }
                     
-                                $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                                $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
                                 
                                 if($stmt = $mysql_db->prepare($sqlStats)){  
                                     if($stmt->execute()){
-                                        echo($param_num_contributions);
-                                        echo($param_user_level);
-                                        //header("location: ../question_list.php");
+                                        header("location: ../question_list.php");
                                     }
                                     else {
                                         echo "Algo deu errado, Tente Novamente!";
@@ -168,24 +168,24 @@
                     if($stmt = $mysql_db->prepare($sql)){
 
                         if ($stmt->execute()) {
-                            $consul = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                            $cons = $mysql_db->query($consul) or die($mysql_db->error);
+                            $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
+                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
                             $dado = $cons->fetch_array();
-        
+                            
                             $param_num_contributions = $dado['num_contributions'] + 1;
                             $param_user_level = $dado['user_level'];
-        
+
                             if($param_num_contributions >= 20){
                                 $param_user_level = 'Abundoso';
                             }
                 
-                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
                             
                             if($stmt = $mysql_db->prepare($sqlStats)){  
                                 if($stmt->execute()){
                                     echo($param_num_contributions);
                                     echo($param_user_level);
-                                    //header("location: ../question_list.php");
+                                    header("location: ../question_list.php");
                                 }
                                 else {
                                     echo "Algo deu errado, Tente Novamente!";

@@ -70,7 +70,6 @@
                         $param_username_1 = NULL;
                         $param_username_2 = NULL;
                         $param_valida = 'i';
-                        $param_id = $_SESSION['id_user'];
 
                         $sqldenuncia = "UPDATE denuncia_validacao SET num_denuncias = '$param_num_denuncias', username_1 = '$param_username_1', username_2 = '$param_username_2' WHERE id_quest = '$param_id'";
                     
@@ -80,35 +79,16 @@
                                 $sql_update_valida = "UPDATE questoes_respostas SET valida = '$param_valida' WHERE id_questao = '$param_id'";
 
                                 if($stmt = $mysql_db->prepare($sql_update_valida)){
-                                    if ($stmt->execute()) {
-                                        $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                                        $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                                        $dado = $cons->fetch_array();
-                    
-                                        $param_num_contributions = $dado['num_contributions'] + 1;
-                                        $param_user_level = $dado['user_level'];
-                    
-                                        if($param_num_contributions >= 20){
-                                            $param_user_level = 'Abundoso';
+                                    if($stmt->execute()){
+
+                                        if ($_SESSION["denounces_from_where"] === 0) {
+                                            header("location: ../question_list.php");
                                         }
-                            
-                                        $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                                        elseif ($_SESSION["denounces_from_where"] === 1) {
+                                            header("location: ../Game/Quests.php");
+                                        }
                                         
-                                        if($stmt = $mysql_db->prepare($sqlStats)){  
-                                            if($stmt->execute()){
-                                                if ($_SESSION["denounces_from_where"] === 0) {
-                                                    header("location: ../question_list.php");
-                                                }
-                                                elseif ($_SESSION["denounces_from_where"] === 1) {
-                                                    header("location: ../Game/Quests.php");
-                                                }
-                                            }
-                                            else {
-                                                echo "Algo deu errado, Tente Novamente!";
-                                            }
-                                        }
-                                    } else {
-                                        echo "Algo deu errado, Tente Novamente!";
+                                        exit();
                                     }
                                 }
 
@@ -131,55 +111,19 @@
                         $sqldenuncia = "UPDATE denuncia_validacao SET num_denuncias = '$param_num_denuncias', username_2 = '$param_username_2' WHERE id_quest = '$param_id'";
                     
                         if($stmt = $mysql_db->prepare($sqldenuncia)){
-                            if ($stmt->execute()) {
-                            $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                            $dado = $cons->fetch_array();
-        
-                            $param_num_contributions = $dado['num_contributions'] + 1;
-                            $param_user_level = $dado['user_level'];
-        
-                            if($param_num_contributions >= 20){
-                                $param_user_level = 'Abundoso';
-                            }
-                
-                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
-                            
-                            if($stmt = $mysql_db->prepare($sqlStats)){  
-                                if ($stmt->execute()) {
-                                    $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                                    $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                                    $dado = $cons->fetch_array();
-                
-                                    $param_num_contributions = $dado['num_contributions'] + 1;
-                                    $param_user_level = $dado['user_level'];
-                
-                                    if($param_num_contributions >= 20){
-                                        $param_user_level = 'Abundoso';
-                                    }
-                        
-                                    $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
-                                    
-                                    if($stmt = $mysql_db->prepare($sqlStats)){  
-                                        if($stmt->execute()){
-                                            if ($_SESSION["denounces_from_where"] === 0) {
-                                                header("location: ../question_list.php");
-                                            }
-                                            elseif ($_SESSION["denounces_from_where"] === 1) {
-                                                header("location: ../Game/Quests.php");
-                                            }
-                                        }
-                                        else {
-                                            echo "Algo deu errado, Tente Novamente!";
-                                        }
-                                    }
-                                } else {
-                                    echo "Algo deu errado, Tente Novamente!";
+                            if($stmt->execute()){
+
+                                if ($_SESSION["denounces_from_where"] === 0) {
+                                    header("location: ../question_list.php");
                                 }
+                                elseif ($_SESSION["denounces_from_where"] === 1) {
+                                    header("location: ../Game/Quests.php");
+                                }
+
+                                exit();
+                            } else{
+                                echo "Oops! Algo deu errado, tente novamente mais tarde!";
                             }
-                        } else {
-                            echo "Algo deu errado, Tente Novamente!";
-                        }
                             $stmt->close();
                         }
                         $mysql_db->close();
@@ -196,55 +140,18 @@
                     
                     if($stmt = $mysql_db->prepare($sqldenuncia)){
 
-                        if ($stmt->execute()) {
-                            $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                            $dado = $cons->fetch_array();
-        
-                            $param_num_contributions = $dado['num_contributions'] + 1;
-                            $param_user_level = $dado['user_level'];
-        
-                            if($param_num_contributions >= 20){
-                                $param_user_level = 'Abundoso';
+                        if($stmt->execute()){
+
+                            if ($_SESSION["denounces_from_where"] === 0) {
+                                header("location: ../question_list.php");
                             }
-                
-                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
-                            
-                            if($stmt = $mysql_db->prepare($sqlStats)){  
-                                if ($stmt->execute()) {
-                                    
-                                    $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                                    $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                                    $dado = $cons->fetch_array();
-                
-                                    $param_num_contributions = $dado['num_contributions'] + 1;
-                                    $param_user_level = $dado['user_level'];
-                
-                                    if($param_num_contributions >= 20){
-                                        $param_user_level = 'Abundoso';
-                                    }
-                        
-                                    $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
-                                    
-                                    if($stmt = $mysql_db->prepare($sqlStats)){  
-                                        if($stmt->execute()){
-                                            if ($_SESSION["denounces_from_where"] === 0) {
-                                                header("location: ../question_list.php");
-                                            }
-                                            elseif ($_SESSION["denounces_from_where"] === 1) {
-                                                header("location: ../Game/Quests.php");
-                                            }
-                                        }
-                                        else {
-                                            echo "Algo deu errado, Tente Novamente!";
-                                        }
-                                    }
-                                } else {
-                                    echo "Algo deu errado, Tente Novamente!";
-                                }
+                            elseif ($_SESSION["denounces_from_where"] === 1) {
+                                header("location: ../Game/Quests.php");
                             }
-                        } else {
-                            echo "Algo deu errado, Tente Novamente!";
+
+                            exit();
+                        } else{
+                            echo "Oops! Algo deu errado, tente novamente mais tarde!";
                         }
                         $stmt->close();
                     }
