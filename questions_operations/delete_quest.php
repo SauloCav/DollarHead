@@ -26,6 +26,9 @@
                 if($param_num_contributions >= 20){
                     $param_user_level = 'Abundante';
                 }
+                else if($param_num_contributions >= 50){
+                    $param_user_level = 'Rasga Moeda';
+                }
     
                 $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
                 
