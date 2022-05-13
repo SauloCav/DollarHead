@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $param_user_level = $dado['user_level'];
 
                     if($param_num_contributions >= 20){
-                        $param_user_level = 'Abundoso';
+                        $param_user_level = 'Abundante';
                     }
         
                     $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $param_user_level = $dado['user_level'];
 
                         if($param_num_contributions >= 20){
-                            $param_user_level = 'Abundoso';
+                            $param_user_level = 'Abundante';
                         }
             
                         $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
