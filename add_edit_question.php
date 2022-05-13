@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $param_num_contributions = $dado['num_contributions'] + 1;
                     $param_user_level = $dado['user_level'];
 
-                    if($param_num_contributions >= 20){
+                    if($param_num_contributions >= 20 && $param_num_contributions < 50){
                         $param_user_level = 'Abundante';
                     }
                     else if($param_num_contributions >= 50){
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $param_num_contributions = $dado['num_contributions'] + 1;
                         $param_user_level = $dado['user_level'];
 
-                        if($param_num_contributions >= 20){
+                        if($param_num_contributions >= 20 && $param_num_contributions < 50){
                             $param_user_level = 'Abundante';
                         }
                         else if($param_num_contributions >= 50){
