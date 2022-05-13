@@ -22,7 +22,6 @@
                 $dado = $cons->fetch_array();
 
                 $param_n_partidas_jogadas = $dado['n_partidas_jogadas'] + 1;
-                $param_n_tot_perg_resp = $dado['n_tot_perg_resp'] + $_SESSION["n_respostas"];
                 if($_SESSION["elimina_alternativas"] === 1){
                     $param_n_util_eli_duas_altern = $dado['n_util_eli_duas_altern'] + 1;
                 }
@@ -32,7 +31,7 @@
                 $param_n_derr_erro = $dado['n_derr_erro'] + 1;
                 $param_premio_total = $dado['premio_total'] + $_SESSION["prize"];
     
-                $sqlStats = "UPDATE stats SET n_partidas_jogadas = '$param_n_partidas_jogadas', n_tot_perg_resp = '$param_n_tot_perg_resp', n_util_eli_duas_altern = '$param_n_util_eli_duas_altern', n_derr_erro = '$param_n_derr_erro', premio_total = '$param_premio_total' 
+                $sqlStats = "UPDATE stats SET n_partidas_jogadas = '$param_n_partidas_jogadas', n_util_eli_duas_altern = '$param_n_util_eli_duas_altern', n_derr_erro = '$param_n_derr_erro', premio_total = '$param_premio_total' 
                 WHERE id_user_stats = '$param_id'";
                 
                 if($stmt = $mysql_db->prepare($sqlStats)){  

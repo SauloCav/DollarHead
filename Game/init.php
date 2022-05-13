@@ -27,13 +27,14 @@
 	$_SESSION['parar'] = "Parar: R$ 0 Mil";
 	$_SESSION['errar'] = "Errar: R$ 0 Mil";
 	$_SESSION['quest_atual'] = 1;
-	$_SESSION["quest_1"] = $row_dif_1[5];
-	$_SESSION["quest_2"] = $row_dif_1[8];
-	$_SESSION["quest_3"] = $row_dif_2[9];
+	$_SESSION["quest_1"] = $row_dif_1[1];
+	$_SESSION["quest_2"] = $row_dif_1[2];
+	$_SESSION["quest_3"] = $row_dif_2[1];
 	$_SESSION["quest_4"] = $row_dif_2[2];
-	$_SESSION["quest_5"] = $row_dif_2[5];
-	$_SESSION["quest_6"] = $row_dif_3[3];
-	$_SESSION["quest_7"] = $row_dif_3[6];
+	$_SESSION["quest_5"] = $row_dif_2[3];
+	$_SESSION["quest_6"] = $row_dif_3[1];
+	$_SESSION["quest_7"] = $row_dif_3[2];
+	$_SESSION['quest'] = "quest_1";
 
 ?>
 
