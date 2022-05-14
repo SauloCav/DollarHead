@@ -1,23 +1,5 @@
 <?php
-
 	session_start();
-	require_once '../config/config.php';
-
-	print_r($_SESSION["quest_1"]);
-	echo("1 <br/>");
-	print_r($_SESSION["quest_2"]);
-	echo("2 <br/>");
-	print_r($_SESSION["quest_3"]);
-	echo("3 <br/>");
-	print_r($_SESSION["quest_4"]);
-	echo("4 <br/>");
-	print_r($_SESSION["quest_5"]);
-	echo("5 <br/>");
-	print_r($_SESSION["quest_6"]);
-	echo("6 <br/>");
-	print_r($_SESSION["quest_7"]);
-	echo("7 <br/>");
-
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +14,7 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(5%); 
+            transform: translateY(4%); 
         }
         .wrapper{ 
         	width: 1800px; 
@@ -44,6 +26,11 @@
 		.wrapper h3 {
 			text-align: center;
 		}
+		.wrapper h5 {
+			transform: translateY(-20%); 
+			text-align: center;
+			color: green;
+		}
         .wrapper form .form-group span {color: red;}
 	</style>
 </head>
@@ -52,9 +39,11 @@
 		<section class="container wrapper">
 			<div class="page-header">
 				<h1 class="display-5"><strong> Questão <?php echo $_SESSION['quest_atual']; ?></strong></h1>
+				<h5 class="display-5"><strong> ( <?php echo $_SESSION[$_SESSION["quest"]][7]; ?> ) </strong></h5>
 			</div>
 
 			<?php
+
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 					foreach ($_POST as $key => $value) {

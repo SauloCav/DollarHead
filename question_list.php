@@ -117,8 +117,8 @@
 						else {
 							echo '<th style="text-align: center;"> Denúncias: '.$dado["num_denuncias"].'</th>';
 							echo '<th> <input type="submit" name='.$_SESSION["dados"][0].' class="btn btn-block btn btn-outline-dark" value="Denunciar"> </th>';
-								echo '<th style="text-align: center;"> Não editável </th>';
-								echo '<th style="text-align: center;"> Não excluível </th>';
+							echo '<th style="text-align: center;"> Não editável </th>';
+							echo '<th style="text-align: center;"> Não excluível </th>';
 						} 
 						?> 
 					</form>
