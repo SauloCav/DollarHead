@@ -13,7 +13,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Tela Inicial</title>
+	<title>Rules</title>
 	<link rel="shortcut icon" href="./img/12130brain_109577.ico" />
 	<style>
 	</style>
