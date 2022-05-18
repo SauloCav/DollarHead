@@ -6,3 +6,5 @@ O objetivo é conseguir o prêmio de 1 milhão de dólares. As perguntas são de
 <p align="center"><img src="Readme/table.png" /></p>
 
 Projeto Base: https://github.com/SauloCav/Quizgame-PHP.git
+
+Link telas prototipadas no Figma: https://www.figma.com/file/izvhsbXeyZXbplkn5ZSQ4c/DollarHead?node-id=0%3A1
