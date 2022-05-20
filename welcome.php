@@ -9,6 +9,14 @@
 
 	require_once 'config/config.php';
 
+	$param_id = $_SESSION['id_user'];
+
+	$consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+    $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+	$level = $cons->fetch_array();
+
+	$_SESSION['user_level'] = $level['user_level'];
+
 ?>
 
 <!DOCTYPE html>

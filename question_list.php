@@ -50,8 +50,9 @@
 			padding: 50px; 
         }
 		.wrapper a {
-			width: 1400px; 
+			width: 1100px; 
 			position: relative;
+
 		}
         .wrapper h1 {
 			text-align: center;

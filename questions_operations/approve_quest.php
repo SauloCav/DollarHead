@@ -62,73 +62,175 @@
                 $con = $mysql_db->query($consulta) or die($mysql_db->error);
                 $dado = $con->fetch_array();
 
-                if ($dado[2] === '2') {
-                    if (($_SESSION['username'] != $dado[3]) && ($_SESSION['username'] != $dado[4])) {
-                        $param_num_validacoes = 0;
-                        $param_username_1 = NULL;
-                        $param_username_2 = NULL;
-                        $param_valida = 'v';
+                if($_SESSION['user_level'] == 'Rasga Moeda' || $_SESSION['user_level'] == 'Abundante'){
 
-                        $sql = "UPDATE denuncia_validacao SET num_validacoes = '$param_num_validacoes', username_1 = '$param_username_1', username_2 = '$param_username_2' WHERE id_quest = '$param_id'";
-                    
-                        if($stmt = $mysql_db->prepare($sql)){
-                            if($stmt->execute()){
-
-                                $sql_update_valida = "UPDATE questoes_respostas SET valida = '$param_valida' WHERE id_questao = '$param_id'";
-
-                                if($stmt = $mysql_db->prepare($sql_update_valida)){
-                                    if ($stmt->execute()) {
-                                        
-                                        $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
-                                        $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                                        $dado = $cons->fetch_array();
-                                        
-                                        $param_num_contributions = $dado['num_contributions'] + 1;
-                                        $param_user_level = $dado['user_level'];
-
-                                        if($param_num_contributions >= 20 && $param_num_contributions < 50){
-                                            $param_user_level = 'Abundante';
-                                        }
-                                        else if($param_num_contributions >= 50){
-                                            $param_user_level = 'Rasga Moeda';
-                                        }
-                            
-                                        $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
-                                        
-                                        if($stmt = $mysql_db->prepare($sqlStats)){  
-                                            if($stmt->execute()){
-                                                echo($param_num_contributions);
-                                                echo($param_user_level);
-                                                header("location: ../question_list.php");
+                    $param_num_validacoes = 0;
+                            $param_username_1 = NULL;
+                            $param_username_2 = NULL;
+                            $param_valida = 'v';
+    
+                            $sql = "UPDATE denuncia_validacao SET num_validacoes = '$param_num_validacoes', username_1 = '$param_username_1', username_2 = '$param_username_2' WHERE id_quest = '$param_id'";
+                        
+                            if($stmt = $mysql_db->prepare($sql)){
+                                if($stmt->execute()){
+    
+                                    $sql_update_valida = "UPDATE questoes_respostas SET valida = '$param_valida' WHERE id_questao = '$param_id'";
+    
+                                    if($stmt = $mysql_db->prepare($sql_update_valida)){
+                                        if ($stmt->execute()) {
+                                            
+                                            $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
+                                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+                                            $dado = $cons->fetch_array();
+                                            
+                                            $param_num_contributions = $dado['num_contributions'] + 1;
+                                            $param_user_level = $dado['user_level'];
+    
+                                            if($param_num_contributions >= 20 && $param_num_contributions < 50){
+                                                $param_user_level = 'Abundante';
                                             }
-                                            else {
-                                                echo "Algo deu errado, Tente Novamente!";
+                                            else if($param_num_contributions >= 50){
+                                                $param_user_level = 'Rasga Moeda';
                                             }
+                                
+                                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
+                                            
+                                            if($stmt = $mysql_db->prepare($sqlStats)){  
+                                                if($stmt->execute()){
+                                                    echo($param_num_contributions);
+                                                    echo($param_user_level);
+                                                    header("location: ../question_list.php");
+                                                }
+                                                else {
+                                                    echo "Algo deu errado, Tente Novamente!";
+                                                }
+                                            }
+                                        } else {
+                                            echo "Algo deu errado, Tente Novamente!";
                                         }
-                                    } else {
-                                        echo "Algo deu errado, Tente Novamente!";
                                     }
+    
+                                } else{
+                                    echo "Oops! Algo deu errado, tente novamente mais tarde!";
                                 }
-
-                            } else{
-                                echo "Oops! Algo deu errado, tente novamente mais tarde!";
+                                $stmt->close();
                             }
-                            $stmt->close();
-                        }
-                        $mysql_db->close();
-                    }
-                    else {
-                        echo '<br/><h4>Você já validou essa Questão!</h4>';
-                    }
-                }
-                elseif ($dado[2] === '1') {
-                    if (($_SESSION['username'] != $dado[3]) && ($_SESSION['username'] != $dado[4])) {
-                        $param_num_validacoes = 2;
-                        $param_username_2 = $_SESSION['username'];
+                            $mysql_db->close();
 
-                        $sql = "UPDATE denuncia_validacao SET num_validacoes = '$param_num_validacoes', username_2 = '$param_username_2' WHERE id_quest = '$param_id'";
+                }
+                else{
+                    if ($dado[2] === '2') {
+                        if (($_SESSION['username'] != $dado[3]) && ($_SESSION['username'] != $dado[4])) {
+
+                            $param_num_validacoes = 0;
+                            $param_username_1 = NULL;
+                            $param_username_2 = NULL;
+                            $param_valida = 'v';
+    
+                            $sql = "UPDATE denuncia_validacao SET num_validacoes = '$param_num_validacoes', username_1 = '$param_username_1', username_2 = '$param_username_2' WHERE id_quest = '$param_id'";
+                        
+                            if($stmt = $mysql_db->prepare($sql)){
+                                if($stmt->execute()){
+    
+                                    $sql_update_valida = "UPDATE questoes_respostas SET valida = '$param_valida' WHERE id_questao = '$param_id'";
+    
+                                    if($stmt = $mysql_db->prepare($sql_update_valida)){
+                                        if ($stmt->execute()) {
+                                            
+                                            $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
+                                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+                                            $dado = $cons->fetch_array();
+                                            
+                                            $param_num_contributions = $dado['num_contributions'] + 1;
+                                            $param_user_level = $dado['user_level'];
+    
+                                            if($param_num_contributions >= 20 && $param_num_contributions < 50){
+                                                $param_user_level = 'Abundante';
+                                            }
+                                            else if($param_num_contributions >= 50){
+                                                $param_user_level = 'Rasga Moeda';
+                                            }
+                                
+                                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
+                                            
+                                            if($stmt = $mysql_db->prepare($sqlStats)){  
+                                                if($stmt->execute()){
+                                                    echo($param_num_contributions);
+                                                    echo($param_user_level);
+                                                    header("location: ../question_list.php");
+                                                }
+                                                else {
+                                                    echo "Algo deu errado, Tente Novamente!";
+                                                }
+                                            }
+                                        } else {
+                                            echo "Algo deu errado, Tente Novamente!";
+                                        }
+                                    }
+    
+                                } else{
+                                    echo "Oops! Algo deu errado, tente novamente mais tarde!";
+                                }
+                                $stmt->close();
+                            }
+                            $mysql_db->close();
+                        }
+                        else {
+                            echo '<br/><h4>Você já validou essa Questão!</h4>';
+                        }
+                    }
+                    elseif ($dado[2] === '1') {
+                        if (($_SESSION['username'] != $dado[3]) && ($_SESSION['username'] != $dado[4])) {
+                            $param_num_validacoes = 2;
+                            $param_username_2 = $_SESSION['username'];
+    
+                            $sql = "UPDATE denuncia_validacao SET num_validacoes = '$param_num_validacoes', username_2 = '$param_username_2' WHERE id_quest = '$param_id'";
+                        
+                            if($stmt = $mysql_db->prepare($sql)){
+                                if ($stmt->execute()) {
+                                    $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
+                                    $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+                                    $dado = $cons->fetch_array();
+                                    
+                                    $param_num_contributions = $dado['num_contributions'] + 1;
+                                    $param_user_level = $dado['user_level'];
+    
+                                    if($param_num_contributions >= 20 && $param_num_contributions < 50){
+                                        $param_user_level = 'Abundante';
+                                    }
+                                    else if($param_num_contributions >= 50){
+                                        $param_user_level = 'Rasga Moeda';
+                                    }
+                        
+                                    $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
+                                    
+                                    if($stmt = $mysql_db->prepare($sqlStats)){  
+                                        if($stmt->execute()){
+                                            header("location: ../question_list.php");
+                                        }
+                                        else {
+                                            echo "Algo deu errado, Tente Novamente!";
+                                        }
+                                    }
+                                } else {
+                                    echo "Algo deu errado, Tente Novamente!";
+                                }
+                                $stmt->close();
+                            }
+                            $mysql_db->close();
+                        }
+                        else {
+                            echo '<br/><h4>Você já validou essa Questão!</h4>';
+                        }
+                    }
+                    elseif ($dado[2] === '0') {
+                        $param_num_validacoes = 1;
+                        $param_username_1 = $_SESSION['username'];
                     
+                        $sql = "UPDATE denuncia_validacao SET num_validacoes = '$param_num_validacoes', username_1 = '$param_username_1' WHERE id_quest = '$param_id'";
+                        
                         if($stmt = $mysql_db->prepare($sql)){
+    
                             if ($stmt->execute()) {
                                 $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
                                 $cons = $mysql_db->query($consulta) or die($mysql_db->error);
@@ -136,7 +238,7 @@
                                 
                                 $param_num_contributions = $dado['num_contributions'] + 1;
                                 $param_user_level = $dado['user_level'];
-
+    
                                 if($param_num_contributions >= 20 && $param_num_contributions < 50){
                                     $param_user_level = 'Abundante';
                                 }
@@ -148,6 +250,8 @@
                                 
                                 if($stmt = $mysql_db->prepare($sqlStats)){  
                                     if($stmt->execute()){
+                                        echo($param_num_contributions);
+                                        echo($param_user_level);
                                         header("location: ../question_list.php");
                                     }
                                     else {
@@ -161,52 +265,7 @@
                         }
                         $mysql_db->close();
                     }
-                    else {
-                        echo '<br/><h4>Você já validou essa Questão!</h4>';
-                    }
                 }
-                elseif ($dado[2] === '0') {
-                    $param_num_validacoes = 1;
-                    $param_username_1 = $_SESSION['username'];
-                
-                    $sql = "UPDATE denuncia_validacao SET num_validacoes = '$param_num_validacoes', username_1 = '$param_username_1' WHERE id_quest = '$param_id'";
-                    
-                    if($stmt = $mysql_db->prepare($sql)){
-
-                        if ($stmt->execute()) {
-                            $consulta = "SELECT * FROM stats WHERE id_user_stats = $param_id_user";
-                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                            $dado = $cons->fetch_array();
-                            
-                            $param_num_contributions = $dado['num_contributions'] + 1;
-                            $param_user_level = $dado['user_level'];
-
-                            if($param_num_contributions >= 20 && $param_num_contributions < 50){
-                                $param_user_level = 'Abundante';
-                            }
-                            else if($param_num_contributions >= 50){
-                                $param_user_level = 'Rasga Moeda';
-                            }
-                
-                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id_user'";
-                            
-                            if($stmt = $mysql_db->prepare($sqlStats)){  
-                                if($stmt->execute()){
-                                    echo($param_num_contributions);
-                                    echo($param_user_level);
-                                    header("location: ../question_list.php");
-                                }
-                                else {
-                                    echo "Algo deu errado, Tente Novamente!";
-                                }
-                            }
-                        } else {
-                            echo "Algo deu errado, Tente Novamente!";
-                        }
-                        $stmt->close();
-                    }
-                    $mysql_db->close();
-                }         
 
             }
 	    }

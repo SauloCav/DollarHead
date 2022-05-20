@@ -94,7 +94,6 @@
             require_once '../config/config.php';
 
             $param_key = $_SESSION["key"];
-            $param_id = $_SESSION['id_user'];
             
             $quest = "SELECT *FROM questoes_respostas WHERE id_questao = $param_key";
             $ques = $mysql_db->query($quest) or die($mysql_db->error);
@@ -111,11 +110,7 @@
 
             echo "</div>";
 
-            $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-            $stats = $cons->fetch_array();
-
-            if($stats['user_level'] == 'Rasga Moeda'){
+            if($_SESSION['user_level'] == 'Rasga Moeda'){
                 echo '<form method="post">';
                     echo '<input type="submit" name="sim" class="btn btn-block btn-primary" value="Sim"><br>';
                 echo '</form>';
