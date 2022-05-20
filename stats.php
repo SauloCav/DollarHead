@@ -9,6 +9,19 @@
 	$consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
     $cons = $mysql_db->query($consulta) or die($mysql_db->error);
 
+    $dataPoints = array(
+        array("x"=> 1, "y"=> 41),
+        array("x"=> 2, "y"=> 35, "indexLabel"=> "Lowest"),
+        array("x"=> 3, "y"=> 50),
+        array("x"=> 4, "y"=> 45),
+        array("x"=> 5, "y"=> 52),
+        array("x"=> 6, "y"=> 68),
+        array("x"=> 7, "y"=> 38),
+        array("x"=> 8, "y"=> 71, "indexLabel"=> "Highest"),
+        array("x"=> 9, "y"=> 52),
+        array("x"=> 10, "y"=> 60),
+    );
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +38,11 @@
         body {
             font-family: 'Poppins', sans-serif;
             position: relative;
-            top: 20%;
-            transform: translateY(75%); 
+            transform: translateY(7%); 
         }
         .wrapper{ 
         	width: 1800px; 
-        	padding: 20px; 
+        	padding: 40px; 
         }
         .wrapper h1 {
 			text-align: center;
@@ -40,6 +52,31 @@
 			text-align: center;  
 		}
 	</style>
+    <script>
+        window.onload = function () {
+        
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            exportEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title:{
+                text: "Premiação recebida nas últimas 10 partidas"
+            },
+            axisY:{
+                includeZero: true
+            },
+            data: [{
+                type: "column", //change type to bar, line, area, pie, etc
+                //indexLabel: "{y}", //Shows y value on all Data Points
+                indexLabelFontColor: "#5A5757",
+                indexLabelPlacement: "inside",   
+                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        chart.render();
+        
+        }
+    </script>
 </head>
 <body>
 	<main>
@@ -72,8 +109,15 @@
                         </tr> 
                     <?php } ?> 
                 </table>
+            
+            <br><br>
+            
+            <div id="chartContainer" style="height: 250px; width: 100%;"></div>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-                <a class="btn btn-block btn-link bg-light" href="welcome.php">Sair</a>
+            <br><br>
+
+            <a class="btn btn-block btn-link bg-light" href="welcome.php">Sair</a>
                 
 		</section>
 	</main>
