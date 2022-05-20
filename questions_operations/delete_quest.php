@@ -64,7 +64,7 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(15%); 
+            transform: translateY(14%); 
         }
         .wrapper{ 
         	width: 1800px; 
@@ -93,12 +93,11 @@
 
             require_once '../config/config.php';
 
-
             $param_key = $_SESSION["key"];
+            $param_id = $_SESSION['id_user'];
             
             $quest = "SELECT *FROM questoes_respostas WHERE id_questao = $param_key";
             $ques = $mysql_db->query($quest) or die($mysql_db->error);
-
             $dado = $ques->fetch_array();
 
             echo "<div id='quest'>";
@@ -112,11 +111,22 @@
 
             echo "</div>";
 
-            echo '<form method="post">';
-            echo '<input type="submit" name="sim" class="btn btn-block btn-primary" value="Sim"><br>';
-            echo '</form>';
+            $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+            $stats = $cons->fetch_array();
 
-            echo '<a class="btn btn-block btn-link bg-light" href="../question_list.php">Nao</a>';
+            if($stats['user_level'] == 'Rasga Moeda'){
+                echo '<form method="post">';
+                    echo '<input type="submit" name="sim" class="btn btn-block btn-primary" value="Sim"><br>';
+                echo '</form>';
+
+                echo '<a class="btn btn-block btn-link bg-light" href="../question_list.php">Nao</a>';
+            }
+            else{
+                echo "<h3 style='color: red; text-align: center;'><strong> Apenas Rasgadores de Moeda estão autorizados a deletar questões! </strong></h3>";
+                echo "<br>";
+                echo '<a class="btn btn-block btn-link bg-light" href="../question_list.php">Sair</a>';
+            }
 
         ?>
 
