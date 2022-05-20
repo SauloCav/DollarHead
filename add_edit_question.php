@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $param_indice_dif = (int)$indice_dif;
         $param_assunto_quest = $assunto_quest;
         $param_key = $_SESSION["key"];
+        $param_id = $_SESSION['id_user'];
         $param_valida = 'i';
 
         if($_SESSION["isEdit"] === 0){
@@ -108,34 +109,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $param_id_resp = mysqli_insert_id($mysql_db);
     
                     $sqldv = "INSERT INTO denuncia_validacao (num_denuncias, num_validacoes, id_quest) VALUES (0, 0, '$param_id_resp')";
-    
+
                     if ($stmt = $mysql_db->prepare($sqldv)) {
-                        
-                        $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
-                        $cons = $mysql_db->query($consulta) or die($mysql_db->error);
-                        $dado = $cons->fetch_array();
+                   
+                        if ($stmt->execute()) {
+    
+                            $consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+                            $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+                            $dado = $cons->fetch_array();
 
-                        $param_num_contributions = $dado['num_contributions'] + 1;
-                        $param_user_level = $dado['user_level'];
+                            $param_num_contributions = $dado['num_contributions'] + 1;
+                            $param_user_level = $dado['user_level'];
 
-                        if($param_num_contributions >= 20 && $param_num_contributions < 50){
-                            $param_user_level = 'Abundante';
-                        }
-                        else if($param_num_contributions >= 50){
-                            $param_user_level = 'Rasga Moeda';
-                        }
-            
-                        $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
-                        
-                        if($stmt = $mysql_db->prepare($sqlStats)){  
-                            if($stmt->execute()){
-                                header('location: ./question_board.php');
+                            if($param_num_contributions >= 20 && $param_num_contributions < 50){
+                                $param_user_level = 'Abundante';
                             }
-                            else {
-                                echo "Algo deu errado, Tente Novamente!";
+                            else if($param_num_contributions >= 50){
+                                $param_user_level = 'Rasga Moeda';
                             }
-                        }
+                
+                            $sqlStats = "UPDATE stats SET num_contributions = '$param_num_contributions', user_level = '$param_user_level' WHERE id_user_stats = '$param_id'";
+                            
+                            if($stmt = $mysql_db->prepare($sqlStats)){  
+                                if($stmt->execute()){
+                                    header('location: ./question_board.php');
+                                }
+                                else {
+                                    echo "Algo deu errado, Tente Novamente!";
+                                }
+                            }
 
+                        }
                     }
                 } else {
                     echo "Algo deu errado, Tente Novamente!";

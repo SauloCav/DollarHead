@@ -4,6 +4,14 @@
 
 	require_once 'config/config.php';
 
+	$param_id = $_SESSION['id_user'];
+
+	$consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+    $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+	$level = $cons->fetch_array();
+
+	$_SESSION['user_level'] = $level['user_level'];
+
 	$consulta = "SELECT qr.id_questao, qr.pergunta, qr.resp_correta, qr.resp_a, qr.resp_b, qr.resp_c, qr.indice_dif, qr.quest_topico, qr.valida, dv.num_denuncias, dv.num_validacoes
 		FROM (questoes_respostas qr 
 		  JOIN 
