@@ -21,7 +21,18 @@
     $row_dif_3 = mysqli_fetch_all($ques_three);
     shuffle($row_dif_3);
 
-	$_SESSION["elimina_alternativas"] = 0;
+    $param_id = $_SESSION['id_user'];
+
+	$consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
+    $cons = $mysql_db->query($consulta) or die($mysql_db->error);
+	$dado = $cons->fetch_array();
+
+	if($dado['user_level'] == 'Rasga Moeda'){
+		$_SESSION["elimina_alternativas"] = 2;
+	}
+	else{
+		$_SESSION["elimina_alternativas"] = 1;
+	}
 	$_SESSION['n_respostas'] = 0;
 	$_SESSION['acertar'] = "Acertar: R$ 1 Mil";
 	$_SESSION['parar'] = "Parar: R$ 0 Mil";

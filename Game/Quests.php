@@ -86,6 +86,7 @@
 						}
 					}
 					elseif (array_key_exists('buttomCorrect', $_POST)) {
+						$showButton = 0;
 						$_SESSION['quest_atual'] = $_SESSION['quest_atual'] + 1;
 
 						if ($_SESSION["quest_atual"] === 2) {
@@ -183,9 +184,11 @@
 
 				<?php
 
+					$showButton = 0;
+
 					if (array_key_exists('elimina', $_POST)) {
 
-						$_SESSION["elimina_alternativas"] = 1;
+						$_SESSION["elimina_alternativas"] = $_SESSION["elimina_alternativas"] - 1;
 
 						$divs = array('<div id="divFirst"><input type="submit" name="buttomCorrect" 
 						class="btn btn-block btn btn-outline-primary" value= "'.$_SESSION[$_SESSION["quest"]][2].'" /> <br/></div>',
@@ -193,6 +196,8 @@
 						class="btn btn-block btn btn-outline-primary" value= "'.$_SESSION[$_SESSION["quest"]][3].'" /> <br/></div>');
 
 						shuffle($divs);
+
+						$showButton = 1;
 
 						echo $divs[0];
 						echo $divs[1];
@@ -218,7 +223,7 @@
 
 					}
 
-					if ($_SESSION["elimina_alternativas"] === 0) {
+					if ($_SESSION["elimina_alternativas"] !== 0 && $showButton === 0) {
 						echo '<input type="submit" name="elimina" class="btn btn-block btn btn-warning"value="Eliminar duas Alternativas">';
 					}
 
