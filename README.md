@@ -17,4 +17,8 @@ Há também uma aba onde o jogador pode visualizar as regras e as explicações 
 
 Link telas prototipadas no Figma: https://www.figma.com/file/izvhsbXeyZXbplkn5ZSQ4c/DollarHead?node-id=0%3A1
 
+Diagramas UML: https://github.com/SauloCav/DollarHead/tree/main/Documentation/diagramas%20UML
+
+Documentação do banco de dados: https://github.com/SauloCav/DollarHead/tree/main/Documentation/dataBase
+
 Projeto Base: https://github.com/SauloCav/Quizgame-PHP.git
