@@ -52,6 +52,13 @@ CREATE TABLE denuncia_validacao (
 	FOREIGN KEY(id_quest) references questoes_respostas(id_questao)
 );
 
+CREATE TABLE latest_scores (
+    id_latest_scores INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	prize_ INT NOT NULL,
+    id_user_latest_scores INT NOT NULL,
+	FOREIGN KEY(id_user_latest_scores) references users(id_user)
+);
+
 select * from users;
 select * from questoes_respostas;
 select * from denuncia_validacao;
