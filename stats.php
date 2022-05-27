@@ -9,17 +9,16 @@
 	$consulta = "SELECT * FROM stats WHERE id_user_stats = '$param_id'";
     $cons = $mysql_db->query($consulta) or die($mysql_db->error);
 
+    $consul = "SELECT * FROM latest_scores WHERE id_user_latest_scores = '$param_id'";
+    $con = $mysql_db->query($consul) or die($mysql_db->error);
+    $latest_scores = $con->fetch_array();
+
     $dataPoints = array(
-        array("x"=> 1, "y"=> 41),
-        array("x"=> 2, "y"=> 35, "indexLabel"=> "Lowest"),
-        array("x"=> 3, "y"=> 50),
-        array("x"=> 4, "y"=> 45),
-        array("x"=> 5, "y"=> 52),
-        array("x"=> 6, "y"=> 68),
-        array("x"=> 7, "y"=> 38),
-        array("x"=> 8, "y"=> 71, "indexLabel"=> "Highest"),
-        array("x"=> 9, "y"=> 52),
-        array("x"=> 10, "y"=> 60),
+        array("x"=> 1, "y"=> $latest_scores['prize05']),
+        array("x"=> 2, "y"=> $latest_scores['prize04']),
+        array("x"=> 3, "y"=> $latest_scores['prize03']),
+        array("x"=> 4, "y"=> $latest_scores['prize02']),
+        array("x"=> 5, "y"=> $latest_scores['prize01']),
     );
 
 ?>
@@ -57,21 +56,25 @@
         
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
-            exportEnabled: true,
             theme: "light2", // "light1", "light2", "dark1", "dark2"
             title:{
-                text: "Premiação recebida nas últimas 10 partidas"
+                text: "Premiação recebida nas últimas 5 partidas"
             },
-            axisY:{
-                includeZero: true
-            },
-            data: [{
-                type: "column", //change type to bar, line, area, pie, etc
-                //indexLabel: "{y}", //Shows y value on all Data Points
-                indexLabelFontColor: "#5A5757",
-                indexLabelPlacement: "inside",   
-                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-            }]
+            axisY: {
+            includeZero: true,
+            prefix: "$",
+            suffix:  "k"
+        },
+        data: [{
+            type: "bar",
+            yValueFormatString: "$#,##0K",
+            indexLabel: "{y}",
+            indexLabelPlacement: "inside",
+            indexLabelFontWeight: "bolder",
+            indexLabelFontColor: "white",
+            dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+        }]
+
         });
         chart.render();
         
