@@ -122,7 +122,7 @@
 				<a href="question_board.php" class="btn btn-block btn-secondary btn-outline-warning">Painel de Questões</a>
 				<a href="ranking.php" class="btn btn-block btn-secondary btn-outline-warning" >Hall da Fama</a>
 				<a href="stats.php" class="btn btn-block btn-secondary btn-outline-warning">Visualizar Stats</a>
-				<a href="rules.php" class="btn btn-block btn-secondary btn-outline-warning">Regras do Jogo</a>
+				<a href="rules.php" class="btn btn-block btn-secondary btn-outline-warning">Regras e Funcionalidades</a>
 				<a href="logout.php" class="btn btn-block btn-secondary btn-outline-warning" href="welcome.php">Sair</a>
 			</div>
 			<div class="page-footer">
