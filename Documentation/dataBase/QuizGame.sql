@@ -30,6 +30,22 @@ CREATE TABLE ranking (
 	FOREIGN KEY(id_usuario) references users(id_user)
 );
 
+CREATE TABLE latest_scores (
+    id_latest_scores INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    prize01 INT NOT NULL,
+    prize02 INT NOT NULL,
+    prize03 INT NOT NULL,
+    prize04 INT NOT NULL,
+    prize05 INT NOT NULL,
+    prize06 INT NOT NULL,
+    prize07 INT NOT NULL,
+    prize08 INT NOT NULL,
+    prize09 INT NOT NULL,
+    prize10 INT NOT NULL,
+    id_user_latest_scores INT NOT NULL,
+    FOREIGN KEY(id_user_latest_scores) references users(id_user)
+);
+
 CREATE TABLE questoes_respostas (
     id_questao INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     pergunta varchar(100) NOT NULL,
@@ -50,13 +66,6 @@ CREATE TABLE denuncia_validacao (
 	username_2 varchar(50),
     id_quest INT NOT NULL,
 	FOREIGN KEY(id_quest) references questoes_respostas(id_questao)
-);
-
-CREATE TABLE latest_scores (
-    id_latest_scores INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	prize_ INT NOT NULL,
-    id_user_latest_scores INT NOT NULL,
-	FOREIGN KEY(id_user_latest_scores) references users(id_user)
 );
 
 select * from users;
