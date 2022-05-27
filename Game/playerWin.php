@@ -34,12 +34,33 @@
                 
                 if($stmt = $mysql_db->prepare($sqlStats)){  
                     if($stmt->execute()){
-                        if(array_key_exists('reiniciar', $_POST)){
-                            header('location: init.php');
+
+                        $consul = "SELECT * FROM latest_scores WHERE id_user_latest_scores = '$param_id'";
+                        $con = $mysql_db->query($consul) or die($mysql_db->error);
+                        $latest_scores = $con->fetch_array();
+
+                        if($latest_scores['prize01'] == null){
+                            
                         }
-                        if(array_key_exists('sair', $_POST)){
-                            header('location: ../welcome.php');
+                        elseif($latest_scores['prize02'] == null){
+                            
                         }
+                        elseif($latest_scores['prize03'] == null){
+                            
+                        }
+                        elseif($latest_scores['prize04'] == null){
+                            
+                        }
+                        elseif($latest_scores['prize05'] == null){
+                            
+                        }
+
+                            if(array_key_exists('reiniciar', $_POST)){
+                                header('location: init.php');
+                            }
+                            if(array_key_exists('sair', $_POST)){
+                                header('location: ../welcome.php');
+                            }
                     }
                     else {
                         echo "Algo deu errado, Tente Novamente!";

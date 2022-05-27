@@ -87,7 +87,17 @@
 							
 					if ($stmt = $mysql_db->prepare($sqlStats)) {
 						if ($stmt->execute()) {
-							header('location: ./index.php');
+
+							$param_id_latest_scores = mysqli_insert_id($mysql_db);
+		
+							$sql_latest_scores = "INSERT INTO latest_scores (prize01, prize02, prize03, prize04, prize05, id_user_latest_scores) 
+							VALUES(NULL, NULL, NULL, NULL, NULL, '$param_id_latest_scores')";
+
+							if ($stmt = $mysql_db->prepare($sql_latest_scores)) {
+								if ($stmt->execute()) {
+									header('location: ./index.php');
+								}
+							}
 						} 
 						else {
 							echo "Algo deu errado, Tente Novamente!";
