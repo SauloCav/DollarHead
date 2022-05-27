@@ -31,19 +31,14 @@ CREATE TABLE ranking (
 );
 
 CREATE TABLE latest_scores (
-    id_latest_scores INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    prize01 INT NOT NULL,
-    prize02 INT NOT NULL,
-    prize03 INT NOT NULL,
-    prize04 INT NOT NULL,
-    prize05 INT NOT NULL,
-    prize06 INT NOT NULL,
-    prize07 INT NOT NULL,
-    prize08 INT NOT NULL,
-    prize09 INT NOT NULL,
-    prize10 INT NOT NULL,
-    id_user_latest_scores INT NOT NULL,
-    FOREIGN KEY(id_user_latest_scores) references users(id_user)
+	id_latest_scores INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	prize01 INT,
+	prize02 INT,
+	prize03 INT,
+	prize04 INT,
+	prize05 INT,
+	id_user_latest_scores INT NOT NULL,
+	FOREIGN KEY(id_user_latest_scores) references users(id_user)
 );
 
 CREATE TABLE questoes_respostas (
@@ -72,4 +67,5 @@ select * from users;
 select * from questoes_respostas;
 select * from denuncia_validacao;
 select * from stats;
+select * from latest_scores;
 select * from ranking;
