@@ -36,12 +36,49 @@
                 
                 if($stmt = $mysql_db->prepare($sqlStats)){  
                     if($stmt->execute()){
-                        if(array_key_exists('reiniciar', $_POST)){
-                            header('location: init.php');
+
+                        $consul = "SELECT * FROM latest_scores WHERE id_user_latest_scores = '$param_id_usuario'";
+                        $con = $mysql_db->query($consul) or die($mysql_db->error);
+                        $latest_scores = $con->fetch_array();
+
+                        $param_recent_prize = $_SESSION["prize"];
+
+                        if(($latest_scores['prize01'] != null) && ($latest_scores['prize02'] != null) && ($latest_scores['prize03'] != null) && ($latest_scores['prize04'] != null) && ($latest_scores['prize05'] != null)){
+                            $param_prize02 = $latest_scores['prize02'];
+                            $param_prize03 = $latest_scores['prize03'];
+                            $param_prize04 = $latest_scores['prize04'];
+                            $param_prize05 = $latest_scores['prize05'];
+
+                            $sql_latest_scores = "UPDATE latest_scores SET prize05 = '$param_recent_prize', prize04 = '$param_prize05', prize03 = '$param_prize04', prize02 = '$param_prize03', prize01 = '$param_prize02' WHERE id_user_latest_scores = '$param_id_usuario'";
                         }
-                        if(array_key_exists('sair', $_POST)){
-                            header('location: ../welcome.php');
+                        else{
+                            if($latest_scores['prize01'] == null){
+                                $sql_latest_scores = "UPDATE latest_scores SET prize01 = '$param_recent_prize' WHERE id_user_latest_scores = '$param_id_usuario'";
+                            }
+                            elseif($latest_scores['prize02'] == null){
+                                $sql_latest_scores = "UPDATE latest_scores SET prize02 = '$param_recent_prize' WHERE id_user_latest_scores = '$param_id_usuario'";
+                            }
+                            elseif($latest_scores['prize03'] == null){
+                                $sql_latest_scores = "UPDATE latest_scores SET prize03 = '$param_recent_prize' WHERE id_user_latest_scores = '$param_id_usuario'";
+                            }
+                            elseif($latest_scores['prize04'] == null){
+                                $sql_latest_scores = "UPDATE latest_scores SET prize04 = '$param_recent_prize' WHERE id_user_latest_scores = '$param_id_usuario'";
+                            }
+                            elseif($latest_scores['prize05'] == null){
+                                $sql_latest_scores = "UPDATE latest_scores SET prize05 = '$param_recent_prize' WHERE id_user_latest_scores = '$param_id_usuario'";
+                            }
                         }
+
+                        if($stmt = $mysql_db->prepare($sql_latest_scores)){  
+                            if($stmt->execute()){
+                                if(array_key_exists('reiniciar', $_POST)){
+                                    header('location: init.php');
+                                }
+                                if(array_key_exists('sair', $_POST)){
+                                    header('location: ../welcome.php');
+                                }
+                            }
+                        }  
                     }
                     else {
                         echo "Algo deu errado, Tente Novamente!";
