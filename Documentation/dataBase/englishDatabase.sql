@@ -46,10 +46,8 @@ CREATE TABLE stats (
 
 CREATE TABLE ranking (
     id_ranking INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    points REAL NOT NULL,
-    date_point DATETIME DEFAULT CURRENT_TIMESTAMP,
+    punctuation REAL NOT NULL,
+    date_punctuation DATETIME DEFAULT CURRENT_TIMESTAMP,
 	id_user INT NOT NULL,
 	FOREIGN KEY(id_user references users(id_user)
 );
-
-
