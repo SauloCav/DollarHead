@@ -11,7 +11,7 @@ Existem níveis de usuários. Os níveis são 3: Indigente, Abundante e Rasga Mo
 
 Há uma aba na tela inicial denominada Hall da fama onde é possível ver o ranking dos usuários com melhor pontuação. Nela é possível também visualizar a data e a hora da jogada em questão.<br/>
 
-Em stats é possível visualizar as estatísticas do usuário atualmente logado. Informações como número de partidas jogadas, número de derrotas por erro, Número de derrotas por parada, Número de eliminações de duas alternativas, premiação total acumulada, número de contibuições e nível de usuário. Além disso há um gráfico que ilustra as 10 últimas partidas do jogador e a premiação recebida nas jogadas em questão.<br/>
+Em stats é possível visualizar as estatísticas do usuário atualmente logado. Informações como número de partidas jogadas, número de derrotas por erro, Número de derrotas por parada, Número de eliminações de duas alternativas, premiação total acumulada, número de contibuições e nível de usuário. Além disso há um gráfico que ilustra as 5 últimas partidas do jogador e a premiação recebida nas jogadas em questão.<br/>
 
 Há também uma aba onde o jogador pode visualizar as regras e as explicações das funcionalidades do jogo.<br/><br/>
 
