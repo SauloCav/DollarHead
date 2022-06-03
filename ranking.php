@@ -18,12 +18,10 @@
 
     while($dado = $ran->fetch_array()) { 
 
-        $dataPoints[$i] = array("x"=> $i, "y"=> (int)$dado['pontuacao']);
+        $dataPoints[$i] = array("label"=> $dado['nickname'], "y"=> (int)$dado['pontuacao']);
         $i = $i + 1;
 
     }
-
-    print_r($dataPoints);
 
     $ranking = "SELECT ra.pontuacao, us.nickname, ra.data_pont
 	FROM (ranking ra 
@@ -52,21 +50,21 @@
             transform: translateY(7%); 
         }
         .wrapper{ 
-        	width: 1400px; 
+        	width: 600px; 
             text-align: left;
+            margin-left: 20%;
         }
         #internalDivStyle {
-            width: 800px;
-            text-align: right;
+            margin-left: 2%;
+            margin-top: 6%;
+            width: 600px;
         }
-        h1 {
-			text-align: center;
-		}
         .table {
 			text-align: center;  
 		}
         #globalDivStyle {
-            width: 800px;
+            display: flex;
+            width: 1500px;
         }
 	</style>
     <script>
