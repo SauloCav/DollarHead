@@ -19,7 +19,7 @@ Há também uma aba onde o jogador pode visualizar as regras e as explicações 
 # How To
 
 Tendo o mysql e o PHP instalados, utilize o script do banco contido na pasta de documentação para criar o banco e as tabelas.<br/>
-Abra o local host no seu navegador de preferẽncia e escolha Dollarhead para iniciar.<br/>
+Abra o local host no seu navegador de preferência e escolha Dollarhead para iniciar.<br/>
 Realize o cadastro do seu usuário e comece a jogar.<br/>
 Links úteis:<br/>
 How to Install the XAMPP Server for PHP and MySQL: https://www.youtube.com/watch?v=btauAEqaifw&ab_channel=DaveGray <br/>
@@ -30,7 +30,7 @@ Getting Started with PHP Applications: https://netbeans.apache.org/kb/docs/php/q
 PHP Getting Started: https://www.tutorialrepublic.com/php-tutorial/php-get-started.php <br/><br/>
 
 
-# Documentation
+# Documentação
 
 Telas prototipadas no Figma: https://www.figma.com/file/izvhsbXeyZXbplkn5ZSQ4c/DollarHead?node-id=0%3A1 <br/>
 Diagramas UML: https://github.com/SauloCav/DollarHead/tree/main/Documentation/diagramas%20UML <br/>
