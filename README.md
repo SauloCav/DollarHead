@@ -15,8 +15,15 @@ Em stats é possível visualizar as estatísticas do usuário atualmente logado.
 
 Há também uma aba onde o jogador pode visualizar as regras e as explicações das funcionalidades do jogo.<br/><br/>
 
-How To:
 
+# How To
+
+Tendo o mysql e o PHP instalados, utilize o script do banco contido na pasta de documentação para criar o banco e as tabelas.<br/>
+Abra o local host no seu navegador de preferẽncia e escolha Dollarhead para iniciar.<br/>
+Realize o cadastro do seu usuário e comece a jogar.<br/><br/>
+
+
+# Documentation
 
 Telas prototipadas no Figma: https://www.figma.com/file/izvhsbXeyZXbplkn5ZSQ4c/DollarHead?node-id=0%3A1
 
