@@ -22,7 +22,7 @@ Há também uma aba onde o jogador pode visualizar as regras e as explicações 
 - Abra o local host no seu navegador de preferência e escolha Dollarhead para iniciar.<br/>
 - Realize o cadastro do seu usuário e comece a jogar.<br/>
 
-Links úteis:<br/>
+Tutoriais, artigos e video aulas:<br/>
 How to Install the XAMPP Server for PHP and MySQL: https://www.youtube.com/watch?v=btauAEqaifw&ab_channel=DaveGray <br/>
 Installing Apache PHP MYSQL on Windows 10: https://www.youtube.com/watch?v=qpPYYX-i1cs&ab_channel=Aryans%26Sierra <br/>
 How to setup Apache, MySql, and PHP on Ubuntu Linux: https://www.youtube.com/watch?v=TrLAx27Npns&ab_channel=AlessandroCastellani <br/>
