@@ -1,6 +1,11 @@
 # DollarHead
 
 DollarHead é um Jogo de perguntas e respostas onde o conteúdo é gerenciado pela comunidade de jogadores. O jogo permite aos usuários ampliação e teste dos seus conhecimentos, de forma simples e divertida. O gerenciamento das perguntas pela comunidade mantém as questões atuais e corretas, como ocorre em outros conteúdos geridos por comunidades com o Wikipédia. DollarHead é semelhante a sucessos como o Show do Milhão e Who Wants to Be a Millionaire?<br/><br/>
+
+# Vídeo do projeto na versão DH.2
+https://www.youtube.com/watch?v=uq4CiR-wNGQ&t=98s&ab_channel=Computa%C3%A7%C3%A3o-UFCCrate%C3%BAs <br/><br/>
+
+# Regras e Funcionalidades
 O objetivo é conseguir o prêmio de 1 milhão de dólares. As perguntas são de múltipla escolha com quatro alternativas. Em cada pergunta, o jogador poderá: responder a pergunta; parar de responder; errar a resposta; pedir a eliminação de duas respostas erradas; ou denunciar a pergunta por enunciado, alternativas ou resposta incorreta. O jogador poderá pedir a eliminação de duas respostas erradas uma única vez. Se responder corretamente, o jogador passa para a próxima pergunta. De acordo com a pergunta em que o jogador estiver, ele receberá um prêmio em dinheiro se o jogador responder corretamente, parar ou errar a resposta de acordo com a tabela:
 
 <p align="center"><img src="Readme/table.png" /></p>
@@ -14,10 +19,6 @@ Há uma aba na tela inicial denominada Hall da fama onde é possível ver o rank
 Em stats é possível visualizar as estatísticas do usuário atualmente logado. Informações como número de partidas jogadas, número de derrotas por erro, Número de derrotas por parada, Número de eliminações de duas alternativas, premiação total acumulada, número de contibuições e nível de usuário. Além disso há um gráfico que ilustra as 5 últimas partidas do jogador e a premiação recebida nas jogadas em questão.<br/>
 
 Há também uma aba onde o jogador pode visualizar as regras e as explicações das funcionalidades do jogo.<br/><br/>
-
-
-# Vídeo do projeto na versão DH.2
-https://www.youtube.com/watch?v=uq4CiR-wNGQ&t=98s&ab_channel=Computa%C3%A7%C3%A3o-UFCCrate%C3%BAs <br/><br/>
 
 
 # How To
