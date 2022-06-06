@@ -16,6 +16,10 @@ Em stats é possível visualizar as estatísticas do usuário atualmente logado.
 Há também uma aba onde o jogador pode visualizar as regras e as explicações das funcionalidades do jogo.<br/><br/>
 
 
+# Vídeo do projeto na versão DH.2
+https://www.youtube.com/watch?v=uq4CiR-wNGQ&t=98s&ab_channel=Computa%C3%A7%C3%A3o-UFCCrate%C3%BAs <br/><br/>
+
+
 # How To
 
 - Tendo o mysql e o PHP instalados, utilize o script do banco contido na pasta de documentação para criar o banco e as tabelas.<br/>
@@ -28,8 +32,8 @@ Installing Apache PHP MYSQL on Windows 10: https://www.youtube.com/watch?v=qpPYY
 How to setup Apache, MySql, and PHP on Ubuntu Linux: https://www.youtube.com/watch?v=TrLAx27Npns&ab_channel=AlessandroCastellani <br/>
 PHP With MySQL Tutorial For Beginners: https://www.youtube.com/watch?v=nP-MvFoDVZE&ab_channel=Simplilearn <br/>
 Getting Started with PHP Applications: https://netbeans.apache.org/kb/docs/php/quickstart.html <br/>
-PHP Getting Started: https://www.tutorialrepublic.com/php-tutorial/php-get-started.php <br/><br/>
-MySQL Tutorial for Beginners: https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1282s&ab_channel=ProgrammingwithMosh
+PHP Getting Started: https://www.tutorialrepublic.com/php-tutorial/php-get-started.php <br/>
+MySQL Tutorial for Beginners: https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1282s&ab_channel=ProgrammingwithMosh <br/><br/>
 
 
 # Documentação
