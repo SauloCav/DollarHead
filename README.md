@@ -29,6 +29,7 @@ How to setup Apache, MySql, and PHP on Ubuntu Linux: https://www.youtube.com/wat
 PHP With MySQL Tutorial For Beginners: https://www.youtube.com/watch?v=nP-MvFoDVZE&ab_channel=Simplilearn <br/>
 Getting Started with PHP Applications: https://netbeans.apache.org/kb/docs/php/quickstart.html <br/>
 PHP Getting Started: https://www.tutorialrepublic.com/php-tutorial/php-get-started.php <br/><br/>
+MySQL Tutorial for Beginners: https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1282s&ab_channel=ProgrammingwithMosh
 
 
 # Documentação
