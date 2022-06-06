@@ -21,6 +21,14 @@ Em stats é possível visualizar as estatísticas do usuário atualmente logado.
 Há também uma aba onde o jogador pode visualizar as regras e as explicações das funcionalidades do jogo.<br/><br/>
 
 
+# Documentação
+
+Telas prototipadas no Figma: https://www.figma.com/file/izvhsbXeyZXbplkn5ZSQ4c/DollarHead?node-id=0%3A1 <br/>
+Diagramas UML: https://github.com/SauloCav/DollarHead/tree/main/Documentation/diagramas%20UML <br/>
+Documentação do banco de dados: https://github.com/SauloCav/DollarHead/tree/main/Documentation/dataBase <br/>
+Projeto Base: https://github.com/SauloCav/Quizgame-PHP.git <br/><br/>
+
+
 # How To
 
 - Tendo o mysql e o PHP instalados, utilize o script do banco contido na pasta de documentação para criar o banco e as tabelas.<br/>
@@ -34,12 +42,4 @@ How to setup Apache, MySql, and PHP on Ubuntu Linux: https://www.youtube.com/wat
 PHP With MySQL Tutorial For Beginners: https://www.youtube.com/watch?v=nP-MvFoDVZE&ab_channel=Simplilearn <br/>
 Getting Started with PHP Applications: https://netbeans.apache.org/kb/docs/php/quickstart.html <br/>
 PHP Getting Started: https://www.tutorialrepublic.com/php-tutorial/php-get-started.php <br/>
-MySQL Tutorial for Beginners: https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1282s&ab_channel=ProgrammingwithMosh <br/><br/>
-
-
-# Documentação
-
-Telas prototipadas no Figma: https://www.figma.com/file/izvhsbXeyZXbplkn5ZSQ4c/DollarHead?node-id=0%3A1 <br/>
-Diagramas UML: https://github.com/SauloCav/DollarHead/tree/main/Documentation/diagramas%20UML <br/>
-Documentação do banco de dados: https://github.com/SauloCav/DollarHead/tree/main/Documentation/dataBase <br/>
-Projeto Base: https://github.com/SauloCav/Quizgame-PHP.git
+MySQL Tutorial for Beginners: https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1282s&ab_channel=ProgrammingwithMosh 
