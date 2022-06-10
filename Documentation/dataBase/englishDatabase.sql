@@ -1,17 +1,3 @@
-
-
-CREATE TABLE denounce_validation (
-    id_den_val INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    num_denounce INT NOT NULL,
-    num_validation INT NOT NULL,
-    username_1 varchar(50),
-	username_2 varchar(50),
-    id_question INT NOT NULL,
-	FOREIGN KEY(id_question) references questions_answer(id_question)
-);
-
-	
-	
 create database quizGame;
 
 CREATE TABLE Users (
@@ -60,29 +46,17 @@ CREATE TABLE Questions (
 	answerA varchar(50) NOT NULL,
 	answerB varchar(50) NOT NULL,
 	answerC varchar(50) NOT NULL,
-	indice_dif INT NOT NULL,
-	quest_topico varchar(20) NOT NULL,
-	valida enum ('v','i') NOT NULL
+	difficultyIndex INT NOT NULL,
+	questionTopic varchar(20) NOT NULL,
+	validation enum ('v','i') NOT NULL
 );
 
-CREATE TABLE questions_answer (
-    id_question INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    question varchar(100) NOT NULL,
-    rigth_answer varchar(50) NOT NULL,
-    answer_a varchar(50) NOT NULL,
-	answer_b varchar(50) NOT NULL,
-	answer_c varchar(50) NOT NULL,
-    difficulty_index INT NOT NULL,
-    topic_question varchar(20) NOT NULL,
-	validate enum ('v','i') NOT NULL
-);
-
-CREATE TABLE denuncia_validacao (
-    id_den_val INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    num_denuncias INT NOT NULL,
-    num_validacoes INT NOT NULL,
-    username_1 varchar(50),
-	username_2 varchar(50),
-    id_quest INT NOT NULL,
-	FOREIGN KEY(id_quest) references questoes_respostas(id_questao)
+CREATE TABLE DenounceAndValidation (
+	idDenounceValidation INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	numDenounce INT NOT NULL,
+	numValidation INT NOT NULL,
+	username01 varchar(50),
+	username02 varchar(50),
+	idQuestionDenounceValidation INT NOT NULL,
+	FOREIGN KEY(idQuestionDenounceValidation) references Questions(idQuestion)
 );
