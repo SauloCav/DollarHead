@@ -5,8 +5,8 @@ insert into questoes_respostas values
 	(default, 'Qual time da NFL detêm a maior torcida em solo americano?', 'Cowboys', 'Bears', 'Patriots', 'Steelers', 3, 'Esportes', 'v'),
 	(default, 'Que povo foi o primeiro a utilizar a bússola?', 'chineses', 'romanos', 'mesopotâmicos', 'egípcios', 3, 'Ciências Humanas', 'v'),
 	(default, 'Meu avô tem 5 filhos, cada filho tem 3 filhos. Quantos primos eu tenho?', '12', '10', '11', '6', 3, 'Exatas', 'v'),
-    (default, 'Quantos ossos temos no nosso corpo?', '206', '126', '300', '200', 3, 'Ciências da Natureza', 'v'),
-    (default, 'Quantos andares tem o maior prédio do mundo?', '163', '100', '200', '25', 3, 'Conhecimentos Gerais', 'v'),
+	(default, 'Quantos ossos temos no nosso corpo?', '206', '126', '300', '200', 3, 'Ciências da Natureza', 'v'),
+	(default, 'Quantos andares tem o maior prédio do mundo?', '163', '100', '200', '25', 3, 'Conhecimentos Gerais', 'v'),
     (default, 'Jim Morrison era vocalista de que grupo?', 'The Doors', 'The Police', 'Nirvana', 'Pink Floyd', 3, 'Artes', 'v'),
     (default, 'Quanto mede uma girafa?', 'Entre 4,8 e 5,5 metros', '2 metros', '2,5 metros', 'Entre 5 e 6 metros', 3, 'Conhecimentos Gerais', 'v'),
     (default, '“It is six twenty" ou "twenty past six”. Que horas são em inglês?', '6:20', '2:20', '12:06', '6:02', 3, 'Linguagens', 'v'),
@@ -73,5 +73,5 @@ insert into denuncia_validacao values
     (default, 0, 0, NULL, NULL, 31),
     (default, 0, 0, NULL, NULL, 32),
     (default, 0, 0, NULL, NULL, 33),
-    (default, 0, 0, NULL, NULL, 34),
-    (default, 0, 0, NULL, NULL, 35);
+	(default, 0, 0, NULL, NULL, 34),
+	(default, 0, 0, NULL, NULL, 35);
