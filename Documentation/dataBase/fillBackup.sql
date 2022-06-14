@@ -1,9 +1,10 @@
 insert into questoes_respostas values
+
 	(default, 'Em qual local da Ásia o português é língua oficial?', 'Macau', 'Moçambique', 'Filipinas', 'Índia', 3, 'Ciências Humanas', 'v'),
-    (default, 'O etanol é produzido através de qual fonte de energia?', 'Biomassa', 'Eólica', 'Solar', 'Geotérmica', 3, 'Ciências da Natureza', 'v'),
-    (default, 'Qual time da NFL detêm a maior torcida em solo americano?', 'Cowboys', 'Bears', 'Patriots', 'Steelers', 3, 'Esportes', 'v'),
-    (default, 'Que povo foi o primeiro a utilizar a bússola?', 'chineses', 'romanos', 'mesopotâmicos', 'egípcios', 3, 'Ciências Humanas', 'v'),
-    (default, 'Meu avô tem 5 filhos, cada filho tem 3 filhos. Quantos primos eu tenho?', '12', '10', '11', '6', 3, 'Exatas', 'v'),
+	(default, 'O etanol é produzido através de qual fonte de energia?', 'Biomassa', 'Eólica', 'Solar', 'Geotérmica', 3, 'Ciências da Natureza', 'v'),
+	(default, 'Qual time da NFL detêm a maior torcida em solo americano?', 'Cowboys', 'Bears', 'Patriots', 'Steelers', 3, 'Esportes', 'v'),
+	(default, 'Que povo foi o primeiro a utilizar a bússola?', 'chineses', 'romanos', 'mesopotâmicos', 'egípcios', 3, 'Ciências Humanas', 'v'),
+	(default, 'Meu avô tem 5 filhos, cada filho tem 3 filhos. Quantos primos eu tenho?', '12', '10', '11', '6', 3, 'Exatas', 'v'),
     (default, 'Quantos ossos temos no nosso corpo?', '206', '126', '300', '200', 3, 'Ciências da Natureza', 'v'),
     (default, 'Quantos andares tem o maior prédio do mundo?', '163', '100', '200', '25', 3, 'Conhecimentos Gerais', 'v'),
     (default, 'Jim Morrison era vocalista de que grupo?', 'The Doors', 'The Police', 'Nirvana', 'Pink Floyd', 3, 'Artes', 'v'),
@@ -74,18 +75,3 @@ insert into denuncia_validacao values
     (default, 0, 0, NULL, NULL, 33),
     (default, 0, 0, NULL, NULL, 34),
     (default, 0, 0, NULL, NULL, 35);
-
-
-truncate table ranking;
-truncate table stats;
-truncate table denuncia_validacao;
-truncate table questoes_respostas;
-truncate table latest_scores;
-truncate table users;
-
-drop table ranking; 
-drop table stats;
-drop table denuncia_validacao;
-drop table questoes_respostas;
-drop table latest_scores; 
-drop table users;
