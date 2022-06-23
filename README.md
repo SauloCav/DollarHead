@@ -26,7 +26,11 @@ Há também uma aba onde o jogador pode visualizar as regras e as explicações 
 Telas prototipadas no Figma: https://www.figma.com/file/izvhsbXeyZXbplkn5ZSQ4c/DollarHead?node-id=0%3A1 <br/>
 Diagramas UML: https://github.com/SauloCav/DollarHead/tree/main/Documentation/diagramas%20UML <br/>
 Documentação do banco de dados: https://github.com/SauloCav/DollarHead/tree/main/Documentation/dataBase <br/>
-Projeto Base: https://github.com/SauloCav/Quizgame-PHP.git <br/>
+
+
+# Projeto Base
+
+https://github.com/SauloCav/Quizgame-PHP.git <br/>
 
 
 # How To
@@ -40,6 +44,5 @@ How to Install the XAMPP Server for PHP and MySQL: https://www.youtube.com/watch
 Installing Apache PHP MYSQL on Windows 10: https://www.youtube.com/watch?v=qpPYYX-i1cs&ab_channel=Aryans%26Sierra <br/>
 How to setup Apache, MySql, and PHP on Ubuntu Linux: https://www.youtube.com/watch?v=TrLAx27Npns&ab_channel=AlessandroCastellani <br/>
 PHP With MySQL Tutorial For Beginners: https://www.youtube.com/watch?v=nP-MvFoDVZE&ab_channel=Simplilearn <br/>
-Getting Started with PHP Applications: https://netbeans.apache.org/kb/docs/php/quickstart.html <br/>
 PHP Getting Started: https://www.tutorialrepublic.com/php-tutorial/php-get-started.php <br/>
 MySQL Tutorial for Beginners: https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1282s&ab_channel=ProgrammingwithMosh <br/>
