@@ -37,6 +37,7 @@
                 title: {
                     text: "Top 10 melhores pontuações"
                 },
+                exportEnabled: true,
                 axisY: {
                     title: "Pontuação" 
                 },
