@@ -15,6 +15,7 @@
 	$ran = $mysql_db->query($ranking) or die($mysql_db->error);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +24,25 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="./img/12130brain_109577.ico" />
+    <script language="JavaScript">
+        function onOpen() {
+            var width = 1500;
+            var height = 800;
+
+            var left = 200;
+            var top = 120;
+
+            url = "rankingChart.php"
+
+            window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+        }
+    </script>
 	<style>
         body {
             font-family: 'Poppins', sans-serif;
             position: relative;
             top: 20%;
-            transform: translateY(8%); 
+            transform: translateY(5%); 
         }
         .wrapper{ 
         	width: 1800px; 
@@ -37,11 +51,9 @@
         .wrapper h1 {
 			text-align: center;
 		}
-        .wrapper form .form-group span {color: red;}
         .table {
 			text-align: center;  
 		}
-        .wrapper form .form-group span {color: red;}
 	</style>
 </head>
 <body>
@@ -71,6 +83,9 @@
                     <?php } ?> 
                 </table>
 
+                <?php
+                    echo '<a onclick="onOpen()" class="btn btn-block btn-primary">Gerar Gráfico</a>';
+                ?>
                 <a class="btn btn-block btn-link bg-light" href="welcome.php">Sair</a>
                 
 		</section>
