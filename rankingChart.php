@@ -35,7 +35,7 @@
                 animationEnabled: true,
                 theme: "light1",
                 title: {
-                    text: "Top 10 melhores pontuações"
+                    text: "Top 10 Maiores pontuações"
                 },
                 exportEnabled: true,
                 axisY: {
