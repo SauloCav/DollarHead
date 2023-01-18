@@ -42,7 +42,3 @@ https://github.com/SauloCav/Quizgame-PHP.git <br/>
 Tutoriais, artigos e video aulas:<br/>
 How to Install the XAMPP Server for PHP and MySQL: https://www.youtube.com/watch?v=btauAEqaifw&ab_channel=DaveGray <br/>
 Installing Apache PHP MYSQL on Windows 10: https://www.youtube.com/watch?v=qpPYYX-i1cs&ab_channel=Aryans%26Sierra <br/>
-How to setup Apache, MySql, and PHP on Ubuntu Linux: https://www.youtube.com/watch?v=TrLAx27Npns&ab_channel=AlessandroCastellani <br/>
-PHP With MySQL Tutorial For Beginners: https://www.youtube.com/watch?v=nP-MvFoDVZE&ab_channel=Simplilearn <br/>
-PHP Getting Started: https://www.tutorialrepublic.com/php-tutorial/php-get-started.php <br/>
-MySQL Tutorial for Beginners: https://www.youtube.com/watch?v=7S_tz1z_5bA&t=1282s&ab_channel=ProgrammingwithMosh <br/>
